@@ -1,0 +1,185 @@
+html {
+	text-align: center;
+	font-size: 62.5%;
+	/* overflow: hidden;
+	height: 100%; */
+}
+/* @media (max-width: 900px) {
+  html {
+    font-size: 9px;
+  }
+} */
+
+body {
+	/* height: 100%;
+	overflow: auto; */
+	font-size: 14px;
+	font-size: 1.4rem;
+	margin: 0;
+}
+h1 {
+	font-size: 20px;
+	font-size: 2rem;
+	margin: 0;
+}
+h2 {
+	font-size: 18px;
+	font-size: 1.8rem;
+	margin: 0;
+}
+h3 {
+	font-size: 16px;
+	font-size: 1.6rem;
+	margin: 0;
+}
+h4 {
+	font-size: 15px;
+	font-size: 1.5rem;
+	margin: 0;
+}
+h5 {
+	font-size: 14px;
+	font-size: 1.4rem;
+	margin: 0;
+}
+div {
+	font-size: 14px;
+	font-size: 1.4rem;
+}
+p {
+	font-size: 14px;
+	font-size: 1.4rem;
+	margin: 0;
+}
+* {
+	-webkit-tap-highlight-color: transparent;
+}
+*::-webkit-scrollbar {
+	display: none;
+}
+.cardstrong {
+	border: none;
+	outline: none;
+	margin: 1rem;
+	padding: 0.5rem;
+	border-radius: 0.5rem;
+	cursor: pointer;
+	background: var(--bg-med);
+	box-shadow: 0 0.5rem 1.5rem var(--shadow-strong);
+	cursor: pointer;
+}
+.card {
+	border: none;
+	outline: none;
+	margin: 0.5rem;
+	padding: 0.5rem;
+	border-radius: 0.5rem;
+	cursor: pointer;
+	background: var(--bg-med);
+	box-shadow: 0 0.2rem 1rem var(--shadow-soft);
+	cursor: pointer;
+}
+.cardns {
+	border: none;
+	outline: none;
+	border-radius: 0.5rem;
+	cursor: pointer;
+	background: var(--bg-med);
+	box-shadow: 0 0.2rem 1rem var(--shadow-soft);
+	cursor: pointer;
+}
+.glasscard {
+	border: none;
+	outline: none;
+	margin: 0.5rem;
+	padding: 0.5rem;
+	border-radius: 0.5rem;
+	background: var(--bg-med-transparent);
+	box-shadow: 0 0.2rem 1.5rem var(--shadow);
+	cursor: pointer;
+}
+.flatcard {
+	border: none;
+	outline: none;
+	margin: 0.5rem;
+	padding: 0.5rem;
+	border-radius: 0.5rem;
+	background: var(--bg-med);
+}
+.indent {
+	border: none;
+	outline: none;
+	border-radius: 0.5rem;
+	margin: 0.3rem;
+	padding: 0.8rem;
+	background: var(--bg-med);
+	box-shadow: inset 0.1rem 0.1rem 0.2rem var(--bg-dark),
+		inset -0.1rem -0.1rem 0.2rem var(--bg-light);
+}
+.indentns {
+	border: none;
+	outline: none;
+	border-radius: 0.5rem;
+	background: var(--bg-med);
+	box-shadow: inset 0.1rem 0.1rem 0.2rem var(--bg-dark),
+		inset -0.1rem -0.1rem 0.2rem var(--bg-light);
+}
+.indentInput {
+	border: none;
+	outline: none;
+	border-radius: 0.5rem;
+	margin: 0.3rem;
+	padding: 0.8rem;
+	background: transparent;
+	box-shadow: inset 0.1rem 0.1rem 0.2rem var(--bg-dark),
+		inset -0.1rem -0.1rem 0.2rem var(--bg-light);
+}
+.indentInput:focus {
+	box-shadow: inset 0.1rem 0.1rem 0.2rem var(--bg-dark),
+		inset -0.1rem -0.1rem 0.2rem var(--bg-light), 0 0 0.1rem 0.1rem var(--primary);
+}
+.bump {
+	border: none;
+	outline: none;
+	margin: 0.5rem;
+	padding: 0.5rem;
+	border-radius: 0.5rem;
+	cursor: pointer;
+	background: var(--bg-med);
+	box-shadow: 0.1rem 0.1rem 0.1rem var(--bg-dark), -0.1rem -0.1rem 0.1rem var(--bg-light);
+	cursor: pointer;
+}
+.bumpns {
+	border: none;
+	outline: none;
+	margin: 0;
+	padding: 0;
+	border-radius: 0.5rem;
+	cursor: pointer;
+	background: var(--bg-med);
+	box-shadow: 0.1rem 0.1rem 0.1rem var(--bg-dark), -0.1rem -0.1rem 0.1rem var(--bg-light);
+	cursor: pointer;
+}
+.spacerVert {
+	margin: 0 1rem;
+	display: flex;
+	border-bottom: 1px solid var(--bg-highlight);
+}
+.spacerHoriz {
+	margin: 1rem 0;
+	display: flex;
+	flex-direction: column;
+	border-bottom: 1px solid var(--bg-highlight);
+}
+
+/* @keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+} */
