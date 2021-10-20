@@ -43,7 +43,7 @@
 
 <div class="container">
   <Text bind:val {placeholder} {isDisabled} />
-  <Modal targetWidth={150} type={"dropdown"} bind:showModal {isDisabled}>
+  <Modal targetWidth={150} type={"dropdown"} bind:isShown={showModal} {isDisabled}>
     <div
       slot="toggleButton"
       class="buttonContainer cardns"

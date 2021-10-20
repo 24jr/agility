@@ -12,8 +12,10 @@
   import Toggle from "$lib/components/type/Input/Toggle/index.svelte"
   import Text from "$lib/components/type/Input/Text/index.svelte"
   import TextArea from "$lib/components/type/Input/TextArea/index.svelte"
-  // import TextArray from "$lib/components/type/Input/TextArray/index.svelte"
-  // import Dropdown from "$lib/components/type/Input/Dropdown/index.svelte"
+  import TextArray from "$lib/components/type/Input/TextArray/index.svelte"
+  import Dropdown from "$lib/components/type/Input/Dropdown/index.svelte"
+  import ColorPicker from "$lib/components/type/Input/ColorPicker/index.svelte"
+  import Modal from "$lib/components/Modal/index.svelte"
 
   function buttonTest(){
     console.log('button click')
@@ -53,8 +55,39 @@
   let textAreaVal
 
   let textArrayVal
-  let dropdownVal
 
+  let dropdownVal
+  let dropdownVal2
+  let dropdownOptions = [
+    { key: 'one', name: 'One'},
+    { key: 'two', name: 'Two'},
+    { key: 'three', name: 'Three'},
+    { key: 'four', name: 'Four'},
+    { key: 'five', name: 'Five'},
+    { key: 'six', name: 'Six'},
+    { key: 'seven', name: 'Seven'},
+    { key: 'eight', name: 'Eight'},
+    { key: 'nine', name: 'Nine'},
+    { key: 'ten', name: 'Ten'},
+    { key: 'one1', name: 'One1'},
+    { key: 'two1', name: 'Two1'},
+    { key: 'three1', name: 'Three1'},
+    { key: 'four1', name: 'Four1'},
+    { key: 'five1', name: 'Five1'},
+    { key: 'six1', name: 'Six1'},
+    { key: 'seven1', name: 'Seven1'},
+    { key: 'eight1', name: 'Eight1'},
+    { key: 'nine1', name: 'Nine1'},
+    { key: 'ten1', name: 'Ten1'},
+  ]
+
+
+  let hexVal
+  let opacityVal 
+
+
+  let showModal = false
+  let showModal2 = false
 </script>
 
 <div class="grid">
@@ -195,10 +228,104 @@
       <TextArea bind:val={textAreaVal} {isDisabled} />
     </div>
 
+    <div class="spacerVert spacerHoriz"/>
 
+    <div>
+      TextArray <br />
+      textArrayVal: {textArrayVal} <br />
+      <TextArray bind:val={textArrayVal} {isDisabled} />
+    </div>
+
+    <div class="spacerVert spacerHoriz"/>
+
+    <div>
+      Dropdown <br />
+      dropdownVal: {dropdownVal} <br />
+      <Dropdown bind:val={dropdownVal} options={dropdownOptions} {isDisabled} />
+    </div> 
+    
+    <div class="spacerVert spacerHoriz"/>
+
+    <div>
+      Dropdown isMultiselect<br />
+      dropdownVal2: {JSON.stringify(dropdownVal2)} <br />
+      <Dropdown bind:val={dropdownVal2} isMultiselect="true" options={dropdownOptions} {isDisabled} />
+    </div>
+    
+    <div class="spacerVert spacerHoriz"/>
+
+    <div>
+      ColorPicker<br />
+      hexVal: {hexVal} <br />
+      opacityVal: {opacityVal} <br />
+      <ColorPicker bind:hex={hexVal} bind:opacity={opacityVal} {isDisabled} />
+    </div>
+
+    
+    
   </div>
   <div class="card">
     other card
+<div class="test">
+  <Modal
+    type={"dropdown"}
+    minWidth={150}
+    targetWidth={250}
+    minHeight={200} 
+    targetHeight={500}
+    bind:isShown={showModal}
+    {isDisabled}
+  >
+    <div slot="toggleButton" class="displayItemContainer" on:click|preventDefault>
+      <div class="bumpns">
+        modal1
+      </div>
+    </div>
+    <div slot="modalContent" let:toggleModal>
+      <div class="dropdownContainer">
+        {#each dropdownOptions as option (option.key)}
+          <Button
+            type="soft"
+            class="optionItem"
+            isSelected={option.key === dropdownVal2 || (typeof dropdownVal2 === typeof [] && dropdownVal2.some(h => h === option.key))}
+          >
+            <p>{option.name}</p>
+          </Button>
+        {/each}
+      </div>
+    </div>
+  </Modal>
+</div>
+
+  <Modal
+    type={"dropdown"}
+    minWidth={400}
+    targetWidth={500}
+    minHeight={200} 
+    targetHeight={550}
+    bind:isShown={showModal2}
+    {isDisabled}
+  >
+    <div slot="toggleButton" class="displayItemContainer" on:click|preventDefault>
+      <div class="bumpns">
+        modal2
+      </div>
+    </div>
+    <div slot="modalContent" let:toggleModal>
+      <div class="dropdownContainer">
+        {#each dropdownOptions as option (option.key)}
+          <Button
+            type="soft"
+            class="optionItem"
+            isSelected={option.key === dropdownVal2 || (typeof dropdownVal2 === typeof [] && dropdownVal2.some(h => h === option.key))}
+          >
+            <p>{option.name}</p>
+          </Button>
+        {/each}
+      </div>
+    </div>
+  </Modal>
+   
   </div>
 </div>
 

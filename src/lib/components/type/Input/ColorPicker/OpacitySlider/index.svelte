@@ -1,15 +1,17 @@
 <script>
-  export let val;
-  export let min = 1;
-  export let max = 2;
+  import TransparentBG from "../TransparentBG/index.svelte";
+
+  export let hex;
+  export let opacity;
+  export let min = 0;
+  export let max = 1;
   export let step = 0.01;
   export let fontSize = 1
   export let isDisabled = false;
-  export let highlightColor = "var(--primary)";
 
   let editVal;
 
-  $: valChange(val);
+  $: valChange(opacity);
   function valChange(val) {
     editVal = val ? val : 1 > min && 1 < max ? 1 : min;
     handleChange();
@@ -18,11 +20,11 @@
   $: editValChange(editVal);
   function editValChange(editVal) {
     setBubble();
-    val = editVal;
+    opacity = editVal;
   }
 
   function handleChange() {
-    val = editVal > max ? max : editVal < min ? min : editVal;
+    opacity = editVal > max ? max : editVal < min ? min : editVal;
   }
 
   let editEl;
@@ -31,8 +33,6 @@
     bubbleEl, setBubble();
   }
 
-  let sliderHighlightBGWid = 50;
-  let sliderWid;
   function setBubble() {
     const newVal = Number(((editVal - min) * 100) / (max - min));
     const shortVal = editVal.toString().replace("0.", ".");
@@ -40,17 +40,14 @@
       bubbleEl.innerHTML = shortVal;
       bubbleEl.style.left = `calc(${newVal}% + (${12 - newVal * 0.24}px))`;
     }
-    const ratioFilled = (editVal - min) / (max - min);
-    sliderHighlightBGWid = 2.4 * (1 - ratioFilled) + (sliderWid / 10) * ratioFilled;
   }
 </script>
 
-<div class="sliderBox indentns" bind:clientWidth={sliderWid}>
-  <div
-    class="sliderHighlightBG"
-    class:sliderHighlightBGDisabled={isDisabled}
-    style="--wid: {sliderHighlightBGWid}rem; --highlightColor: {highlightColor}"
-  />
+<div class="sliderBox indentns">
+  <div class="opacityBG">
+    <TransparentBG />
+    <div class="opcityColorBlur" style="background-image: linear-gradient(90deg, transparent, {hex});"></div>
+  </div>
   <div bind:this={bubbleEl} class="bubble" class:bubbleDisabled={isDisabled} style="--fontSize: {fontSize}rem" />
   <input
     bind:this={editEl}
@@ -74,18 +71,18 @@
     display: flex;
     border-radius: 2rem;
   }
-  .sliderHighlightBG {
+  .opacityBG{
     position: absolute;
     display: flex;
-    width: var(--wid);
+    width: 100%;
     height: 100%;
-    border-radius: 2rem;
+    border-radius: 4rem;
     overflow: hidden;
-    background: var(--highlightColor);
-    box-shadow: inset 0.1rem 0.1rem 0.2rem var(--tint), inset -0.1rem -0.1rem 0.2rem var(--shadow);
   }
-  .sliderHighlightBGDisabled {
-    background: var(--gray-med);
+  .opcityColorBlur {
+    position: absolute;
+    width: 100%;
+    height: 100%;
   }
   .slider {
     -webkit-appearance: none;

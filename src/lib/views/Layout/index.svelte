@@ -10,14 +10,12 @@
   $: if (mounted) {
     setIsDarkTheme($isDarkTheme);
   }
+
 </script>
 
-<svelte:window
-  bind:innerWidth={$screenWidth}
-  bind:innerHeight={$screenHeight}
-/>
+<svelte:window bind:innerHeight={$screenHeight}/>
 
-<div class="container">
+<div class="container" bind:clientWidth={$screenWidth}>
   {#if !$isApp}
     <NavBar />
   {/if}
@@ -35,6 +33,7 @@
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    /* overflow: scroll; */
   }
   .fillScreen {
     display: flex;

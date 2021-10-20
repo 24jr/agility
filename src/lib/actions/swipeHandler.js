@@ -190,7 +190,7 @@ export default function swipeHandler(node) {
     }
     const isMovingOuter = isAtLeft && dxOuter < -90 || isAtRight && dxOuter > 90 || isAtTop && dyOuter < -90 || isAtBottom && dyOuter > 90
     if(!isMovingOuter) {
-      e.stopPropagation()
+      // e.stopPropagation()
     }
 	};
 
@@ -203,7 +203,7 @@ export default function swipeHandler(node) {
     dyOuterAtStart = dyOuter
 		touchReferenceX = e.changedTouches[0].clientX
     dxOuterAtStart = dxOuter
-    e.stopPropagation()
+    // e.stopPropagation()
 	};
 
   const handleTouchmove = (e) => {
@@ -223,7 +223,7 @@ export default function swipeHandler(node) {
     }
     const isMovingOuter = isAtLeft && dxOuter < -90 || isAtRight && dxOuter > 90 || isAtTop && dyOuter < -90 || isAtBottom && dyOuter > 90
     if(!isMovingOuter) {
-      e.stopPropagation()
+      // e.stopPropagation()
     }
 	};
 

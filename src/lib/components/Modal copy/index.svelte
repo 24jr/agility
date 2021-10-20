@@ -1,36 +1,43 @@
 <script>
   import X from "$lib/assets/static/icons/X/index.svelte";
-  import { screenWidth, screenHeight, shownNavBarHeight } from "$lib/views/Layout/store"
   import { cubicOut } from "svelte/easing";
+  import { shownNavBarHeight } from "$lib/views/Layout/store";
   import swipeHandler from "$lib/Actions/swipeHandler";
 
-  export let isShown = false;
+  export let showModal = false;
   export let type = "center"; // dropdown, center, full
-  export let minWidth = 50;
-  export let targetWidth = 300;
-  export let minHeight = 50;
-  export let targetHeight = 250;
+  export let targetWidth = 500;
+  export let targetHeight = 50;
   export let closeModalWatch = 1;
   export let openModalWatch = 1;
   export let isDisabled = false;
 
-  $: if (closeModalWatch > 1) { closeModal() }
-  $: if (openModalWatch > 1) { openModal() }
-  function closeModal() { isShown = false }
+  $: if (closeModalWatch > 1) {
+    closeModal();
+  }
+  $: if (openModalWatch > 1) {
+    openModal();
+  }
+  function closeModal() {
+    showModal = false;
+  }
   function openModal() {
     if (!isDisabled) {
-      isShown = true;
+      showModal = true;
     }
   }
   function toggleModal() {
     if (isDisabled) {
-      isShown = false;
+      showModal = false;
     } else {
-      isShown = !isShown;
+      showModal = !showModal;
     }
   }
 
   let typeToUse = type;
+
+  let windowWidth;
+  let windowHeight;
   let baseEl;
   let modalEl;
   let contentEl;
@@ -38,48 +45,53 @@
   let modalLeftPos = 0;
   let modalBottomPos = 0;
   function calcPositions() {
-    typeToUse = minWidth && $screenWidth && minWidth > $screenWidth - 10 ? "full" : type;
-    if (baseEl && modalEl && $screenWidth && $screenWidth && typeToUse === "dropdown") {
+    typeToUse = targetWidth && windowWidth && targetWidth > windowWidth - 10 ? "full" : type;
+    if (baseEl && modalEl && windowWidth && windowWidth && typeToUse === "dropdown") {
       const baseRect = baseEl.getBoundingClientRect();
       const modalRect = modalEl.getBoundingClientRect();
       const baseWidth = baseRect.right - baseRect.left;
       const baseHeight = baseRect.bottom - baseRect.top;
-      const modalWidth = modalRect.right - modalRect.left;
+      const modalWidth = targetWidth;
       const modalHeight = modalRect.bottom - modalRect.top;
       let modalCrossBaseVertically = false;
-      if ($screenHeight - baseRect.bottom - 5 > modalHeight) {
+      if (windowHeight - baseRect.bottom - 5 > modalHeight) {
         modalBottomPos = -modalHeight + "px";
-      } else if (baseRect.bottom - baseHeight - 10 - $shownNavBarHeight > modalHeight) {
+      } else if (baseRect.bottom - baseHeight - 5 - $shownNavBarHeight > modalHeight) {
         modalBottomPos = baseHeight + "px";
       } else {
         modalBottomPos =
-          baseRect.bottom - ($screenHeight + $shownNavBarHeight + modalHeight) / 2 + "px";
+          baseRect.bottom - (windowHeight + $shownNavBarHeight + modalHeight) / 2 + "px";
         modalCrossBaseVertically = true;
       }
+      const modalHalfWid = modalWidth / 2;
+      const leftBaseEdgeToLeftModalEdge = modalHalfWid - baseWidth / 2;
       modalLeftPos = 0;
-      const remaingingLeftSpace = baseRect.left;
-      const remaingingRightSpace = $screenWidth - baseRect.left - modalWidth;
-        if (modalCrossBaseVertically && $screenWidth - baseRect.right - 10 > modalWidth) {
+      const remaingingLeftSpace = baseRect.left - leftBaseEdgeToLeftModalEdge;
+      const remaingingRightSpace = windowWidth - baseRect.right - leftBaseEdgeToLeftModalEdge;
+      if (modalCrossBaseVertically && windowWidth - baseRect.right - 10 > modalWidth) {
         modalLeftPos = baseWidth + "px";
       } else if (modalCrossBaseVertically && baseRect.left - 10 > modalWidth) {
         modalLeftPos = -modalWidth + "px";
-      } else if (remaingingLeftSpace < 10) {
-        modalLeftPos = 10 - remaingingLeftSpace + "px";
-      } else if (remaingingRightSpace < 10) {
-        modalLeftPos = -10 + remaingingRightSpace + "px";
+      } else if (remaingingLeftSpace < 5) {
+        modalLeftPos = 5 - leftBaseEdgeToLeftModalEdge - remaingingLeftSpace + "px";
+      } else if (remaingingRightSpace < 5) {
+        modalLeftPos = -5 + remaingingRightSpace - leftBaseEdgeToLeftModalEdge + "px";
       }
-      console.log('modalLeftPos', modalLeftPos)
-      
     }
   }
 
+  let modalOffsetHeight;
+  let modalOffsetWidth;
+
   $: {
-    $screenWidth,
-    $screenHeight,
-    $shownNavBarHeight,
-    baseEl,
-    modalEl,
-    typeToUse,
+    windowWidth,
+      windowHeight,
+      $shownNavBarHeight,
+      baseEl,
+      modalEl,
+      typeToUse,
+      modalOffsetHeight,
+      modalOffsetWidth;
     calcPositions();
   }
 
@@ -107,7 +119,7 @@
     }
   }
 
-  function slideIn(node, { y, duration }) {
+  function myFly(node, { y, duration }) {
     return typeToUse === "full"
       ? {
           duration,
@@ -126,11 +138,13 @@
   }
 </script>
 
-<div bind:this={baseEl} class="container">
+<svelte:window bind:innerWidth={windowWidth} bind:innerHeight={windowHeight} />
+
+<div bind:this={baseEl} class="modal">
   <div class="buttonDisplay" on:click={toggleModal}>
     <slot name="toggleButton" />
   </div>
-  {#if isShown}
+  {#if showModal}
     <div
       class:underlayDropdown={typeToUse === "dropdown"}
       class:underlayCenter={typeToUse === "center" || typeToUse === "full"}
@@ -143,7 +157,9 @@
     />
     <div
       bind:this={modalEl}
-      class="cardns modalBase"
+      bind:offsetHeight={modalOffsetHeight}
+      bind:offsetWidth={modalOffsetWidth}
+      class="cardns mainModal"
       class:modalDropdown={typeToUse === "dropdown"}
       class:modalCenter={typeToUse === "center"}
       class:modalFull={typeToUse === "full"}
@@ -153,25 +169,29 @@
       on:touchstart={(e) => handleEvent("modal", "touchstart", e)}
       on:touchmove={(e) => handleEvent("modal", "touchmove", e)}
       on:touchend={(e) => handleEvent("modal", "touchend", e)}
-      in:slideIn={{ y: $screenHeight, duration: 600 }}
-      out:slideIn={{ y: $screenHeight, duration: 600 }}
+      in:myFly={{ y: windowHeight, duration: 600 }}
+      out:myFly={{ y: windowHeight, duration: 600 }}
     >
-      <div
+      <!-- <div
         class="contentBase"
         on:wheel|preventDefault
         use:swipeHandler
         on:downOverflowSwipe={handleDownOverflowSwipe}
         bind:this={contentEl}
-        style="
-          --minWidth: {minWidth}px;
-          --targetWidth: {targetWidth}px;
-          --minHeight: {minHeight}px;
-          --targetHeight: {targetHeight}px;
-          --maxFullHeight: {$screenHeight - $shownNavBarHeight - 40}px;"
+        style="--targetWidth: {targetWidth}px; --maxHeight: {windowHeight -
+          $shownNavBarHeight -
+          40}px; --tagetHeight: {targetHeight}px;"
+      > -->
+      <div
+        class="contentBase"
+        bind:this={contentEl}
+        style="--targetWidth: {targetWidth}px; --maxHeight: {windowHeight -
+          $shownNavBarHeight -
+          40}px; --tagetHeight: {targetHeight}px;"
       >
         <slot name="modalContent" {toggleModal} />
       </div>
-      <div class="xBox" on:click={() => (isShown = false)}>
+      <div class="xBox" on:click={() => (showModal = false)}>
         <X />
       </div>
     </div>
@@ -179,7 +199,7 @@
 </div>
 
 <style scoped>
-  .container {
+  .modal {
     position: relative;
     display: inline-block;
   }
@@ -198,10 +218,6 @@
     bottom: 0;
     z-index: 15;
     background: rgba(0, 0, 0, 0.3);
-  }
-  .modalBase {
-    background: var(--bg-modal);
-    padding: 1rem 0;
   }
   .modalDropdown {
     position: absolute;
@@ -223,6 +239,7 @@
   .modalFull {
     position: fixed;
     z-index: 16;
+    /* top: 1rem; */
     left: 0;
     right: 0;
     bottom: 0;
@@ -231,17 +248,16 @@
     box-shadow: 0 1rem 5rem #00000090;
   }
   .contentBase {
-    min-width: minMax(var(--minWidth), 100%);
-    /* width: var(--targetWidth); */
-    max-width: 100vw;
-    min-height: var(--minHeight);
-    /* height: var(--targetHeight); */
-    max-height: var(--maxFullHeight);
+    width: var(--targetWidth);
+    max-width: calc(100vw);
+    min-height: var(--tagetHeight);
+    max-height: var(--maxHeight);
     padding: 0 1rem;
     overflow: scroll;
     box-sizing: border-box;
     display: flex;
-    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
   .xBox {
     position: absolute;
@@ -258,5 +274,9 @@
   }
   .xBox:hover {
     background: var(--bg-highlight);
+  }
+  .mainModal {
+    background: var(--bg-modal);
+    padding: 1rem 0;
   }
 </style>

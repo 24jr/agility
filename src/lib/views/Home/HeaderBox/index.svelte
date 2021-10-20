@@ -115,13 +115,14 @@ function activityTypewriter(){
   flex-direction: column;
   justify-content: center;
   text-align: left;
-  z-index: 2;
+  z-index: 1;
   background: radial-gradient(#888888a0, transparent);
 
 
 }
 .textInnerContainer{
-  max-width: 50rem;
+  width: 50rem;
+  max-width: 90%;
   justify-self: center;
   align-self: center;
 }

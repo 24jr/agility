@@ -17,7 +17,7 @@
 
 </script>
 
-<Modal targetWidth={220} type={"dropdown"}>
+<Modal minWidth="220" targetWidth="220" minHeight="100" type={"dropdown"}>
   <div slot="toggleButton" class="bump displayContainer">
     <div class="label">
       {displayVal} <CalenderIcon ml=".5" />
@@ -45,6 +45,7 @@
 <style>
   .displayContainer{
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
   }
   .divider{
