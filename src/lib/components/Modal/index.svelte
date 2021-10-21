@@ -7,9 +7,9 @@
   export let isShown = false;
   export let type = "center"; // dropdown, center, full
   export let minWidth = 50;
-  export let targetWidth = 300;
   export let minHeight = 50;
-  export let targetHeight = 250;
+  export let targetWidth
+  export let targetHeight
   export let closeModalWatch = 1;
   export let openModalWatch = 1;
   export let isDisabled = false;
@@ -68,15 +68,20 @@
       } else if (remaingingRightSpace < 10) {
         modalLeftPos = -10 + remaingingRightSpace + "px";
       }
-      console.log('modalLeftPos', modalLeftPos)
-      
     }
   }
+
+  let modelWidth
+  let modalHeight
+  let scrollY
 
   $: {
     $screenWidth,
     $screenHeight,
     $shownNavBarHeight,
+    scrollY,
+    modelWidth,
+    modalHeight,
     baseEl,
     modalEl,
     typeToUse,
@@ -126,6 +131,8 @@
   }
 </script>
 
+<svelte:window bind:scrollY />
+
 <div bind:this={baseEl} class="container">
   <div class="buttonDisplay" on:click={toggleModal}>
     <slot name="toggleButton" />
@@ -143,6 +150,8 @@
     />
     <div
       bind:this={modalEl}
+      bind:clientWidth={modelWidth}
+      bind:clientHeight={modalHeight}
       class="cardns modalBase"
       class:modalDropdown={typeToUse === "dropdown"}
       class:modalCenter={typeToUse === "center"}
@@ -158,6 +167,8 @@
     >
       <div
         class="contentBase"
+        class:targetWidth={!isNaN(targetWidth)}
+        class:targetHeight={!isNaN(targetHeight)}
         on:wheel|preventDefault
         use:swipeHandler
         on:downOverflowSwipe={handleDownOverflowSwipe}
@@ -202,6 +213,10 @@
   .modalBase {
     background: var(--bg-modal);
     padding: 1rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
   .modalDropdown {
     position: absolute;
@@ -232,16 +247,20 @@
   }
   .contentBase {
     min-width: minMax(var(--minWidth), 100%);
-    /* width: var(--targetWidth); */
     max-width: 100vw;
     min-height: var(--minHeight);
-    /* height: var(--targetHeight); */
     max-height: var(--maxFullHeight);
     padding: 0 1rem;
     overflow: scroll;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
+  }
+  .targetWidth {
+    width: var(--targetWidth);
+  }
+  .targetHeight {
+    height: var(--targetHeight);
   }
   .xBox {
     position: absolute;

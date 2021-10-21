@@ -38,7 +38,7 @@
     const shortVal = editVal.toString().replace("0.", ".");
     if (bubbleEl) {
       bubbleEl.innerHTML = shortVal;
-      bubbleEl.style.left = `calc(${newVal}% + (${12 - newVal * 0.24}px))`;
+      bubbleEl.style.left = `calc(${newVal}% + (${10 - newVal * 0.2}px))`;
     }
   }
 </script>
@@ -66,7 +66,7 @@
   .sliderBox {
     margin: 0.5rem 0;
     width: 100%;
-    height: 2.4rem;
+    height: 2rem;
     position: relative;
     display: flex;
     border-radius: 2rem;
@@ -76,7 +76,7 @@
     display: flex;
     width: 100%;
     height: 100%;
-    border-radius: 4rem;
+    border-radius: 2rem;
     overflow: hidden;
   }
   .opcityColorBlur {
@@ -96,21 +96,16 @@
   .slider::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
-    height: 2rem;
-    width: 2rem;
-    margin-top: 0.2rem;
+    height: 1.8rem;
+    width: 1.8rem;
+    margin-top: 0.1rem;
     cursor: pointer;
-  }
-  .slider::-webkit-slider-thumb:hover {
-    height: 2rem;
-    width: 2rem;
-    margin-top: 0.2rem;
   }
   .bubble {
     position: absolute;
-    height: 2rem;
-    width: 2rem;
-    margin-top: 0.2rem;
+    height: 1.8rem;
+    width: 1.8rem;
+    margin-top: 0.1rem;
     display: flex;
     align-items: center;
     justify-content: center;

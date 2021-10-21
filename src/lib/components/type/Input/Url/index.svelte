@@ -20,14 +20,12 @@
   function editValChange(editVal) {
     val = editVal;
     isValid = isValidWebUrl(val)
-    console.log('isValidurl', isValid)
   }
 
   function handleChange() {
     if (!isDisabled) {
       val = editVal;
       isValid = isValidWebUrl(val)
-      console.log('isValidurl', isValid)
       if (val && isValid) {
         isEditing = false;
       } else {

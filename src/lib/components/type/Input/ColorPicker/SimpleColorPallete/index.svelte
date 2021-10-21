@@ -20,7 +20,7 @@
       <div class="colorHodler">
         {#each range as color, colorIndex (colorIndex)}
           {#if color == '+'}
-            <div on:click={() => showFull = true} class="colorItem">
+            <div on:click={() => showFull = true} class="colorItem iconButton">
               <Plus />
             </div>
           {:else}
@@ -44,8 +44,7 @@
     height: 2rem;
     width: 2rem;
     border-radius: .5rem;
-    margin: .3rem;
-    box-shadow:0 .1rem .1rem rgba(25,25,25,.5);
+    margin: .2rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -53,8 +52,12 @@
   .colorItem:hover {
     height: 2.2rem;
     width: 2.2rem;
-    margin: 0.2rem;
-    box-shadow:0 .1rem .5rem rgba(0,0,0,.5)
+    margin: 0.1rem;
+    box-shadow:0 .1rem .4rem rgba(0,0,0,.3)
+  }
+  .iconButton{
+    border: 1px solid var(--contrast-med);
+    box-sizing: border-box;
   }
   </style>
   

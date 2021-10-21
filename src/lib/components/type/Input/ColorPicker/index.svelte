@@ -12,9 +12,8 @@
 </script>
 
 {#if hex && !isNaN(opacity)}
-<Modal minWidth="225" targetWidth="250" minHeight="100" type={"dropdown"}>
+<Modal minWidth="225" minHeight="100" type={"dropdown"}>
   <div slot="toggleButton" class="bump displayContainer">
-    hey
     <div class="colorDisplay">
       <TransparentBG />
       <div class="colorOverlay" style="background: {hex}; opacity: {opacity}"></div>

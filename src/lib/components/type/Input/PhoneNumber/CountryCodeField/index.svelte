@@ -248,34 +248,33 @@
     <p>{chosenOne.map}+{chosenOne.phoneCode}</p>
   </div>
 {:else}
-  <Modal targetWidth={185} type={"dropdown"}>
+  <Modal
+    type={"dropdown"}
+    minWidth={180}
+    minHeight={200} 
+    targetHeight={500}
+    {isDisabled}
+  >
     <div slot="toggleButton" class="bump sortByButton">
       <p>{chosenOne.map}+{chosenOne.phoneCode}</p>
     </div>
     <div slot="modalContent" let:toggleModal>
-      <div class="dropdownContainer">
-        <h4 class="header">Country Code</h4>
-        <div class="spacerVert" />
-        {#each countries as country (country.code)}
-          <div
-            class="countryItem"
-            on:click={() => handleCountryClick(country, toggleModal)}
-          >
-            <p>{country.map}{country.name}</p>
-            <p>+{country.phoneCode}</p>
-          </div>
-        {/each}
-      </div>
+      <h4 class="header">Country Code</h4>
+      <div class="spacerVert" />
+      {#each countries as country (country.code)}
+        <div
+          class="countryItem"
+          on:click={() => handleCountryClick(country, toggleModal)}
+        >
+          <p>{country.map}{country.name}</p>
+          <p>+{country.phoneCode}</p>
+        </div>
+      {/each}
     </div>
   </Modal>
 {/if}
 
 <style>
-  .dropdownContainer {
-    max-height: 17rem;
-    overflow: scroll;
-    text-align: start;
-  }
   .header {
     font-weight: 400;
     text-align: center;

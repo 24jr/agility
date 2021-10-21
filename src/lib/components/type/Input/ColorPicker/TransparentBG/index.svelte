@@ -34,7 +34,8 @@
   
   function isDarkSquare(n,x){
     let isDark = n%2 
-    if(x%2 == 0 && Math.floor((n-1)/x)%2 != 0){
+    let isOffsetRow = Math.floor(n/x)%2 == 1
+    if(isOffsetRow && x%2 === 0){
       isDark = !isDark
     }
     return isDark

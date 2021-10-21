@@ -179,21 +179,21 @@
 
 <div class="container">
   <div class="selectBox">
-    <Button mt="0" mb="0" py=".4" minHeight="0" type="soft" isCompressed="true" {isDisabled} on:click={handleLeftYear}>
-      <Arrow direction="left" />
+    <Button mt="0" mb="0" py=".4" px=".8" minHeight="0" type="soft" isCompressed="true" {isDisabled} on:click={handleLeftYear}>
+      <Arrow direction="left" color="var(--contrast-soft)" />
     </Button>
     <h3 class="monthYearText" class:isDisabled>{pickerYear}</h3>
-    <Button mt="0" mb="0" py=".4" minHeight="0" type="soft" isCompressed="true" {isDisabled} on:click={handleRightYear}>
-      <Arrow direction="right" />
+    <Button mt="0" mb="0" py=".4" px=".8" minHeight="0" type="soft" isCompressed="true" {isDisabled} on:click={handleRightYear}>
+      <Arrow direction="right" color="var(--contrast-soft)" />
     </Button>
   </div>
   <div class="selectBox">
-    <Button mt="0" mb="0" py=".4" minHeight="0" type="soft" isCompressed="true" {isDisabled} on:click={handleLeftMonth}>
-      <Arrow direction="left" />
+    <Button mt="0" mb="0" py=".4" px=".8" minHeight="0" type="soft" isCompressed="true" {isDisabled} on:click={handleLeftMonth}>
+      <Arrow direction="left" color="var(--contrast-soft)" />
     </Button>
     <h3 class="monthYearText" class:isDisabled>{monthName[pickerMonth]}</h3>
-    <Button mt="0" mb="0" py=".4" minHeight="0" type="soft" isCompressed="true" {isDisabled} on:click={handleRightMonth}>
-      <Arrow direction="right" />
+    <Button mt="0" mb="0" py=".4" px=".8" minHeight="0" type="soft" isCompressed="true" {isDisabled} on:click={handleRightMonth}>
+      <Arrow direction="right" color="var(--contrast-soft)" />
     </Button>
   </div>
   <div class="daysOfWeek" class:isDisabled>

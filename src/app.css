@@ -160,6 +160,9 @@ p {
 	box-shadow: 0.1rem 0.1rem 0.1rem var(--bg-dark), -0.1rem -0.1rem 0.1rem var(--bg-light);
 	cursor: pointer;
 }
+.pa5 {
+	padding: 0.5rem;
+}
 .spacerVert {
 	margin: 0 1rem;
 	display: flex;

@@ -34,7 +34,7 @@
   <div class="colorHodler">
     {#each range as color, colorIndex (colorIndex)}
       {#if color == '-'}
-        <div on:click={() => showFull = false} class="colorItem">
+        <div on:click={() => showFull = false} class="colorItem iconButton">
           <Minus />
         </div>
       {:else}
@@ -59,7 +59,6 @@
     width: 1.6rem;
     border-radius: .5rem;
     margin: .2rem;
-    box-shadow:0 .1rem .1rem rgba(25,25,25,.5);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -68,7 +67,11 @@
     height: 1.8rem;
     width: 1.8rem;
     margin: 0.1rem;
-    box-shadow:0 .1rem .5rem rgba(0,0,0,.5)
+    box-shadow:0 .1rem .4rem rgba(0,0,0,.3)
+  }
+  .iconButton{
+    border: 1px solid var(--contrast-med);
+    box-sizing: border-box;
   }
   </style>
   

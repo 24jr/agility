@@ -268,7 +268,7 @@
     other card
 <div class="test">
   <Modal
-    type={"dropdown"}
+    type={"full"}
     minWidth={150}
     targetWidth={250}
     minHeight={200} 
@@ -282,17 +282,14 @@
       </div>
     </div>
     <div slot="modalContent" let:toggleModal>
-      <div class="dropdownContainer">
         {#each dropdownOptions as option (option.key)}
           <Button
             type="soft"
-            class="optionItem"
             isSelected={option.key === dropdownVal2 || (typeof dropdownVal2 === typeof [] && dropdownVal2.some(h => h === option.key))}
           >
             <p>{option.name}</p>
           </Button>
         {/each}
-      </div>
     </div>
   </Modal>
 </div>
@@ -307,22 +304,19 @@
     {isDisabled}
   >
     <div slot="toggleButton" class="displayItemContainer" on:click|preventDefault>
-      <div class="bumpns">
+      <div class="bump">
         modal2
       </div>
     </div>
     <div slot="modalContent" let:toggleModal>
-      <div class="dropdownContainer">
         {#each dropdownOptions as option (option.key)}
           <Button
             type="soft"
-            class="optionItem"
             isSelected={option.key === dropdownVal2 || (typeof dropdownVal2 === typeof [] && dropdownVal2.some(h => h === option.key))}
           >
             <p>{option.name}</p>
           </Button>
         {/each}
-      </div>
     </div>
   </Modal>
    

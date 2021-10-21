@@ -13,7 +13,6 @@
   export let px = 0.4;
   export let py = 0.3;
   export let type;
-  // export let colorUsed = 'var(--red-error)';
   export let colorTransparentUsed = 'var(--primary-transparent)'
   export let colorUsed = 'var(--primary)';
   export let isLoading = false;

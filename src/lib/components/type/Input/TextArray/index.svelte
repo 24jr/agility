@@ -11,15 +11,7 @@
   export let isDisabled = false;
 
   let editVal;
-
-  $: valChange(val);
-  function valChange(val) {
-    if (!val || typeof val !== typeof []) {
-      editVal = [];
-    } else {
-      editVal = val;
-    }
-  }
+  let editEl
 
   function handleSpaceClear(newVal) {
     if (isNoSpaces) {
@@ -29,7 +21,6 @@
 
   function handleAddVal() {
     if (!isDisabled) {
-      console.log('isDisabled', isDisabled)
       if (editVal) {
         if (!val || typeof val !== typeof []) {
           val = [editVal];
@@ -38,6 +29,9 @@
           val = val;
         }
         editVal = "";
+        setTimeout(() => {
+          editEl.focus();
+        });
       }
     }
   }
@@ -53,6 +47,7 @@
 <div>
   <div class="inputContainer">
     <input
+      bind:this={editEl}
       class="indentInput"
       class:isDisabled
       disabled={isDisabled}
