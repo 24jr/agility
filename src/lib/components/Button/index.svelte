@@ -188,6 +188,7 @@
   }
   .colorButtonSelected{
     box-shadow: inset 0 0 500rem var(--tint-strong);
+    color: var(--bg-med) !important;
   }
   .colorButton:disabled {
     background: var(--contrast-soft);
@@ -201,7 +202,8 @@
   }
   .outlinedButtonSelected {
     background: var(--contrast-med);
-    color: var(--bg-med);
+    color: var(--bg-med) !important;
+    border: none !important;
   }
   .outlinedButton:hover {
     background: var(--contrast-overlay);
@@ -222,10 +224,11 @@
   }
   .softButtonSelected {
     background: var(--colorUsed) !important;
-    color: var(--white-med);
+    color: var(--white-med) !important;
   }
   .softButtonHalfSelected {
     background:var(--colorTransparentUsed) !important;
+    color: var(--contrast-med) !important;
   }
   .standardButton:hover {
     color: var(--colorUsed);

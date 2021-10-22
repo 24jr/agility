@@ -2,13 +2,13 @@
   import noSpaces from "$lib/Actions/noSpaces";
 
   export let val;
-  export let isValidEmail = false;
+  export let isValid = false;
   export let placeholderText = "email";
   export let isDisabled = false;
   $: checkIfValid(val);
 
   function checkIfValid(val) {
-    isValidEmail = val
+    isValid = val
       ? /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
         val.toLowerCase()
         )
@@ -21,7 +21,7 @@
   <input
     class="indentInput emailField"
     class:isDisabled
-    class:error={!isValidEmail && val && val.length > 0 }
+    class:error={!isValid && val && val.length > 0 }
     disabled={isDisabled}
     type="email"
     autocomplete="email"

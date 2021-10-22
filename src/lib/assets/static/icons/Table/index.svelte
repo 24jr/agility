@@ -1,6 +1,6 @@
 <script>
   export let color = "var(--contrast-med)";
-  export let size = 1;
+  export let size = 2;
   export let mr = 0;
   export let ml = 0;
 </script>

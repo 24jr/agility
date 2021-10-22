@@ -183,7 +183,7 @@
         <slot name="modalContent" {toggleModal} />
       </div>
       <div class="xBox" on:click={() => (isShown = false)}>
-        <X />
+        <X color="var(--contrast-soft)" size="1.2" />
       </div>
     </div>
   {/if}

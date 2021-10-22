@@ -1,6 +1,6 @@
 <script>
   export let color = "var(--contrast-med)";
-  export let size = 1.4;
+  export let size = 2;
 </script>
 
 <svg

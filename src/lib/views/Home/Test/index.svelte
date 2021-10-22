@@ -1,21 +1,27 @@
 <script>
   import Button from "$lib/components/Button/index.svelte"
-  import Code from "$lib/components/type/Input/Code/index.svelte"
-  import Date from "$lib/components/type/Input/Date/index.svelte"
-  import Email from "$lib/components/type/Input/Email/index.svelte"
-  import Url from "$lib/components/type/Input/Url/index.svelte"
-  import ImageUrl from "$lib/components/type/Input/ImageUrl/index.svelte"
-  import Int from "$lib/components/type/Input/Int/index.svelte"
-  import Password from "$lib/components/type/Input/Password/index.svelte"
-  import PhoneNumber from "$lib/components/type/Input/PhoneNumber/index.svelte"
-  import Slider from "$lib/components/type/Input/Slider/index.svelte"
-  import Toggle from "$lib/components/type/Input/Toggle/index.svelte"
-  import Text from "$lib/components/type/Input/Text/index.svelte"
-  import TextArea from "$lib/components/type/Input/TextArea/index.svelte"
-  import TextArray from "$lib/components/type/Input/TextArray/index.svelte"
-  import Dropdown from "$lib/components/type/Input/Dropdown/index.svelte"
-  import ColorPicker from "$lib/components/type/Input/ColorPicker/index.svelte"
+  import CodeInput from "$lib/components/type/Input/Code/index.svelte"
+  import DateInput from "$lib/components/type/Input/Date/index.svelte"
+  import EmailInput from "$lib/components/type/Input/Email/index.svelte"
+  import UrlInput from "$lib/components/type/Input/Url/index.svelte"
+  import ImageUrlInput from "$lib/components/type/Input/ImageUrl/index.svelte"
+  import IntInput from "$lib/components/type/Input/Int/index.svelte"
+  import PasswordInput from "$lib/components/type/Input/Password/index.svelte"
+  import PhoneNumberInput from "$lib/components/type/Input/PhoneNumber/index.svelte"
+  import SliderInput from "$lib/components/type/Input/Slider/index.svelte"
+  import ToggleInput from "$lib/components/type/Input/Toggle/index.svelte"
+  import TextInput from "$lib/components/type/Input/Text/index.svelte"
+  import TextAreaInput from "$lib/components/type/Input/TextArea/index.svelte"
+  import TextArrayInput from "$lib/components/type/Input/TextArray/index.svelte"
+  import DropdownInput from "$lib/components/type/Input/Dropdown/index.svelte"
+  import ColorPickerInput from "$lib/components/type/Input/ColorPicker/index.svelte"
   import Modal from "$lib/components/Modal/index.svelte"
+
+  import ColorDisplay from "$lib/components/type/Display/Color/index.svelte"
+  import DateDisplay from "$lib/components/type/Display/Date/index.svelte"
+  import EmailDisplay from "$lib/components/type/Display/Email/index.svelte"
+  import LinkDisplay from "$lib/components/type/Display/Link/index.svelte"
+  import PhoneNumberDisplay from "$lib/components/type/Display/PhoneNumber/index.svelte"
 
   function buttonTest(){
     console.log('button click')
@@ -81,7 +87,6 @@
     { key: 'ten1', name: 'Ten1'},
   ]
 
-
   let hexVal
   let opacityVal 
 
@@ -123,7 +128,7 @@
       Code <br />
       codeVal: {codeVal} <br />
       isCodeStandardMet: {isCodeStandardMet} <br />
-      <Code bind:val={codeVal} bind:isCodeStandardMet {isDisabled} />
+      <CodeInput bind:val={codeVal} bind:isCodeStandardMet {isDisabled} />
     </div>
 
     <div class="spacerVert spacerHoriz"/>
@@ -131,7 +136,7 @@
     <div>
       Date <br />
       dateVal: {dateVal} <br />
-      <Date bind:val={dateVal} {isDisabled} />
+      <DateInput bind:val={dateVal} {isDisabled} />
     </div>
 
     <div class="spacerVert spacerHoriz"/>
@@ -140,7 +145,7 @@
       Date <br />
       dateVal: {dateVal} <br />
       dateVal2: {dateVal2} <br />
-      <Date bind:val={dateVal} bind:val2={dateVal2} {isDisabled} isRange="true" />
+      <DateInput bind:val={dateVal} bind:val2={dateVal2} {isDisabled} isRange="true" />
     </div>
 
     <div class="spacerVert spacerHoriz"/>
@@ -149,7 +154,7 @@
       Email <br />
       emailVal: {emailVal} <br />
       isValidEmail: {isValidEmail} <br />
-      <Email bind:val={emailVal} bind:isValidEmail {isDisabled} />
+      <EmailInput bind:val={emailVal} bind:isValid={isValidEmail} {isDisabled} />
     </div>
 
     <div class="spacerVert spacerHoriz"/>
@@ -157,7 +162,7 @@
     <div>
       Text <br />
       textVal: {textVal} <br />
-      <Text bind:val={textVal} {isDisabled} />
+      <TextInput bind:val={textVal} {isDisabled} />
     </div>
 
     <div class="spacerVert spacerHoriz"/>
@@ -166,7 +171,7 @@
       Url <br />
       urlVal: {urlVal} <br />
       isUrlValid: {isUrlValid} <br />
-      <Url bind:val={urlVal} bind:isValid={isUrlValid} {isDisabled} />
+      <UrlInput bind:val={urlVal} bind:isValid={isUrlValid} {isDisabled} />
     </div>
 
     <div class="spacerVert spacerHoriz"/>
@@ -175,7 +180,7 @@
       ImageUrl <br />
       imageUrlVal: {imageUrlVal} <br />
       isImageUrlValid: {isImageUrlValid} <br />
-      <ImageUrl bind:val={imageUrlVal} bind:isValid={isImageUrlValid} {isDisabled} placeholder="image url" />
+      <ImageUrlInput bind:val={imageUrlVal} bind:isValid={isImageUrlValid} {isDisabled} placeholder="image url" />
     </div>
 
     <div class="spacerVert spacerHoriz"/>
@@ -183,7 +188,7 @@
     <div>
       Int <br />
       intVal: {intVal} <br />
-      <Int bind:val={intVal} {isDisabled} />
+      <IntInput bind:val={intVal} {isDisabled} />
     </div>
 
     <div class="spacerVert spacerHoriz"/>
@@ -192,7 +197,7 @@
       Password <br />
       passwordVal: {passwordVal} <br />
       isPasswordStandardMet: {isPasswordStandardMet} <br />
-      <Password bind:val={passwordVal} bind:isPasswordStandardMet isTooltipUsed={true} {isDisabled} />
+      <PasswordInput bind:val={passwordVal} bind:isPasswordStandardMet isTooltipUsed={true} {isDisabled} />
     </div>
 
     <div class="spacerVert spacerHoriz"/>
@@ -201,7 +206,7 @@
       PhoneNumber <br />
       phoneNumberVal: {phoneNumberVal} <br />
       isValidPhoneNumber: {isValidPhoneNumber} <br />
-      <PhoneNumber bind:val={phoneNumberVal} bind:isValid={isValidPhoneNumber} {isDisabled} />
+      <PhoneNumberInput bind:val={phoneNumberVal} bind:isValid={isValidPhoneNumber} {isDisabled} />
     </div>
 
     <div class="spacerVert spacerHoriz"/>
@@ -209,7 +214,7 @@
     <div>
       Slider <br />
       sliderVal: {sliderVal} <br />
-      <Slider bind:val={sliderVal} {isDisabled} />
+      <SliderInput bind:val={sliderVal} {isDisabled} />
     </div>
 
     <div class="spacerVert spacerHoriz"/>
@@ -217,7 +222,7 @@
     <div>
       Toggle <br />
       toggleVal: {toggleVal} <br />
-      <Toggle bind:val={toggleVal} {isDisabled} />
+      <ToggleInput bind:val={toggleVal} {isDisabled} />
     </div>
 
     <div class="spacerVert spacerHoriz"/>
@@ -225,7 +230,7 @@
     <div>
       TextArea <br />
       textAreaVal: {textAreaVal} <br />
-      <TextArea bind:val={textAreaVal} {isDisabled} />
+      <TextAreaInput bind:val={textAreaVal} {isDisabled} />
     </div>
 
     <div class="spacerVert spacerHoriz"/>
@@ -233,7 +238,7 @@
     <div>
       TextArray <br />
       textArrayVal: {textArrayVal} <br />
-      <TextArray bind:val={textArrayVal} {isDisabled} />
+      <TextArrayInput bind:val={textArrayVal} {isDisabled} />
     </div>
 
     <div class="spacerVert spacerHoriz"/>
@@ -241,7 +246,7 @@
     <div>
       Dropdown <br />
       dropdownVal: {dropdownVal} <br />
-      <Dropdown bind:val={dropdownVal} options={dropdownOptions} {isDisabled} />
+      <DropdownInput bind:val={dropdownVal} options={dropdownOptions} {isDisabled} />
     </div> 
     
     <div class="spacerVert spacerHoriz"/>
@@ -249,7 +254,7 @@
     <div>
       Dropdown isMultiselect<br />
       dropdownVal2: {JSON.stringify(dropdownVal2)} <br />
-      <Dropdown bind:val={dropdownVal2} isMultiselect="true" options={dropdownOptions} {isDisabled} />
+      <DropdownInput bind:val={dropdownVal2} isMultiselect="true" options={dropdownOptions} {isDisabled} />
     </div>
     
     <div class="spacerVert spacerHoriz"/>
@@ -258,68 +263,81 @@
       ColorPicker<br />
       hexVal: {hexVal} <br />
       opacityVal: {opacityVal} <br />
-      <ColorPicker bind:hex={hexVal} bind:opacity={opacityVal} {isDisabled} />
+      <ColorPickerInput bind:hex={hexVal} bind:opacity={opacityVal} {isDisabled} />
     </div>
 
-    
-    
   </div>
   <div class="card">
     other card
-<div class="test">
-  <Modal
-    type={"full"}
-    minWidth={150}
-    targetWidth={250}
-    minHeight={200} 
-    targetHeight={500}
-    bind:isShown={showModal}
-    {isDisabled}
-  >
-    <div slot="toggleButton" class="displayItemContainer" on:click|preventDefault>
-      <div class="bumpns">
-        modal1
-      </div>
-    </div>
-    <div slot="modalContent" let:toggleModal>
-        {#each dropdownOptions as option (option.key)}
-          <Button
-            type="soft"
-            isSelected={option.key === dropdownVal2 || (typeof dropdownVal2 === typeof [] && dropdownVal2.some(h => h === option.key))}
-          >
-            <p>{option.name}</p>
-          </Button>
-        {/each}
-    </div>
-  </Modal>
-</div>
 
-  <Modal
-    type={"dropdown"}
-    minWidth={400}
-    targetWidth={500}
-    minHeight={200} 
-    targetHeight={550}
-    bind:isShown={showModal2}
-    {isDisabled}
-  >
-    <div slot="toggleButton" class="displayItemContainer" on:click|preventDefault>
-      <div class="bump">
-        modal2
+    <div class="spacerVert spacerHoriz"/>
+
+    <Modal
+      type={"full"}
+      minWidth={150}
+      targetWidth={250}
+      minHeight={200} 
+      targetHeight={500}
+      bind:isShown={showModal}
+      {isDisabled}
+    >
+      <div slot="toggleButton" class="displayItemContainer" on:click|preventDefault>
+        <div class="bumpns">
+          modal1
+        </div>
       </div>
-    </div>
-    <div slot="modalContent" let:toggleModal>
-        {#each dropdownOptions as option (option.key)}
-          <Button
-            type="soft"
-            isSelected={option.key === dropdownVal2 || (typeof dropdownVal2 === typeof [] && dropdownVal2.some(h => h === option.key))}
-          >
-            <p>{option.name}</p>
-          </Button>
-        {/each}
-    </div>
-  </Modal>
-   
+      <div slot="modalContent" let:toggleModal>
+          {#each dropdownOptions as option (option.key)}
+            <Button
+              type="soft"
+              isSelected={option.key === dropdownVal2 || (typeof dropdownVal2 === typeof [] && dropdownVal2.some(h => h === option.key))}
+            >
+              <p>{option.name}</p>
+            </Button>
+          {/each}
+      </div>
+    </Modal>
+  
+    <div class="spacerVert spacerHoriz"/>
+
+    <Modal
+      type={"dropdown"}
+      minWidth={400}
+      targetWidth={500}
+      minHeight={200} 
+      targetHeight={550}
+      bind:isShown={showModal2}
+      {isDisabled}
+    >
+      <div slot="toggleButton" class="displayItemContainer" on:click|preventDefault>
+        <div class="bump">
+          modal2
+        </div>
+      </div>
+      <div slot="modalContent" let:toggleModal>
+          {#each dropdownOptions as option (option.key)}
+            <Button
+              type="soft"
+              isSelected={option.key === dropdownVal2 || (typeof dropdownVal2 === typeof [] && dropdownVal2.some(h => h === option.key))}
+            >
+              <p>{option.name}</p>
+            </Button>
+          {/each}
+      </div>
+    </Modal>
+
+    <div class="spacerVert spacerHoriz"/>
+    <ColorDisplay hex={hexVal} opacity={opacityVal} />
+    <div class="spacerVert spacerHoriz"/>
+    <DateDisplay val={dateVal} />
+    <div class="spacerVert spacerHoriz"/>
+    <EmailDisplay val={emailVal} />
+    <div class="spacerVert spacerHoriz"/>
+    <LinkDisplay val={urlVal} />
+    <div class="spacerVert spacerHoriz"/>
+    <PhoneNumberDisplay val={phoneNumberVal} />
+    <div class="spacerVert spacerHoriz"/>
+
   </div>
 </div>
 

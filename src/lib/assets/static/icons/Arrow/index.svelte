@@ -1,7 +1,7 @@
 <script>
   export let direction = "up";
   export let color = "var(--contrast-med)";
-  export let size = 1;
+  export let size = 2;
   export let ml = 0;
   export let mr = 0;
   const map = { left: 270, right: 90, down: 180 };

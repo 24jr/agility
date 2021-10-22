@@ -33,6 +33,8 @@
   .colorDisplay {
     height: 30px;
     width: 30px;
+    border-radius: .5rem;
+    overflow: hidden;
     display: flex;
     position: relative;
   }

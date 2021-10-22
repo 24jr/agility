@@ -1,8 +1,11 @@
 <script>
-  import Text from "$lib/components/type/Display/Text/index.svelte";
-  import Date from "$lib/components/type/Display/Date/index.svelte";
-  import Image from "$lib/components/type/Display/Image/index.svelte";
-  import Link from "$lib/components/type/Display/Link/index.svelte";
+  import TextDisplay from "$lib/components/type/Display/Text/index.svelte";
+  import DateDisplay from "$lib/components/type/Display/Date/index.svelte";
+  import ImageDisplay from "$lib/components/type/Display/Image/index.svelte";
+  import LinkDisplay from "$lib/components/type/Display/Link/index.svelte";
+  import ColorDisplay from "$lib/components/type/Display/Color/index.svelte";
+  import EmailDisplay from "$lib/components/type/Display/Email/index.svelte";
+  import PhoneNumberDisplay from "$lib/components/type/Display/PhoneNumber/index.svelte";
   // import ModelID from "$lib/components/type/Display/ModelID/index.svelte";
   import Array from "$lib/components/type/Display/Array/index.svelte";
 
@@ -14,11 +17,17 @@
 {#if val}
   <div class="container">
     {#if type === "date"}
-      <Date bind:val />
+      <DateDisplay bind:val />
     {:else if type === "img"}
-      <Image bind:val />
+      <ImageDisplay bind:val />
+    {:else if type === "email"}
+      <EmailDisplay bind:val />
+    {:else if type === "phonenumber"}
+      <PhoneNumberDisplay bind:val />
+    {:else if type === "color"}
+      <ColorDisplay bind:val />
     {:else if type === "url"}
-      <Link bind:val />
+      <LinkDisplay bind:val />
     {:else if type === "modelid"}
       <!-- <ModelID bind:val {typeSettings} /> -->
     {:else if type === "model"}
@@ -29,7 +38,7 @@
     {:else if type === "modelarray"}
       <Array items={val.items} {typeSettings} />
     {:else}
-      <Text bind:val />
+      <TextDisplay bind:val />
     {/if}
     <slot />
   </div>

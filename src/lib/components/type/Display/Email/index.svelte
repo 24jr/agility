@@ -1,46 +1,48 @@
 <script>
-  import noSpaces from "$lib/Actions/noSpaces";
+  import Button from "$lib/components/Button/index.svelte"
+  import LinkIcon from "$lib/assets/static/icons/Link/index.svelte"
+  import CopyIcon from "$lib/assets/static/icons/Copy/index.svelte"
 
-  export let email;
-  export let isValidEmail = false;
-  export let placeholderText = "email";
-  export let isDisabled = false;
-  $: checkIfValid(email);
+  export let val;
+  export let isValid = false;
 
-  function checkIfValid(email) {
-    isValidEmail = email
+  $: checkIfValid(val);
+
+  function checkIfValid(val) {
+    isValid = val
       ? /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
-          email.toLowerCase()
+        val.toLowerCase()
         )
       : false;
   }
+
+  function mailto(){
+    window.open('mailto:'+val, '_self');
+  }
+
+  function copyToClipboard(){
+    navigator.clipboard.writeText(val);
+  }
 </script>
 
-<div class="inputContainer">
-  <input
-    class="indentInput emailField"
-    class:isDisabled
-    disabled={isDisabled}
-    type="email"
-    autocomplete="email"
-    placeholder={placeholderText}
-    maxlength="96"
-    bind:value={email}
-    use:noSpaces
-    on:cleanVal={(e) => (email = e.detail)}
-  />
+<div class="container">
+  <p class="emailField">{val}</p>
+  <Button type="soft" on:click={copyToClipboard} mr="0" px=".2">
+    <CopyIcon size="1.7" />
+  </Button>
+  {#if isValid}
+  <Button type="soft" on:click={mailto} ml="0" px=".2">
+    <LinkIcon size="1.7" />
+  </Button>
+  {/if}
 </div>
 
 <style>
-  .inputContainer {
-    position: relative;
+  .container {
     display: flex;
-    flex-direction: column;
+    align-items: center;
   }
   .emailField {
     text-transform: lowercase;
-  }
-  .isDisabled {
-    color: var(--contrast-soft);
   }
 </style>
