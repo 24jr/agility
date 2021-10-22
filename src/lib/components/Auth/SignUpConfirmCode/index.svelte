@@ -1,0 +1,64 @@
+<script>
+  import {
+    authPage,
+    email,
+    resendSignUpConfirmationCode,
+    signUpConfirmCode,
+    loadingAuthEvent,
+  } from "$lib/components/Auth/store";
+  import ErrorDiv from "../ErrorDiv/index.svelte";
+  import CodeInput from "$lib/components/type/Input/Code/index.svelte";
+  import Button from "$lib/components/Button/index.svelte"
+
+  let code;
+  let isCodeStandardMet;
+  $: if (isCodeStandardMet) {
+    handleSignUpConfirmCode();
+  }
+
+  function handleSignUpConfirmCode() {
+    signUpConfirmCode($email, code);
+  }
+
+  const handleResendSignUpConfirmationCode = () => {
+    resendSignUpConfirmationCode($email);
+  };
+</script>
+
+<form class="form">
+  <div class="section">
+    <p class="emailLabel">{$email}: code: {code}</p>
+    <CodeInput bind:val={code} bind:isCodeStandardMet />
+  </div>
+  <ErrorDiv />
+  <div class="fillSpace" />
+  <div class="section">
+    <Button
+      type="color"
+      isDisabled={$loadingAuthEvent}
+      isLoading={$loadingAuthEvent}
+      on:click={handleResendSignUpConfirmationCode}
+      >{$loadingAuthEvent ? "Loading" : "Send Confirmation Code"}
+    </Button>
+    <Button 
+      on:click={() => authPage.set("signin")}>
+      Sign In
+    </Button>
+  </div>
+</form>
+
+<style>
+  .form {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    justify-content: space-between;
+  }
+  .section {
+    display: flex;
+    flex-direction: column;
+  }
+  .emailLabel {
+    margin: 1rem 0;
+  }
+</style>

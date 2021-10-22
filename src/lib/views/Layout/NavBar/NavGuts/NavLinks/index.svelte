@@ -1,6 +1,6 @@
 <script>
   import NavLink from "./NavLink/index.svelte";
-  // import AuthLink from "./AuthLink/index.svelte";
+  import AuthLink from "./AuthLink/index.svelte";
 
   const shownLinks = [
     { name: "Dashboard", path: "/" },
@@ -16,7 +16,7 @@
     {#each shownLinks as link (link.name)}
       <NavLink {link} />
     {/each}
-    <!-- <AuthLink /> -->
+    <AuthLink />
   </div>
 </div>
 

@@ -1,6 +1,6 @@
 <script>
   import InternalLink from "$lib/assets/static/icons/InternalLink/index.svelte";
-  import ButtonBasic from "$lib/components/ButtonBasic/index.svelte";
+  import Button from "$lib/components/Button/index.svelte";
   import { goto } from "$app/navigation";
 
   export let val;
@@ -16,9 +16,9 @@
     <p>{val}</p>
     {#if path}
       <div on:click|stopPropagation|preventDefault>
-        <ButtonBasic on:click={() => goto(path)} px=".1" py=".1" mx=".2" my="0">
+        <Button on:click={() => goto(path)} px=".1" py=".1" mx=".2" my="0">
           <InternalLink size="1.5" />
-        </ButtonBasic>
+        </Button>
       </div>
     {/if}
   </div>

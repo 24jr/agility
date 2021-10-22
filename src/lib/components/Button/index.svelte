@@ -63,6 +63,7 @@
 
   let fallbackTimeout;
   $: if (isLoading) {
+    console.log('isLoading', isLoading)
     fallbackTimeout = setTimeout(() => {
       isSuccess = false;
       isError = false;
@@ -84,7 +85,7 @@
       class:isCursorMove
       class:colorButtonSelected={isSelected}
       disabled={isDisabled || isLoading || isSuccess || isError}
-      on:click={handleClick}
+      on:click|preventDefault={handleClick}
       on:pointerenter={() => dispatch("pointerenter")}
       on:pointerleave={() => dispatch("pointerleave")}
     >
@@ -105,7 +106,7 @@
       class:isCursorMove
       class:outlinedButtonSelected={isSelected}
       disabled={isDisabled || isLoading || isSuccess || isError}
-      on:click={handleClick}
+      on:click|preventDefault={handleClick}
       on:pointerenter={() => dispatch("pointerenter")}
       on:pointerleave={() => dispatch("pointerleave")}
     >
@@ -127,7 +128,7 @@
     class:softButtonHalfSelected={isHalfSelected}
     class:isCursorMove
     disabled={isDisabled || isLoading || isSuccess || isError}
-    on:click={handleClick}
+    on:click|preventDefault={handleClick}
     on:pointerenter={() => dispatch("pointerenter")}
     on:pointerleave={() => dispatch("pointerleave")}
   >
@@ -147,7 +148,7 @@
         class:isCompressed
         class:isCursorMove
         disabled={isDisabled || isLoading || isSuccess || isError}
-        on:click={handleClick}
+        on:click|preventDefault={handleClick}
         on:pointerenter={() => dispatch("pointerenter")}
         on:pointerleave={() => dispatch("pointerleave")}
       >

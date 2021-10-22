@@ -1,11 +1,11 @@
 <script>
   import numbersOnly from "$lib/Actions/numbersOnly";
 
-  export let code;
+  export let val;
   export let isCodeStandardMet = false;
   export let isDisabled = false;
 
-  $: checkIfCodeStandardMet(code);
+  $: checkIfCodeStandardMet(val);
 
   function checkIfCodeStandardMet(code) {
     isCodeStandardMet = code && code.length === 6;
@@ -22,10 +22,10 @@
       inputmode="numeric"
       pattern="[0-9]*"
       autocomplete="one-time-code"
-      bind:value={code}
+      bind:value={val}
       maxlength="6"
       use:numbersOnly
-      on:cleanVal={(e) => (code = e.detail)}
+      on:cleanVal={(e) => (val = e.detail)}
     />
   </div>
 </div>

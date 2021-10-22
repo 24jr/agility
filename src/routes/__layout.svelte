@@ -1,11 +1,11 @@
 <script context="module">
   import "../app.css";
   import Layout from "$lib/views/Layout/index.svelte";
-  // import Amplify from "aws-amplify";
-  // import awsExports from "../aws-exports";
-  // Amplify.configure({ ...awsExports, ssr: true });
-  // import { initAuth } from "$lib/components/AuthFlow/store";
-  // initAuth();
+  import Amplify from "aws-amplify";
+  import awsExports from "../aws-exports";
+  Amplify.configure({ ...awsExports, ssr: true });
+  import { initAuth } from "$lib/components/Auth/store";
+  initAuth();
 </script>
 
 <Layout>
@@ -94,6 +94,6 @@
     --contrast-med: #eaecef;
     --contrast-strong: #fafcff;
     --contrast-overlay: #ffffff20;
-    --bg-modal: #343434;
+    --bg-modal: #2a2a2a;
   }
 </style>

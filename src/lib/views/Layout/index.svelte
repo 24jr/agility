@@ -1,7 +1,7 @@
 <script>
   import NavBar from "./NavBar/index.svelte";
   import AppNavBar from "./AppNavBar/index.svelte";
-  // import AuthModal from "./AuthModal/index.svelte";
+  import AuthModal from "./AuthModal/index.svelte";
   import { screenWidth, screenHeight, isApp, isAllNavBarHidden, isDarkTheme, setIsDarkTheme } from "./store";
   import { onMount } from "svelte";
 
@@ -25,7 +25,7 @@
   {#if $isApp}
     <AppNavBar />
   {/if}
-  <!-- <AuthModal /> -->
+  <AuthModal />
 </div>
 
 <style>

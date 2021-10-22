@@ -3,7 +3,7 @@
   import Date from "$lib/components/type/Display/Date/index.svelte";
   import Image from "$lib/components/type/Display/Image/index.svelte";
   import Link from "$lib/components/type/Display/Link/index.svelte";
-  import ModelID from "$lib/components/type/Display/ModelID/index.svelte";
+  // import ModelID from "$lib/components/type/Display/ModelID/index.svelte";
   import Array from "$lib/components/type/Display/Array/index.svelte";
 
   export let val;
@@ -20,7 +20,7 @@
     {:else if type === "url"}
       <Link bind:val />
     {:else if type === "modelid"}
-      <ModelID bind:val {typeSettings} />
+      <!-- <ModelID bind:val {typeSettings} /> -->
     {:else if type === "model"}
       <svelte:self
         val={val[typeSettings.singleShownKey]}

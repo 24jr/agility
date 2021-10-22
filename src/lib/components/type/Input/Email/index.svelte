@@ -14,12 +14,14 @@
         )
       : false;
   }
+
 </script>
 
 <div class="inputContainer">
   <input
     class="indentInput emailField"
     class:isDisabled
+    class:error={!isValidEmail && val && val.length > 0 }
     disabled={isDisabled}
     type="email"
     autocomplete="email"
@@ -39,6 +41,10 @@
   }
   .emailField {
     text-transform: lowercase;
+  }
+  .error{
+    box-shadow: inset 0.1rem 0.1rem 0.2rem var(--bg-dark),
+		inset -0.1rem -0.1rem 0.2rem var(--bg-light), 0 0 0.1rem 0.1rem var(--red-error);
   }
   .isDisabled {
     color: var(--contrast-soft);

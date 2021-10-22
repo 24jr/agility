@@ -189,7 +189,7 @@
   {/if}
 </div>
 
-<style scoped>
+<style>
   .container {
     position: relative;
     display: inline-block;

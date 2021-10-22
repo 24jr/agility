@@ -2,7 +2,7 @@
   import numbersOnly from "$lib/Actions/numbersOnly";
   import CountryCodeField from "./CountryCodeField/index.svelte";
 
-  export let phoneNumber;
+  export let val;
   export let isValid = false;
   export let placeholderText = "phone number";
   export let isDisabled = false;
@@ -13,7 +13,7 @@
   $: combineVals(countryCode, mainPhoneNum);
 
   function combineVals(country, phoneNum) {
-    phoneNumber = country + phoneNum;
+    val = country + phoneNum;
     isValid = country === "+1" ? phoneNum.length > 9 : phoneNum.length > 3;
   }
 </script>

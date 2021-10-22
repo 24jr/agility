@@ -1,0 +1,63 @@
+<script>
+  import {
+    authPage,
+    email,
+    password,
+    isPasswordShown,
+    signUp,
+    loadingAuthEvent,
+  } from "$lib/components/Auth/store";
+  import PasswordInput from "$lib/components/type/Input/Password/index.svelte";
+  import EmailInput from "$lib/components/type/Input/Email/index.svelte";
+  import ErrorDiv from "../ErrorDiv/index.svelte";
+  import Button from "$lib/components/Button/index.svelte"
+
+  let isValidEmail;
+  let isPasswordStandardMet;
+
+  $: submitable = isValidEmail && isPasswordStandardMet;
+
+  const handleSignUp = async () => {
+    signUp($email, $password);
+  };
+</script>
+
+<form class="form" on:submit|preventDefault={handleSignUp}>
+  <div class="section">
+    <EmailInput bind:val={$email} bind:isValidEmail />
+    <PasswordInput
+      bind:val={$password}
+      bind:isPasswordStandardMet
+      bind:isPasswordShown={$isPasswordShown}
+      isTooltipUsed={true}
+    />
+  </div>
+  <ErrorDiv />
+  <div class="fillSpace" />
+  <div class="section">
+    <Button
+      type="color"
+      isDisabled={$loadingAuthEvent || !submitable}
+      isLoading={$loadingAuthEvent}
+      on:click={handleSignUp}
+      >{$loadingAuthEvent ? "Loading" : "Sign Up"}
+    </Button>
+    <Button 
+      on:click={() => authPage.set("signin")}>
+      Sign In
+    </Button>
+  </div>
+</form>
+
+<style>
+  .form {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    justify-content: space-between;
+  }
+  .section {
+    display: flex;
+    flex-direction: column;
+  }
+</style>

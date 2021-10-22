@@ -163,6 +163,10 @@ p {
 .pa5 {
 	padding: 0.5rem;
 }
+.fillSpace {
+	display: flex;
+	flex: 1;
+}
 .spacerVert {
 	margin: 0 1rem;
 	display: flex;

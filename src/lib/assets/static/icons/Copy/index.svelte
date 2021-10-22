@@ -12,7 +12,7 @@
   stroke-linejoin="round"
   fill="none"
   stroke={color}
-  stroke-width="75"
+  stroke-width="35"
 >
   <rect x="85.2" y="144" width="258.1" height="297.4" rx="12" />
   <path

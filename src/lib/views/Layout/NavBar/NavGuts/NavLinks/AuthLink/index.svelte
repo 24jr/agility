@@ -1,21 +1,20 @@
 <script>
-  import { openModal } from "$lib/components/AuthFlow/store";
-  import { isSignedIn } from "$lib/components/AuthFlow/store";
+  import { openModal, isSignedIn } from "$lib/components/Auth/store";
 
   let hovered = false;
 </script>
 
-<div
-  class="signinButton"
-  class:hovered
-  on:pointerenter={() => (hovered = true)}
-  on:pointerleave={() => (hovered = false)}
-  on:click={openModal}
->
-  {#if !$isSignedIn}
+{#if !$isSignedIn}
+  <div
+    class="signinButton"
+    class:hovered
+    on:pointerenter={() => (hovered = true)}
+    on:pointerleave={() => (hovered = false)}
+    on:click={openModal}
+  >
     <h4 class="signinText">Sign In</h4>
-  {/if}
-</div>
+  </div>
+{/if}
 
 <style>
   .signinButton {

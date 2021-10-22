@@ -1,0 +1,51 @@
+<script>
+  import {
+    authPage,
+    email,
+    sendForgotPasswordReset,
+    loadingAuthEvent,
+  } from "$lib/components/Auth/store";
+  import ErrorDiv from "../ErrorDiv/index.svelte";
+  import EmailInput from "$lib/components/type/Input/Email/index.svelte";
+  import Button from "$lib/components/Button/index.svelte"
+
+  const handleSendForgotPasswordReset = async () => {
+    sendForgotPasswordReset($email);
+  };
+
+  let isValidEmail;
+</script>
+
+<form class="form" on:submit|preventDefault={handleSendForgotPasswordReset}>
+  <div class="section">
+    <EmailInput bind:val={$email} bind:isValidEmail />
+  </div>
+  <ErrorDiv />
+  <div class="fillSpace" />
+  <div class="section">
+    <Button
+      type="color"
+      isDisabled={$loadingAuthEvent || !isValidEmail}
+      isLoading={$loadingAuthEvent}
+      on:click={handleSendForgotPasswordReset}
+      >{$loadingAuthEvent ? "Loading" : "Send Password Reset"}
+    </Button>
+    <Button 
+      on:click={() => authPage.set("signin")}>
+      Sign In
+    </Button>
+  </div>
+</form>
+
+<style>
+  .form {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    justify-content: space-between;
+  }
+  .section {
+    display: flex;
+    flex-direction: column;
+  }
+</style>

@@ -1,6 +1,6 @@
 <script>
-  import { openModal } from "$lib/components/AuthFlow/store";
-  import { isSignedIn } from "$lib/components/AuthFlow/store";
+  import { openModal } from "$lib/components/Auth/store";
+  import { isSignedIn } from "$lib/components/Auth/store";
 
   let hovered = false;
 </script>
