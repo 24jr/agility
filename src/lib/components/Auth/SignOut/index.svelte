@@ -19,15 +19,24 @@
       on:click={signOut}
       >{$loadingAuthEvent ? "Loading" : "Sign Out"}
     </Button>
-    <Button 
+    <Button
+      mt="0"
+      mb="0"
+      py="0"
       on:click={() => authPage.set("changepassword")}>
       Change Password
     </Button>
     <Button 
+      mt="0"
+      mb="0"
+      py="0"
       on:click={() => authPage.set("changeemail")}>
       Change Email
     </Button>
     <Button 
+      mt="0"
+      mb="0"
+      py="0"
       on:click={() => authPage.set("mfatotp")}>
       Manage MFA TOTP
     </Button>

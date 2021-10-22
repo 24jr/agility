@@ -23,6 +23,9 @@
   <div class="fillSpace" />
   <div class="section">
     <Button 
+      mt="0"
+      mb="0"
+      py="0"
       on:click={() => authPage.set("signin")}>
       Back to sign in
     </Button>

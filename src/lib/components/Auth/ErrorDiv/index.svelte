@@ -7,7 +7,7 @@
     errorResolutuionScreen,
     showErrorMessage,
   } from "$lib/components/Auth/store";
-  import X from "$lib/assets/static/icons/X/index.svelte";
+  import XIcon from "$lib/assets/static/icons/X/index.svelte";
   import { fade } from "svelte/transition";
 
   function directToPage() {
@@ -27,7 +27,7 @@
       {/if}
     </p>
     <div class="icon" on:click={() => showErrorMessage.set(false)}>
-      <X color="var(--white-med)" size="1" />
+      <XIcon color="var(--white-med)" size="1" />
     </div>
   </div>
 {/if}

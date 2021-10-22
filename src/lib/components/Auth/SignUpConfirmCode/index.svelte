@@ -40,7 +40,10 @@
       on:click={handleResendSignUpConfirmationCode}
       >{$loadingAuthEvent ? "Loading" : "Send Confirmation Code"}
     </Button>
-    <Button 
+    <Button
+      mt="0"
+      mb="0"
+      py="0"
       on:click={() => authPage.set("signin")}>
       Sign In
     </Button>

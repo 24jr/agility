@@ -25,7 +25,7 @@
 
 <form class="form" on:submit|preventDefault={handleSignIn}>
   <div class="section">
-    <EmailInput bind:val={$email} bind:isValidEmail />
+    <EmailInput bind:val={$email} bind:isValid={isValidEmail} />
     <PasswordInput
       bind:val={$password}
       bind:isPasswordLongEnough
@@ -46,7 +46,10 @@
       on:click={handleSignIn}
       >{$loadingAuthEvent ? "Loading" : "Sign In"}
     </Button>
-    <Button 
+    <Button
+      mt="0"
+      mb="0"
+      py="0"
       on:click={() => authPage.set("signup")}>
       Sign Up
     </Button>

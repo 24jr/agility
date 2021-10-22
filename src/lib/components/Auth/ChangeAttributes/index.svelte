@@ -61,7 +61,7 @@
       {:else if attribute === "email"}
         <EmailInput
           bind:val={attributesToChangeObj[attribute]}
-          bind:isValidEmail
+          bind:isValid={isValidEmail}
         />
       {:else}
         <TextInput bind:val={attributesToChangeObj[attribute]} />

@@ -51,6 +51,9 @@
       >{$loadingAuthEvent ? "Loading" : "Change Password"}
     </Button>
     <Button 
+      mt="0"
+      mb="0"
+      py="0"
       on:click={() => authPage.set("signout")}>
       Sign out
     </Button>

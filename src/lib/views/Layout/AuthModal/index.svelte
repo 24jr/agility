@@ -12,7 +12,7 @@
   minWidth={280}
   targetWidth={400}
   minHeight={280}
-  targetHeight={400}
+  targetHeight={350}
   type={"center"}
   closeModalWatch={$closeModalTrigger}
   openModalWatch={$openModalTrigger}
