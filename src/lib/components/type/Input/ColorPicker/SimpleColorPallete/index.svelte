@@ -1,5 +1,5 @@
 <script>
-  import Plus from "$lib/assets/static/icons/Plus/index.svelte";
+  import PlusIcon from "$lib/assets/static/icons/Plus/index.svelte";
   
   export let hex
   export let showFull
@@ -21,7 +21,7 @@
         {#each range as color, colorIndex (colorIndex)}
           {#if color == '+'}
             <div on:click={() => showFull = true} class="colorItem iconButton">
-              <Plus />
+              <PlusIcon size="1.2" />
             </div>
           {:else}
             <div on:click={() => hex = color} class="colorItem" style="background: {color};"></div>

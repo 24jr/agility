@@ -1,5 +1,5 @@
 <script>
-  import Minus from "$lib/assets/static/icons/Minus/index.svelte";
+  import MinusIcon from "$lib/assets/static/icons/Minus/index.svelte";
   
   export let hex
   export let showFull
@@ -35,7 +35,7 @@
     {#each range as color, colorIndex (colorIndex)}
       {#if color == '-'}
         <div on:click={() => showFull = false} class="colorItem iconButton">
-          <Minus />
+          <MinusIcon size="1" />
         </div>
       {:else}
         <div on:click={() => hex = color} class="colorItem" style="background: {color};"></div>

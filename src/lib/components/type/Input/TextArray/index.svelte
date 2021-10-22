@@ -1,6 +1,6 @@
 <script>
-  import Plus from "$lib/assets/static/icons/Plus/index.svelte";
-  import X from "$lib/assets/static/icons/X/index.svelte";
+  import PlusIcon from "$lib/assets/static/icons/Plus/index.svelte";
+  import XIcon from "$lib/assets/static/icons/X/index.svelte";
   import Button from "$lib/components/Button/index.svelte"
   import noSpaces from "$lib/Actions/noSpaces";
 
@@ -61,7 +61,7 @@
     {#if editVal && editVal.length > 0}
       <div class="plus">
         <Button type="outlined" minHeight="0" {isDisabled} on:click={handleAddVal}>
-          <Plus />
+          <PlusIcon />
         </Button>
       </div>
     {/if}
@@ -74,7 +74,7 @@
             <p>{item}</p>
           </div>
           <Button type="outlined" minHeight="0" {isDisabled} on:click={() => deleteListItem(index)}>
-            <X />
+            <XIcon />
           </Button>
         </div>
       {/each}

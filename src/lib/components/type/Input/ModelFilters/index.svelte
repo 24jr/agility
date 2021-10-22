@@ -1,6 +1,5 @@
 <script>
-  import Plus from "$lib/assets/static/icons/Plus/index.svelte";
-  import X from "$lib/assets/static/icons/X/index.svelte";
+  import XIcon from "$lib/assets/static/icons/X/index.svelte";
   import Dropdown from "$lib/components/type/Input/Dropdown/index.svelte";
   import Text from "$lib/components/type/Input/Text/index.svelte";
   import ButtonBasic from "$lib/components/ButtonBasic/index.svelte";
@@ -41,7 +40,7 @@
   <div class="filterContainer">
     <div class="group">
       <div class="icon" on:click={() => deleteFilter(index)}>
-        <X color="var(--contrast-soft)" size=".9" />
+        <XIcon color="var(--contrast-soft)" size=".9" />
       </div>
       <Dropdown bind:val={filter.field_key} options={fields} />
     </div>
