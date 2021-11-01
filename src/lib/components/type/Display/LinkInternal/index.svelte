@@ -1,26 +1,24 @@
 <script>
-  import InternalLink from "$lib/assets/static/icons/InternalLink/index.svelte";
+  import LinkInternalIcon from "$lib/assets/static/icons/LinkInternal/index.svelte";
   import Button from "$lib/components/Button/index.svelte";
   import { goto } from "$app/navigation";
 
   export let val;
-  export let typeSettings;
-  let path;
-  $: if (typeSettings.models.length == 1) {
-    path = typeSettings.models[0].pathPrefix + val;
+  export let display_val;
+  export let link_prefix;
+  export let link_suffix;
+
+  function openInternalLink() {
+    goto(link_prefix+val+link_suffix)
   }
 </script>
 
 <div class="displayItemContainer">
   <div class="displayItem">
-    <p>{val}</p>
-    {#if path}
-      <div on:click|stopPropagation|preventDefault>
-        <Button on:click={() => goto(path)} px=".1" py=".1" mx=".2" my="0">
-          <InternalLink size="1.5" />
-        </Button>
-      </div>
-    {/if}
+    <p>{display_val ? display_val : val}</p>
+    <Button type="soft" on:click={openInternalLink} px=".2" minHeight="0">
+      <LinkInternalIcon size="1.5" />
+    </Button>
   </div>
 </div>
 

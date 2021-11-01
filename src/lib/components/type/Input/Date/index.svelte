@@ -1,6 +1,7 @@
 <script>
   import Modal from "$lib/components/Modal/index.svelte";
   import Picker from "./Picker/index.svelte";
+  import { formatDate } from "$lib/funcs/general"
   import CalenderIcon from "$lib/assets/static/icons/Calender/index.svelte"
 
   export let val;
@@ -11,14 +12,20 @@
   let displayVal = 'mm/dd/yyyy'
   let displayVal2 = 'mm/dd/yyyy'
 
-  function handleDaySelect(){
-    console.log('handleDaySelect')
+  $: if(val){ updateDisplayVal(val) }
+  function updateDisplayVal(val){
+    displayVal = formatDate(JSON.parse(val));
+  }
+
+  $: if(val2){ updateDisplayVal2(val2) }
+  function updateDisplayVal2(val2){
+    displayVal2 = formatDate(JSON.parse(val2));
   }
 
 </script>
 
 <Modal minWidth="220" targetWidth="220" minHeight="100" type={"dropdown"}>
-  <div slot="toggleButton" class="bump displayContainer">
+  <div slot="toggleButton" class="bump inputContainer">
     <div class="label">
       {displayVal} <CalenderIcon ml=".5" />
     </div>
@@ -36,17 +43,17 @@
       bind:isDisabled 
       {isRange}
       bind:displayVal
-      bind:displayVal2
-      on:select={handleDaySelect} 
+      bind:displayVal2 
     />
   </div>
 </Modal>
 
 <style>
-  .displayContainer{
+  .inputContainer {
     display: flex;
-    flex-wrap: wrap;
-    align-items: center;
+    flex-direction: column;
+    flex: 0;
+    cursor: pointer;
   }
   .divider{
     margin: 0 .5rem;

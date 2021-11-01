@@ -2,7 +2,7 @@
   import XIcon from "$lib/assets/static/icons/X/index.svelte";
   import Dropdown from "$lib/components/type/Input/Dropdown/index.svelte";
   import Text from "$lib/components/type/Input/Text/index.svelte";
-  import ButtonBasic from "$lib/components/ButtonBasic/index.svelte";
+  import Button from "$lib/components/Button/index.svelte";
 
   export let filters;
   export let fields;
@@ -49,7 +49,7 @@
   </div>
 {/each}
 
-<ButtonBasic on:click={addFilter}>Add Filter</ButtonBasic>
+<Button type="soft" on:click={addFilter}>Add Filter</Button>
 
 <style>
   .filterContainer {

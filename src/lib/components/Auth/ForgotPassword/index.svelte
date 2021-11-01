@@ -18,7 +18,7 @@
 
 <form class="form" on:submit|preventDefault={handleSendForgotPasswordReset}>
   <div class="section">
-    <EmailInput bind:val={$email} bind:isValidEmail />
+    <EmailInput bind:val={$email} bind:isValid={isValidEmail} />
   </div>
   <ErrorDiv />
   <div class="fillSpace" />

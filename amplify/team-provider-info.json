@@ -1,15 +1,15 @@
 {
   "staging": {
     "awscloudformation": {
-      "AuthRoleName": "amplify-roze-staging-14222-authRole",
-      "UnauthRoleArn": "arn:aws:iam::410957590075:role/amplify-roze-staging-14222-unauthRole",
-      "AuthRoleArn": "arn:aws:iam::410957590075:role/amplify-roze-staging-14222-authRole",
+      "AuthRoleName": "amplify-agilityaccounting-staging-42319-authRole",
+      "UnauthRoleArn": "arn:aws:iam::410957590075:role/amplify-agilityaccounting-staging-42319-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::410957590075:role/amplify-agilityaccounting-staging-42319-authRole",
       "Region": "us-east-1",
-      "DeploymentBucketName": "amplify-roze-staging-14222-deployment",
-      "UnauthRoleName": "amplify-roze-staging-14222-unauthRole",
-      "StackName": "amplify-roze-staging-14222",
-      "StackId": "arn:aws:cloudformation:us-east-1:410957590075:stack/amplify-roze-staging-14222/5995e3c0-0d21-11ec-8a81-0e8cca71e1bd",
-      "AmplifyAppId": "d20kez5nqhe6b3"
+      "DeploymentBucketName": "amplify-agilityaccounting-staging-42319-deployment",
+      "UnauthRoleName": "amplify-agilityaccounting-staging-42319-unauthRole",
+      "StackName": "amplify-agilityaccounting-staging-42319",
+      "StackId": "arn:aws:cloudformation:us-east-1:410957590075:stack/amplify-agilityaccounting-staging-42319/475aee90-3a02-11ec-b284-120edf13c247",
+      "AmplifyAppId": "d2zuoroq5jzalo"
     }
   }
 }

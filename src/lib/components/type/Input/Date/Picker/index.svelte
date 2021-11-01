@@ -1,9 +1,7 @@
 <script>
-  import { isDarkTheme } from "$lib/views/Layout/store";
   import Arrow from "$lib/assets/static/icons/Arrow/index.svelte"
   import Button from "$lib/components/Button/index.svelte"
-  import { createEventDispatcher } from "svelte";
-  const dispatch = createEventDispatcher();
+  import { formatDate } from "$lib/funcs/general"
   import { onMount } from "svelte";
 
   export let val;
@@ -14,27 +12,29 @@
   export let isDisabled = false;
 
   onMount(() => {
-    if (val) {
-      setPickerDate(val)
-      displayVal = formatDate(JSON.parse(val));
-    } else {
+    if (!val) {
       let dNow = new Date(JSON.parse(Date.now()))
       let d = new Date(dNow.getFullYear(),dNow.getMonth(), 1)
       setPickerDate(d.getTime())
     }
   });
 
-  function formatDate(date) {
-    if (date) {
-      const d = new Date(JSON.parse(date));
-      const year = d.getFullYear();
-      const month = ("0" + (d.getMonth() + 1)).slice(-2);
-      const day = ("0" + d.getDate()).slice(-2);
-      return [month, day,  year].join("/");
-    } else {
-      return "mm/dd/yyyy";
+  let hasInit = false
+  $: if(!hasInit && (val || val2)) { updateSelDay(val,val2) }
+  function updateSelDay(val,val2){
+    hasInit = true
+    if(val){
+      setPickerDate(JSON.parse(val))
+      const pickerDay = new Date(JSON.parse(val)).getDate()
+      setDate(pickerYear,pickerMonth,pickerDay)
     }
-  }
+    if(val2){
+      setPickerDate(JSON.parse(val2))
+      const pickerDay2 = new Date(JSON.parse(val2)).getDate()
+      setDate2(pickerYear,pickerMonth,pickerDay2)
+    }
+    correctRangeOrder()
+  }  
 
   let selDate
   let selYear
@@ -109,7 +109,7 @@
       selYear = pickerYear
       selMonth = pickerMonth
       selDay = day
-      val = selDate.getTime()
+      val = JSON.stringify(selDate.getTime())
     } else {
       selDate = null
       selYear = null
@@ -126,7 +126,7 @@
       selYear2 = pickerYear
       selMonth2 = pickerMonth
       selDay2 = day
-      val2 = selDate2.getTime()
+      val2 = JSON.stringify(selDate2.getTime())
     } else {
       selDate2 = null
       selYear2 = null
@@ -156,14 +156,12 @@
           setDate2()
         } else {
           setDate2(pickerYear, pickerMonth, pickerDay)
-          dispatch("select")
         }
       } else if(selDate2){
         if(pickerYear === selYear2 && pickerMonth === selMonth2 && pickerDay === selDay2){
           setDate2()
         } else {
           setDate(pickerYear, pickerMonth, pickerDay)
-          dispatch("select")
         }
       } else {
         setDate(pickerYear, pickerMonth, pickerDay)
@@ -171,7 +169,6 @@
       correctRangeOrder()
     } else {
       setDate(pickerYear, pickerMonth, pickerDay)
-      dispatch("select")
     }
   }
 
@@ -218,7 +215,7 @@
             {isDisabled}
             on:click={() => handleDayClick(i-pickerMonthDayOfWeek + 1)}
           >
-            {i-pickerMonthDayOfWeek + 1}
+            {i-pickerMonthDayOfWeek + 1} 
           </Button>
         {:else}
           <div/>

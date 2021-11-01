@@ -24,7 +24,7 @@
 
 <form class="form" on:submit|preventDefault={handleSignUp}>
   <div class="section">
-    <EmailInput bind:val={$email} bind:isValidEmail />
+    <EmailInput bind:val={$email} bind:isValid={isValidEmail} />
     <PasswordInput
       bind:val={$password}
       bind:isPasswordStandardMet

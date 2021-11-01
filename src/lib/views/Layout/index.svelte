@@ -2,6 +2,7 @@
   import NavBar from "./NavBar/index.svelte";
   import AppNavBar from "./AppNavBar/index.svelte";
   import AuthModal from "./AuthModal/index.svelte";
+  import ContactModal from "$lib/components/ContactModal/index.svelte";
   import { screenWidth, screenHeight, isApp, isAllNavBarHidden, isDarkTheme, setIsDarkTheme } from "./store";
   import { onMount } from "svelte";
 
@@ -25,6 +26,7 @@
   {#if $isApp}
     <AppNavBar />
   {/if}
+  <ContactModal />
   <AuthModal />
 </div>
 

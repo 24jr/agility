@@ -3,6 +3,7 @@
   
   export let hex = "#ff0000"
   export let opacity = .5
+  export let is_show_hex = false
 
 </script>
 
@@ -11,6 +12,9 @@
     <TransparentBG />
     <div class="colorOverlay" style="background: {hex}; opacity: {opacity}"></div>
   </div>
+  {#if is_show_hex}
+    {hex}
+  {/if}
 {/if}
 
 <style>

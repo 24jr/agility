@@ -2,8 +2,9 @@
   import Logo from "$lib/assets/static/Logo/index.svelte";
   import { goto } from "$app/navigation";
   import { isFullNavToggledOn, linkClicks } from "$lib/views/Layout/store";
-  import Hamburger from "$lib/assets/interactive/Hamburger/index.svelte";
-  import NavLinks from "./NavLinks/index.svelte";
+  // import Hamburger from "$lib/assets/interactive/Hamburger/index.svelte";
+  // import NavLinks from "./NavLinks/index.svelte";
+  import ContactButton from "../../ContactButton/index.svelte"
 
   let navBarWidth;
   let logoWidth;
@@ -31,14 +32,15 @@
   <div class="logo" on:click={toHome} bind:offsetWidth={logoWidth}>
     <Logo />
   </div>
-  {#if isRoomForLinks}
+  <!-- {#if isRoomForLinks}
     <div class="navLinks" bind:offsetWidth={navLinksWidth}>
       <NavLinks />
     </div>
   {/if}
   <div class="navHamburger" bind:offsetWidth={navHamburgerWidth}>
     <Hamburger bind:isOpen={$isFullNavToggledOn} />
-  </div>
+  </div> -->
+  <ContactButton />
 </div>
 
 <style>

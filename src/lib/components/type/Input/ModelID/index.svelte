@@ -2,7 +2,7 @@
   import Text from "$lib/components/type/Input/Text/index.svelte";
   import Modal from "$lib/components/Modal/index.svelte";
   import Arrow from "$lib/assets/static/icons/Arrow/index.svelte";
-  import ButtonBasic from "$lib/components/ButtonBasic/index.svelte";
+  import Button from "$lib/components/Button/index.svelte";
   import { queryItemsPart } from "$lib/funcs/gql";
   import LoadingSuccessDiv from "$lib/components/LoadingSuccessDiv/index.svelte";
 
@@ -49,20 +49,20 @@
       class="buttonContainer cardns"
       on:click|preventDefault
     >
-      <ButtonBasic>
+      <Button>
         <Arrow size={1} direction={dir} ml=".2" color="var(--contrast-med)" />
-      </ButtonBasic>
+      </Button>
     </div>
     <div slot="modalContent" let:toggleModal>
       <div class="dropdownContainer">
         <div on:click|preventDefault>
           {#each models as model, index}
-            <ButtonBasic
+            <Button
               on:click={() => (chosenModelIndex = index)}
               isSelected={chosenModelIndex === index}
             >
               {model.name}
-            </ButtonBasic>
+            </Button>
           {/each}
         </div>
         <div class="spacerVert" />

@@ -17,9 +17,9 @@
     font-family: "Lato", "Avenir Next", "Helvetica", "Hiragino Sans", "Verdana", "PT Sans",
       "Helvetica Neue";
 
-    --primary: #197719;
-    --primary-dark: #0d6c0d;
-    --primary-light: #399739;
+    --primary: #2CA01C;
+    --primary-dark: #108000;
+    --primary-light: #53B700;
     --primary-transparent: #1977192a;
     --red-error: #e6263d;
 
@@ -48,6 +48,7 @@
     --bg-highlight-stronger: #b4b4b4;
     --bg-dark: #e4e4e4;
     --contrast-soft: #a4aebc;
+    --contrast-medsoft: #515863;
     --contrast-med: #212833;
     --contrast-strong: #010813;
     --contrast-overlay: #0000000b;
@@ -67,9 +68,9 @@
   }
 
   :global(body.dark) {
-    --primary: #197719;
-    --primary-dark: #0d6c0d;
-    --primary-light: #399739;
+    --primary: #2CA01C;
+    --primary-dark: #108000;
+    --primary-light: #53B700;
     --primary-transparent: #1977195a;
     --red-error: #d6263d;
     --shadow: #0000003a;

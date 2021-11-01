@@ -3,6 +3,7 @@
   import Button from "$lib/components/Button/index.svelte";
 
   export let val;
+  export let display_val;
 
   function openInNewTab(url) {
     Object.assign(document.createElement('a'), {
@@ -14,8 +15,8 @@
 
 <div class="displayItemContainer">
   <div class="displayItem">
-    <p>{val}</p>
-    <Button type="soft" on:click={() => openInNewTab(val)} px=".2">
+    <p>{display_val ? display_val : val}</p>
+    <Button type="soft" on:click={() => openInNewTab(val)} px=".2" minHeight="0">
       <LinkIcon size="1.5" />
     </Button>
   </div>

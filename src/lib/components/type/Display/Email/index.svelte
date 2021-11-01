@@ -4,7 +4,8 @@
   import CopyIcon from "$lib/assets/static/icons/Copy/index.svelte"
 
   export let val;
-  export let isValid = false;
+  
+  let isValid = false;
 
   $: checkIfValid(val);
 

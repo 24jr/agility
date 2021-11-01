@@ -30,8 +30,8 @@
 
 <form class="form" on:submit|preventDefault={handleForgotPasswordReset}>
   <div class="section">
-    <EmailInput bind:val={$email} bind:isValidEmail />
-    <CodeInput bind:val={code} bind:isCodeStandardMet />
+    <EmailInput bind:val={$email} bind:isValid={isValidEmail} />
+    <CodeInput bind:val={code} bind:isValid={isCodeStandardMet} />
     <PasswordInput
       bind:val={$password}
       bind:isPasswordStandardMet

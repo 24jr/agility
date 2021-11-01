@@ -5,13 +5,20 @@
   import OpacitySlider from "./OpacitySlider/index.svelte";
   import Modal from "$lib/components/Modal/index.svelte"
   
+  export let val
   export let hex = "#ff0000"
   export let opacity = .5
 
   let showFull = false
+
+  $: updateVal(hex,opacity)
+  function updateVal(hex, opacity) {
+    val = `${hex}${Math.floor(opacity * 255).toString(16).padStart(2, 0)}`.toUpperCase();
+  }
 </script>
 
 {#if hex && !isNaN(opacity)}
+val: {val}
 <Modal minWidth="225" minHeight="100" type={"dropdown"}>
   <div slot="toggleButton" class="bump displayContainer">
     <div class="colorDisplay">

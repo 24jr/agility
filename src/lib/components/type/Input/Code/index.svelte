@@ -2,13 +2,13 @@
   import numbersOnly from "$lib/Actions/numbersOnly";
 
   export let val;
-  export let isCodeStandardMet = false;
+  export let isValid = false;
   export let isDisabled = false;
 
   $: checkIfCodeStandardMet(val);
 
   function checkIfCodeStandardMet(code) {
-    isCodeStandardMet = code && code.length === 6;
+    isValid = code && code.length === 6;
   }
 </script>
 

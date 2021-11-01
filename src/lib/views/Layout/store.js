@@ -1,13 +1,9 @@
 import { writable,get, derived } from 'svelte/store';
 
 export const links = [
-  { name: 'Dashboard', path: '/' },
-  { name: 'Data', path: '/data/coin/list' },
-  { name: 'Test', path: '/test' },
-  // { name: 'Settings', path: '/settings' },
-  { name: 'Settings', path: '/settings', subLinks: [
-    { name: 'Profile', path: '/profile' },
-  ]},
+  { name: 'Home', path: '/' },
+  { name: 'Admin', path: '/admin' },
+  { name: 'Settings', path: '/settings' }
 ]
 
 export const isDarkTheme = writable(false)

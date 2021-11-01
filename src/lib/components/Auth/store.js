@@ -46,7 +46,7 @@ async function setSignInUser(){
     console.log('signin',userloc)
     user.set(userloc)
     isSignedIn.set(true)
-    authPage.set('loadingdiv')
+    authPage.set('signout')
   } catch(err){
     console.log('setsigninuser error', err)
   }

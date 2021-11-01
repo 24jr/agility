@@ -48,8 +48,7 @@
       : $attributesToChange[0];
 </script>
 
-{JSON.stringify(attributesToChangeObj)} <br />
-{isValidPhoneNumber ? 'valid' : 'not valid'}
+
 <form class="form" on:submit|preventDefault={handleChangeAttributes}>
   {#each Object.keys(attributesToChangeObj) as attribute}
     <div class="section">

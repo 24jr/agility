@@ -3,8 +3,10 @@
   export let placeholder = "text";
   export let maxLength = 900;
   export let isDisabled = false;
+  export let isAlwaysEditable = false
+  export let rows = 5
 
-  let isEditing = !val;
+  let isEditing = isAlwaysEditable ? true : !val;
   let editVal;
 
   $: valChange(val);
@@ -21,7 +23,7 @@
   function handleChange() {
     if (!isDisabled) {
       val = editVal;
-      if (val && val.length > 0) {
+      if (val && val.length > 0 && !isAlwaysEditable) {
         isEditing = false;
       } else {
         isEditing = true;
@@ -49,6 +51,7 @@
       type="text"
       {placeholder}
       maxlength={maxLength}
+      {rows}
       bind:this={editEl}
       bind:value={editVal}
       on:blur={handleChange}

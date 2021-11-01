@@ -6,8 +6,9 @@
   export let isNoSpaces = false;
   export let maxLength = 255;
   export let isDisabled = false;
+  export let isAlwaysEditable = false
 
-  let isEditing = !val;
+  let isEditing = isAlwaysEditable ? true : !val;
   let editVal;
 
   $: valChange(val);
@@ -24,7 +25,7 @@
   function handleChange() {
     if (!isDisabled) {
       val = editVal;
-      if (val && val.length > 0) {
+      if (val && val.length > 0 && !isAlwaysEditable) {
         isEditing = false;
       } else {
         isEditing = true;

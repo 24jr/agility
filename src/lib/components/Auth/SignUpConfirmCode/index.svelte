@@ -27,7 +27,7 @@
 
 <form class="form">
   <div class="section">
-    <p class="emailLabel">{$email}: code: {code}</p>
+    <p class="emailLabel">{$email}</p>
     <CodeInput bind:val={code} bind:isCodeStandardMet />
   </div>
   <ErrorDiv />
