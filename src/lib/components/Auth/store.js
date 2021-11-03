@@ -37,16 +37,20 @@ export function resetMessages(){
   showErrorMessage.set(false)
   successMessage.set('')
   showSuccessMessage.set(false)
+  console.log('here4333')
 }
 
 async function setSignInUser(){
-  console.log('setSignInUser')
   try{
     const userloc = await Auth.currentAuthenticatedUser()
     console.log('signin',userloc)
     user.set(userloc)
-    isSignedIn.set(true)
-    authPage.set('signout')
+    setTimeout(() => {
+      closeModal()
+      resetMessages()
+      authPage.set('loadingdiv')
+      isSignedIn.set(true)
+    }, 1400)
   } catch(err){
     console.log('setsigninuser error', err)
   }
@@ -166,7 +170,7 @@ export async function signIn(email, password) {
         closeModal()
         resetMessages()
         authPage.set('loadingdiv')
-        // isSignedIn.set(true)
+        isSignedIn.set(true)
       }, 1400)
     }
   } catch (err) {

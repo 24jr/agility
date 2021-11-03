@@ -2,6 +2,7 @@
   import { queryItemsPart } from "$lib/funcs/gql";
   import { listFormSubmissions } from "./gql";
   import { onMount } from "svelte"
+  import { formatDate } from "$lib/funcs/general"
 
 import { API, graphqlOperation } from "aws-amplify";
 
@@ -13,26 +14,46 @@ import { API, graphqlOperation } from "aws-amplify";
   })
 
   async function getFormSubmissions(){
-    console.log('gggg')
     const res = await queryItemsPart(listFormSubmissions, null, "listFormSubmissions", null);
-    console.log('kkkkkk',res)
+    console.log('res',res)
     if (res.message === "success") {
-      console.log("res.data.items", res.data.items);
       items = res.data.items
       nextToken = res.data.nextToken
     } else {
-      console.log("err", res);
       items = null
       nextToken = null
     }
   }
 </script>
 
-<!-- <h2 on:click={getFormSubmissions}>test admin</h2> -->
+<h2 on:click={getFormSubmissions}>test admin</h2>
 {#if items}
 <p>Form  Submissions</p>
-{#each items as item}
-  <p>{JSON.stringify(item)}</p>
+<table>
+  <tr>
+    <td>Date</td>
+    <td>Name</td>
+    <td>Phone</td>
+    <td>Email</td>
+    <td>Message</td>
+  </tr>
+  {#each items as item}
+  <tr class="bodyRow">
+    <td>{formatDate(new Date(item.createdAt).getTime())}</td>
+    <td>{item.name}</td>
+    <td>{item.phone}</td>
+    <td>{item.email}</td>
+    <td>{item.message}</td>
+  </tr>
 {/each}
+</table>
+
 
 {/if}
+
+
+<style>
+  .bodyRow td{
+    text-align: left;
+  }
+</style>
