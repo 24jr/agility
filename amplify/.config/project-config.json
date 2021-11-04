@@ -11,7 +11,8 @@
       "SourceDir": "src",
       "DistributionDir": "dist",
       "BuildCommand": "npm run-script build",
-      "StartCommand": "npm run-script start"
+      "StartCommand": "npm run-script start",
+      "ServerlessContainers": false
     }
   }
 }
