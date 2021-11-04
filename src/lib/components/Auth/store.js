@@ -48,7 +48,7 @@ async function setSignInUser(){
     setTimeout(() => {
       closeModal()
       resetMessages()
-      authPage.set('loadingdiv')
+      authPage.set('signout')
       isSignedIn.set(true)
     }, 1400)
   } catch(err){
