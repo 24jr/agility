@@ -15,24 +15,17 @@
 
 // export default config;
 
+import adapter from '@sveltejs/adapter-static';
 
-import adapter from '@sveltejs/adapter-node'
-
-/** @type {import('@sveltejs/kit').Config} */
 export default {
-  kit: {
+	kit: {
     target: '#svelte',
-
-    adapter: adapter({
-      // default options are shown
-      out: 'build',
-      precompress: false,
-      env: {
-        host: 'HOST',
-        port: 'PORT'
-      },
-    }),
-
+		adapter: adapter({
+			// default options are shown
+			pages: 'build',
+			assets: 'build',
+			fallback: null
+		}),
     vite: {
       resolve: {
         alias: {
@@ -40,42 +33,31 @@ export default {
         },
       },
     },
-  },
-}
+	}
+};
 
 
+// import adapter from '@sveltejs/adapter-node'
 
 // /** @type {import('@sveltejs/kit').Config} */
-// import adapter from '@sveltejs/adapter-node';
-
 // export default {
-// 	kit: {
+//   kit: {
 //     target: '#svelte',
-// 		adapter: adapter({
-// 			// default options are shown
-// 			out: 'build',
-// 			precompress: false,
-// 			env: {
-// 				host: 'HOST',
-// 				port: 'PORT'
-// 			},
+//     adapter: adapter({
+//       // default options are shown
+//       out: 'build',
+//       precompress: false,
+//       env: {
+//         host: 'HOST',
+//         port: 'PORT'
+//       },
+//     }),
+//     vite: {
 //       resolve: {
 //         alias: {
 //           './runtimeConfig': './runtimeConfig.browser',
 //         },
 //       },
-// 		})
-// 	}
-// };
-
-// export default defineConfig({
-//   plugins: [vue()],
-//   resolve: {
-//       alias: [
-//       {
-//         find: './runtimeConfig',
-//         replacement: './runtimeConfig.browser',
-//       },
-//     ]
-//   }
-// })
+//     },
+//   },
+// }
