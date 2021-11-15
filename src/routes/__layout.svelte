@@ -3,7 +3,8 @@
   import Layout from "$lib/views/Layout/index.svelte";
   // import Amplify from "aws-amplify";
   import { Amplify } from '@aws-amplify/core'
-  import awsExports from "../aws-exports";
+  // import awsExports from "../aws-exports";
+  import awsExports from "$lib/aws-exports";
   Amplify.configure({ ...awsExports, ssr: true });
   import { initAuth } from "$lib/components/Auth/store";
   initAuth();
