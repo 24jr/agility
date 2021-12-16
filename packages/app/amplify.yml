@@ -1,9 +1,7 @@
 version: 1
-env:
-  variables:
-    USER_BRANCH: staging
 backend:
   phases:
+    # IMPORTANT - Please verify your build commands
     build:
       commands:
         - '# Execute Amplify CLI with the helper script'
@@ -12,12 +10,15 @@ frontend:
   phases:
     preBuild:
       commands:
+        - nvm install 16
         - npm install
     build:
       commands:
-        - npm run build
+        - npm run build -w packages/app
+
   artifacts:
-    baseDirectory: build
+    # IMPORTANT - Please verify your build output directory
+    baseDirectory: packages/app/build
     files:
       - '**/*'
   cache:
