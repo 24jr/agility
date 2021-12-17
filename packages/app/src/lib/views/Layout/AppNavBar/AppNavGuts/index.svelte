@@ -58,11 +58,11 @@
     min-height: 3rem;
     min-width: 12rem;
   }
-  .navHamburger {
+  /* .navHamburger {
     display: flex;
     align-self: center;
     padding: 0.3rem;
-    /* height: 3rem;
-    min-width: 4rem; */
-  }
+    height: 3rem;
+    min-width: 4rem;
+  } */
 </style>

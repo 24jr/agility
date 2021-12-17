@@ -2,7 +2,7 @@
   import X from "$lib/assets/static/icons/X/index.svelte";
   import { screenWidth, screenHeight, shownNavBarHeight } from "$lib/views/Layout/store"
   import { cubicOut } from "svelte/easing";
-  import swipeHandler from "$lib/Actions/swipeHandler";
+  // import swipeHandler from "$lib/Actions/swipeHandler";
 
   export let isShown = false;
   export let type = "center"; // dropdown, center, full
@@ -170,7 +170,6 @@
         class:targetWidth={!isNaN(targetWidth)}
         class:targetHeight={!isNaN(targetHeight)}
         on:wheel|preventDefault
-        use:swipeHandler
         on:downOverflowSwipe={handleDownOverflowSwipe}
         bind:this={contentEl}
         style="
