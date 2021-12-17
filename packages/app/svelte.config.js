@@ -1,20 +1,19 @@
-/** @type {import('@sveltejs/kit').Config} */
 import adapter from '@sveltejs/adapter-static';
 
-export default {
+/** @type {import('@sveltejs/kit').Config} */
+const config = {
 	kit: {
-    target: '#svelte',
-		adapter: adapter({
-			pages: 'build',
-			assets: 'build',
-			fallback: null
-		}),
+		adapter: adapter(),
+		// hydrate the <div id="svelte"> element in src/app.html
+		target: '#svelte',
     vite: {
-      resolve: {
-        alias: {
-          './runtimeConfig': './runtimeConfig.browser',
-        },
-      },
-    },
+			resolve: {
+				alias: {
+					'./runtimeConfig': './runtimeConfig.browser'
+				}
+			}
+		}
 	}
 };
+
+export default config;
