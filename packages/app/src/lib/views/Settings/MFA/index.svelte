@@ -4,7 +4,7 @@
     setPreferredMFA,
     loadingAuthEvent,
   } from "$lib/components/Auth/store";
-  import Button from "$lib/components/Button/index.svelte";
+  import { Button } from "sveltekit-ui";
 
   const mfaOptions = [
     { title: "None", code: "NOMFA", type: "NOMFA" },

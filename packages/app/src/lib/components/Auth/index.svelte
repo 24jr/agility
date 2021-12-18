@@ -4,7 +4,6 @@
     showSuccessMessage,
     successMessage,
     resetMessages,
-    email
   } from "$lib/components/Auth/store";
   import SignUp from "./SignUp/index.svelte";
   import SignIn from "./SignIn/index.svelte";
@@ -18,7 +17,7 @@
   import AttributeConfirmCode from "./AttributeConfirmCode/index.svelte";
   import MfaReset from "./MfaReset/index.svelte";
   import MfaTotp from "./MfaTotp/index.svelte";
-  import LoadingSuccessDiv from "$lib/components/LoadingSuccessDiv/index.svelte";
+  import { LoadingSuccessDiv } from "sveltekit-ui";
 
   $: { $authPage, resetMessages() }
 

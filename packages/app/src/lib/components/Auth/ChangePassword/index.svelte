@@ -7,8 +7,7 @@
     isPasswordShown,
   } from "$lib/components/Auth/store";
   import ErrorDiv from "../ErrorDiv/index.svelte";
-  import PasswordInput from "$lib/components/type/Input/Password/index.svelte";
-  import Button from "$lib/components/Button/index.svelte"
+  import { PasswordInput, Button } from "sveltekit-ui";
 
   $: isOldPasswordLongEnough = $password && $password.length > 5;
 
@@ -41,7 +40,7 @@
   <div class="fillSpace" />
   <div class="section">
     <Button
-      type="color"
+      type="primary"
       isDisabled={$loadingAuthEvent ||
         !isOldPasswordLongEnough ||
         !isPasswordStandardMet ||

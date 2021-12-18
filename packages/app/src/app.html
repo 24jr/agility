@@ -2,30 +2,18 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
+		<meta name="description" content="" />
+		<link rel="icon" href="/favicon.png" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<link rel="icon" href="/favicon.svg" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
-    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#2ca01c">
-    <meta name="msapplication-TileColor" content="#ffffff">
-    <meta name="theme-color" content="#ffffff">
-    <link rel="shortcut icon" href="/favicon.ico">
 		%svelte.head%
+    <script>
+			// temporary workaround for Amplify JS
+			window.global = window;
+			var exports = {};
+		</script>
+	</head>
 	</head>
 	<body>
 		<div id="svelte">%svelte.body%</div>
 	</body>
 </html>
-
-<script>
-  // Need this for aws amplify to not give error...idk
-	// https://github.com/aws-amplify/amplify-js/issues/7499#issuecomment-804386820
-	const isBrowser = () => typeof window !== 'undefined';
-	const isGlobal = () => typeof global !== 'undefined';
-	var exports = {};
-	if (!isGlobal() && isBrowser()) {
-		var global = window;
-	}
-</script>

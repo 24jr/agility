@@ -4,7 +4,7 @@
     loadingAuthEvent,
   } from "$lib/components/Auth/store";
   import ErrorDiv from "../ErrorDiv/index.svelte";
-  import Button from "$lib/components/Button/index.svelte"
+  import { Button } from "sveltekit-ui";
 </script>
 
 <form class="form">
@@ -12,7 +12,7 @@
   <div class="fillSpace" />
   <div class="section">
     <Button
-      type="color"
+      type="primary"
       isDisabled={$loadingAuthEvent}
       isLoading={$loadingAuthEvent}
       on:click={() => setPreferredMFA("NOMFA")}

@@ -7,10 +7,8 @@
     signUp,
     loadingAuthEvent,
   } from "$lib/components/Auth/store";
-  import PasswordInput from "$lib/components/type/Input/Password/index.svelte";
-  import EmailInput from "$lib/components/type/Input/Email/index.svelte";
+  import { PasswordInput, EmailInput, Button } from "sveltekit-ui";
   import ErrorDiv from "../ErrorDiv/index.svelte";
-  import Button from "$lib/components/Button/index.svelte"
 
   let isValidEmail;
   let isPasswordStandardMet;
@@ -36,7 +34,7 @@
   <div class="fillSpace" />
   <div class="section">
     <Button
-      type="color"
+      type="primary"
       isDisabled={$loadingAuthEvent || !submitable}
       isLoading={$loadingAuthEvent}
       on:click={handleSignUp}

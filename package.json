@@ -1,5 +1,5 @@
 {
-  "name": "agility",
+  "name": "amplify-sveltekit-template",
   "version": "1.0.0",
   "workspaces": {
     "packages": [

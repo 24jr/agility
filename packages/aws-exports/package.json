@@ -3,6 +3,7 @@
   "exports": {
     ".": {
       "import": "./aws-exports.js"
-    }
+    },
+    "./package.json": "./package.json"
   }
 }

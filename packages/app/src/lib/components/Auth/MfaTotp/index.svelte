@@ -5,11 +5,8 @@
     loadingAuthEvent,
   } from "$lib/components/Auth/store";
   import ErrorDiv from "../ErrorDiv/index.svelte";
-  import CodeInput from "$lib/components/type/Input/Code/index.svelte";
+  import { CodeInput, QRCode, CopyIcon, Button } from "sveltekit-ui";
   import { onMount } from "svelte";
-  import QRCode from "$lib/components/QRCode/index.svelte";
-  import CopyIcon from "$lib/assets/static/icons/Copy/index.svelte";
-  import Button from "$lib/components/Button/index.svelte"
 
   onMount(() => {
     handleGetMFAsetupCode();
@@ -49,7 +46,7 @@
         </Button>
       </div>
     </div>
-    <CodeInput bind:val={code} bind:isCodeStandardMet />
+    <CodeInput bind:val={code} bind:isValid={isCodeStandardMet} />
   </div>
 <ErrorDiv />
 <div class="fillSpace" />

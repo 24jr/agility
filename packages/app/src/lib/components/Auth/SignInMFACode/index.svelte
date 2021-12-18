@@ -1,8 +1,7 @@
 <script>
   import { authPage, signInMFACode } from "$lib/components/Auth/store";
   import ErrorDiv from "../ErrorDiv/index.svelte";
-  import CodeInput from "$lib/components/type/Input/Code/index.svelte";
-  import Button from "$lib/components/Button/index.svelte"
+  import { CodeInput, Button } from "sveltekit-ui";
 
   let code;
   let isCodeStandardMet;
@@ -17,7 +16,7 @@
 
 <form class="form">
   <div class="section">
-    <CodeInput bind:val={code} bind:isCodeStandardMet />
+    <CodeInput bind:val={code} bind:isValid={isCodeStandardMet} />
   </div>
   <ErrorDiv />
   <div class="fillSpace" />

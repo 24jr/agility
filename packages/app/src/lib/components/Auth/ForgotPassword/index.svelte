@@ -6,8 +6,7 @@
     loadingAuthEvent,
   } from "$lib/components/Auth/store";
   import ErrorDiv from "../ErrorDiv/index.svelte";
-  import EmailInput from "$lib/components/type/Input/Email/index.svelte";
-  import Button from "$lib/components/Button/index.svelte"
+  import { EmailInput, Button } from "sveltekit-ui";
 
   const handleSendForgotPasswordReset = async () => {
     sendForgotPasswordReset($email);
@@ -24,7 +23,7 @@
   <div class="fillSpace" />
   <div class="section">
     <Button
-      type="color"
+      type="primary"
       isDisabled={$loadingAuthEvent || !isValidEmail}
       isLoading={$loadingAuthEvent}
       on:click={handleSendForgotPasswordReset}

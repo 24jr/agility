@@ -9,10 +9,7 @@
     isPasswordShown,
   } from "$lib/components/Auth/store";
   import ErrorDiv from "../ErrorDiv/index.svelte";
-  import PasswordInput from "$lib/components/type/Input/Password/index.svelte";
-  import EmailInput from "$lib/components/type/Input/Email/index.svelte";
-  import CodeInput from "$lib/components/type/Input/Code/index.svelte";
-  import Button from "$lib/components/Button/index.svelte"
+  import { PasswordInput, EmailInput, CodeInput, Button } from "sveltekit-ui";
 
   let isValidEmail;
   let code;
@@ -44,14 +41,14 @@
   <div class="fillSpace" />
   <div class="section">
     <Button
-      type="color"
+      type="primary"
       isDisabled={$loadingAuthEvent || !isValidEmail || !isCodeStandardMet || !isPasswordStandardMet}
       isLoading={$loadingAuthEvent}
       on:click={handleForgotPasswordReset}
       >{$loadingAuthEvent ? "Loading" : "Update Password"}
     </Button>
     <Button
-      type="color"
+      type="primary"
       isDisabled={$loadingAuthEvent || !isValidEmail}
       isLoading={$loadingAuthEvent}
       on:click={handleSendForgotPasswordReset}

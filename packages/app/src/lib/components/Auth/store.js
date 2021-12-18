@@ -37,7 +37,6 @@ export function resetMessages(){
   showErrorMessage.set(false)
   successMessage.set('')
   showSuccessMessage.set(false)
-  console.log('here4333')
 }
 
 async function setSignInUser(){

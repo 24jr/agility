@@ -1,11 +1,6 @@
 <script>
+  import { Button, TextInput, EmailInput, PhoneNumberInput, TextAreaInput, LoadingSuccessDiv  } from "sveltekit-ui"
   import { queryItem, generateMutateParamsAndModel } from "$lib/funcs/gql"
-  import TextAreaInput from "$lib/components/type/Input/TextArea/index.svelte"
-  import PhoneNumberInput from "$lib/components/type/Input/PhoneNumber/index.svelte"
-  import EmailInput from "$lib/components/type/Input/Email/index.svelte"
-  import TextInput from "$lib/components/type/Input/Text/index.svelte"
-  import Button from "$lib/components/Button/index.svelte"
-  import LoadingSuccessDiv from "$lib/components/LoadingSuccessDiv/index.svelte"
 
   export let toggleModal
 
@@ -70,7 +65,7 @@
     <div class="errorContainer">{error}</div>
   {/if}
   <Button
-    type="color"
+    type="primary"
     {isDisabled}
     bind:isLoading
     bind:successTrigger
@@ -83,7 +78,7 @@
   <LoadingSuccessDiv showScreen="success" message="We'll reach out to you soon!" />
   <div class="fillSpace" />
   <Button
-    type="color"
+    type="primary"
     on:click={closeModal}
   >
     Close

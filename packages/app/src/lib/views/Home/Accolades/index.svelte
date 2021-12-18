@@ -1,42 +1,34 @@
 <script>
-  import Cpa from "$lib/assets/static/random/Cpa/index.svelte"
+  // import Cpa from "$lib/assets/static/random/Cpa/index.svelte"
   import Experience from "$lib/assets/static/random/Experience/index.svelte"
   import quickbooks_cert_src from '$lib/assets/static/photos/quickbooks_cert.png'
   import video_meeting_src from '$lib/assets/static/photos/video_meeting.jpg'
-  import IntersectionObserver from "$lib/components/IntersectionObserver/index.svelte"
-  import { fade } from "svelte/transition"
 </script>
 
-<div class="twogrid">
-  <IntersectionObserver only_once="true">
-    <div transition:fade={{duration: 1000}}>
-      <img src={quickbooks_cert_src} alt="quickbooks_cert" height="200" width="auto" class="imgsty" />
-    </div>
-  </IntersectionObserver>
+<div class="twogrid card">
+  <div style="margin: 1rem 0;">
+    <img src={quickbooks_cert_src} alt="quickbooks_cert" height="200" width="auto" class="imgsty" />
+  </div>
   <div class="textContainer">
     <h3 class="headerText">Credibility</h3>
     <p class="subText">Don't let a mistake put you your business at risk</p>
   </div>
 </div>
 
-<div class="twogrid reverse">
-  <IntersectionObserver only_once="true">
-    <div transition:fade={{duration: 1000}}>
-      <Experience size="14" />
-    </div>
-  </IntersectionObserver>
+<div class="twogrid reverse card">
+  <div style="margin: 4rem 0;">
+    <Experience size={14} />
+  </div>
   <div class="textContainer">
     <h3 class="headerText">Experience</h3>
     <p class="subText">This what we do and have been doing for 25+ years</p>
   </div>
 </div>
 
-<div class="twogrid">
-  <IntersectionObserver only_once="true">
-    <div class="cardns vidMeetBox" transition:fade={{duration: 1000}}>
-      <img src={video_meeting_src} alt="video_meeting" height="200" width="auto" class="imgcovsty" />
-    </div>
-  </IntersectionObserver>
+<div class="twogrid card">
+  <div style="margin: 1rem auto;" class="vidMeetBox">
+    <img src={video_meeting_src} alt="video_meeting" height="200" width="auto" class="imgcovsty" />
+  </div>
   <div class="textContainer">
     <h3 class="headerText">Personable</h3>
     <p class="subText">Direct communication with your accountant. No robots or hoops to jump though.</p>

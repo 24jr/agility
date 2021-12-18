@@ -6,10 +6,7 @@
     user,
   } from "$lib/components/Auth/store";
   import ErrorDiv from "../ErrorDiv/index.svelte";
-  import TextInput from "$lib/components/type/Input/Text/index.svelte";
-  import EmailInput from "$lib/components/type/Input/Email/index.svelte";
-  import PhoneNumberInput from "$lib/components/type/Input/PhoneNumber/index.svelte";
-  import Button from "$lib/components/Button/index.svelte"
+  import { TextInput, EmailInput, PhoneNumberInput, Button } from "sveltekit-ui";
 
   const attributesCleanName = {
     email: "Email",
@@ -48,7 +45,6 @@
       : $attributesToChange[0];
 </script>
 
-
 <form class="form" on:submit|preventDefault={handleChangeAttributes}>
   {#each Object.keys(attributesToChangeObj) as attribute}
     <div class="section">
@@ -71,7 +67,7 @@
   <div class="fillSpace" />
   <div class="section">
     <Button
-      type="color"
+      type="primary"
       isDisabled={$loadingAuthEvent || isButtonDisabled}
       isLoading={$loadingAuthEvent}
       on:click={handleChangeAttributes}

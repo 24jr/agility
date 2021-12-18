@@ -1,21 +1,21 @@
 <script context="module">
   import { Modal } from "sveltekit-ui";
+  import Auth from "$lib/components/Auth/index.svelte";
   import Logo from "$lib/assets/static/Logo/index.svelte";
-  import ContactForm from "./ContactForm/index.svelte";
   import {
-    openContactModalTrigger,
-    closeContactModalTrigger,
-  } from "./store";
+    closeModalTrigger,
+    openModalTrigger,
+  } from "$lib/components/Auth/store";
 </script>
 
 <Modal
   minWidth={280}
-  targetWidth={450}
+  targetWidth={400}
   minHeight={280}
-  targetHeight={450}
+  targetHeight={350}
   type={"center"}
-  closeModalWatch={$closeContactModalTrigger}
-  openModalWatch={$openContactModalTrigger}
+  closeModalWatch={$closeModalTrigger}
+  openModalWatch={$openModalTrigger}
 >
   <div class="modalContainer" slot="modalContent" let:toggleModal>
     <div id="logoAndText">
@@ -23,7 +23,7 @@
         <Logo />
       </div>
     </div>
-    <ContactForm {toggleModal} />
+    <Auth />
   </div>
 </Modal>
 
