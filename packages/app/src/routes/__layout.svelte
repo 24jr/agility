@@ -35,8 +35,8 @@
 	];
 
 	const appNavBarLinks = [
-		{ name: 'Home', path: '/' },
-		{ name: 'Settings', path: '/settings' }
+		// { name: 'Home', path: '/' },
+		// { name: 'Settings', path: '/settings' }
 	];
 </script>
 
