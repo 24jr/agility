@@ -1,20 +1,43 @@
 <script context="module">
 	import 'sveltekit-ui/style.css';
-	import { Layout, Button } from 'sveltekit-ui';
-	import Logo from '$lib/assets/static/Logo/index.svelte';
 	import { goto } from '$app/navigation';
 	import { page } from '$app/stores';
 	// import AuthTrigger from '$lib/components/Auth/AuthTrigger/index.svelte';
-	import AuthModal from '$lib/components/Auth/AuthModal/index.svelte';
 	import { Amplify } from 'aws-amplify';
 	import awsExports from 'aws-exports';
 	Amplify.configure({ ...awsExports, ssr: true });
 	import { initAuth } from '$lib/components/Auth/store';
 	initAuth();
+</script>
+
+<script>
+  import AuthModal from '$lib/components/Auth/AuthModal/index.svelte';
+	import Logo from '$lib/assets/static/Logo/index.svelte';
+	import { Layout, Button } from 'sveltekit-ui';  
+  import { 
+    isDarkTheme, 
+    screenWidth, 
+    screenHeight, 
+    screenWidthThreshold, 
+    isSmallScreen, 
+    isAppScreen,
+    isApp,
+    isAllNavBarHidden,
+    isNavBarHidableFromScroll,
+    isNavBarHiddenFromScroll,
+    isNavBarShown,
+    isFullNavPrevented,
+    isFullNavToggledOn,
+    isFullNavShown,
+    navBarHeight,
+    shownNavBarHeight,
+    availableContentHeight
+  } from "$lib/store"
   import ContactModal from "$lib/components/ContactModal/index.svelte"
   import {
     openContactModalTrigger
   } from "$lib/components/ContactModal/store";
+  import Footer from "$lib/views/Footer/index.svelte"
 
 	const fullNavLinks = [
 		// { name: 'Home', path: '/' },
@@ -38,9 +61,37 @@
 		// { name: 'Home', path: '/' },
 		// { name: 'Settings', path: '/settings' }
 	];
+
+  // let alertAdd
+
 </script>
 
-<Layout isShowHamburger={false} {fullNavLinks} {appFullNavLinks} {navBarLinks} {appNavBarLinks} page={$page} {goto}>
+<Layout 
+  {fullNavLinks}
+  {appFullNavLinks}
+  {navBarLinks}
+  {appNavBarLinks} 
+  page={$page} 
+  {goto}
+  isShowHamburger={false}
+  bind:isDarkTheme={$isDarkTheme}
+  bind:screenWidth={$screenWidth} 
+  bind:screenHeight={$screenHeight}
+  bind:screenWidthThreshold={$screenWidthThreshold}
+  bind:isSmallScreen={$isSmallScreen}
+  bind:isAppScreen={$isAppScreen}
+  bind:isApp={$isApp}
+  bind:isAllNavBarHidden={$isAllNavBarHidden}
+  bind:isNavBarHidableFromScroll={$isNavBarHidableFromScroll}
+  bind:isNavBarHiddenFromScroll={$isNavBarHiddenFromScroll}
+  bind:isNavBarShown={$isNavBarShown}
+  bind:isFullNavPrevented={$isFullNavPrevented}
+  bind:isFullNavToggledOn={$isFullNavToggledOn}
+  bind:isFullNavShown={$isFullNavShown}
+  bind:navBarHeight={$navBarHeight}
+  bind:shownNavBarHeight={$shownNavBarHeight}
+  bind:availableContentHeight={$availableContentHeight}
+>
 	<div slot="navBarLogo">
 		<Logo />
 	</div>
@@ -54,7 +105,8 @@
     </Button>
 	</div>
 	<div slot="content">
-		<slot />
+    <slot />
+    <Footer />
 	</div>
 	<div slot="additional">
 		<AuthModal />
@@ -63,17 +115,17 @@
 </Layout>
 
 <style>
-  :root {
-    --primary: #2CA01C;
-    --primary-dark: #108000;
-    --primary-light: #53B700;
-    --primary-transparent: #1977192a;
-  }
+	:root {
+		--primary: #2ca01c;
+		--primary-dark: #108000;
+		--primary-light: #53b700;
+		--primary-transparent: #1977192a;
+	}
 	:global(body.dark) {
-    --primary: #2CA01C;
-    --primary-dark: #108000;
-    --primary-light: #53B700;
-    --primary-transparent: #1977192a;
+		--primary: #2ca01c;
+		--primary-dark: #108000;
+		--primary-light: #53b700;
+		--primary-transparent: #1977192a;
 		--red-error: #d6263d;
 		--shadow: #0000003a;
 		--shadow-soft: #00000040;

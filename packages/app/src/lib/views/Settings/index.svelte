@@ -1,5 +1,5 @@
 <script>
-	import { isDarkTheme } from 'sveltekit-ui/store';
+	import { isDarkTheme } from '$lib/store';
 	import { ToggleInput, Button, LabeledItem, TrashcanIcon, EditIcon } from 'sveltekit-ui';
 	import {
 		user,

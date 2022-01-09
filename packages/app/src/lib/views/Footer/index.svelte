@@ -1,5 +1,5 @@
 <script>
-import { openModalTrigger } from "$lib/components/Auth/store";
+// import { openModalTrigger } from "$lib/components/Auth/store";
 import { goto } from "$app/navigation"
 
 function mailto(){
@@ -16,7 +16,7 @@ function mailto(){
       <h4 class="subText pointer" on:click={mailto}>trose@agility-accounting.com</h4>
     </div>
     <div class="textbox">
-      <h4 class="subText pointer" on:click={() => $openModalTrigger++}>Admin Login</h4>
+      <!-- <h4 class="subText pointer" on:click={() => $openModalTrigger++}>Admin Login</h4> -->
       <h4 class="subText pointer" on:click={() => goto('/admin')}>Admin Page</h4>
     </div>
   </div>
