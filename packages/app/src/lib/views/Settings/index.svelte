@@ -1,6 +1,11 @@
 <script>
 	import { isDarkTheme } from '$lib/store';
-	import { ToggleInput, Button, LabeledItem, TrashcanIcon, EditIcon } from 'sveltekit-ui';
+	// import { ToggleInput, Button, LabeledItem, TrashcanIcon, EditIcon } from 'sveltekit-ui';
+	import ToggleInput from 'sveltekit-ui/Input/Toggle/index.svelte';
+	import Button from 'sveltekit-ui/Button/index.svelte';
+	import LabeledItem from 'sveltekit-ui/LabeledItem/index.svelte';
+	import TrashcanIcon from 'sveltekit-ui/icons/Trashcan/index.svelte';
+	import EditIcon from 'sveltekit-ui/icons/Edit/index.svelte';
 	import {
 		user,
 		isSignedIn,
