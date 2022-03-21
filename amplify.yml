@@ -15,7 +15,7 @@ frontend:
       commands:
         - npm run build -w packages/app
   artifacts:
-    baseDirectory: packages/app/svelte-kit/build
+    baseDirectory: packages/app/build
     files:
       - "**/*"
   cache:

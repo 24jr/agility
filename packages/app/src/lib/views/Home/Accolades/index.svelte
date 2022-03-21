@@ -11,7 +11,7 @@
 			<Cert />
 		</div>
 		<div class="textContainer">
-			<h3 class="headerText">Credibility</h3>
+			<h3 class="headerText">Credibile</h3>
 			<p class="subText">Don't let a mistake put you your business at risk.</p>
 		</div>
 	</div>
@@ -21,7 +21,7 @@
 			<Experience />
 		</div>
 		<div class="textContainer">
-			<h3 class="headerText">Experience</h3>
+			<h3 class="headerText">Experienced</h3>
 			<p class="subText">This what we do and have been doing for 25+ years.</p>
 		</div>
 	</div>

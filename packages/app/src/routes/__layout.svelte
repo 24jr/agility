@@ -95,14 +95,14 @@
 	bind:availableContentHeight={$availableContentHeight}
 >
 	<div slot="navBarLogo">
-		<Logo />
+		<div style="margin-left: 1rem"><Logo /></div>
 	</div>
 	<div slot="appNavBarLogo">
-		<Logo />
+		<div style="margin-left: 1rem"><Logo /></div>
 	</div>
 	<div slot="extraLinks">
 		<!-- <AuthTrigger /> -->
-		<Button type="primary" on:click={() => $openContactModalTrigger++}>
+		<Button mr={1} type="primary" on:click={() => $openContactModalTrigger++}>
 			<h5>Contact Us</h5>
 		</Button>
 	</div>
