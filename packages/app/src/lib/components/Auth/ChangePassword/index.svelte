@@ -7,7 +7,9 @@
     isPasswordShown,
   } from "$lib/components/Auth/store";
   import ErrorDiv from "../ErrorDiv/index.svelte";
-  import { PasswordInput, Button } from "sveltekit-ui";
+  // import { PasswordInput, Button } from "sveltekit-ui";
+  import PasswordInput from "sveltekit-ui/Input/Password/index.svelte";
+  import Button from "sveltekit-ui/Button/index.svelte";
 
   $: isOldPasswordLongEnough = $password && $password.length > 5;
 
@@ -49,13 +51,7 @@
       on:click={handleChangePassword}
       >{$loadingAuthEvent ? "Loading" : "Change Password"}
     </Button>
-    <Button 
-      mt="0"
-      mb="0"
-      py="0"
-      on:click={() => authPage.set("signout")}>
-      Sign out
-    </Button>
+    <Button mt="0" mb="0" py="0" on:click={() => authPage.set("signout")}>Sign out</Button>
   </div>
 </form>
 

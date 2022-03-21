@@ -9,7 +9,11 @@
     isPasswordShown,
   } from "$lib/components/Auth/store";
   import ErrorDiv from "../ErrorDiv/index.svelte";
-  import { PasswordInput, EmailInput, CodeInput, Button } from "sveltekit-ui";
+  // import { PasswordInput, EmailInput, CodeInput, Button } from "sveltekit-ui";
+  import PasswordInput from "sveltekit-ui/Input/Password/index.svelte";
+  import EmailInput from "sveltekit-ui/Input/Email/index.svelte";
+  import CodeInput from "sveltekit-ui/Input/Code/index.svelte";
+  import Button from "sveltekit-ui/Button/index.svelte";
 
   let isValidEmail;
   let code;
@@ -34,7 +38,7 @@
       bind:isPasswordStandardMet
       bind:isPasswordShown={$isPasswordShown}
       isTooltipUsed={true}
-      placeholderText={"new password"}
+      placeholder={"new password"}
     />
   </div>
   <ErrorDiv />
@@ -42,7 +46,10 @@
   <div class="section">
     <Button
       type="primary"
-      isDisabled={$loadingAuthEvent || !isValidEmail || !isCodeStandardMet || !isPasswordStandardMet}
+      isDisabled={$loadingAuthEvent ||
+        !isValidEmail ||
+        !isCodeStandardMet ||
+        !isPasswordStandardMet}
       isLoading={$loadingAuthEvent}
       on:click={handleForgotPasswordReset}
       >{$loadingAuthEvent ? "Loading" : "Update Password"}
@@ -54,13 +61,7 @@
       on:click={handleSendForgotPasswordReset}
       >{$loadingAuthEvent ? "Loading" : "Resend Confirmation Code"}
     </Button>
-    <Button 
-      mt="0"
-      mb="0"
-      py="0"
-      on:click={() => authPage.set("signin")}>
-      Sign In
-    </Button>
+    <Button mt="0" mb="0" py="0" on:click={() => authPage.set("signin")}>Sign In</Button>
   </div>
 </form>
 

@@ -17,7 +17,7 @@
   import AttributeConfirmCode from "./AttributeConfirmCode/index.svelte";
   import MfaReset from "./MfaReset/index.svelte";
   import MfaTotp from "./MfaTotp/index.svelte";
-  import { LoadingSuccessDiv } from "sveltekit-ui";
+  import LoadingSuccessDiv from "sveltekit-ui/LoadingSuccessDiv/index.svelte";
 
   $: { $authPage, resetMessages() }
 

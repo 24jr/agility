@@ -1,5 +1,5 @@
 <script context="module">
-  import { Modal } from "sveltekit-ui";
+  import Modal from "sveltekit-ui/Modal/index.svelte";
   import Auth from "$lib/components/Auth/index.svelte";
   import Logo from "$lib/assets/static/Logo/index.svelte";
   import {
@@ -28,7 +28,7 @@
 </Modal>
 
 <style>
-  .modalContainer{
+  .modalContainer {
     display: flex;
     flex-direction: column;
     flex: 1;

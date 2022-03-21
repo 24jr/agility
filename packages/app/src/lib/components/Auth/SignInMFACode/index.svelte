@@ -1,7 +1,9 @@
 <script>
   import { authPage, signInMFACode } from "$lib/components/Auth/store";
   import ErrorDiv from "../ErrorDiv/index.svelte";
-  import { CodeInput, Button } from "sveltekit-ui";
+  // import { CodeInput, Button } from "sveltekit-ui";
+  import CodeInput from "sveltekit-ui/Input/Code/index.svelte";
+  import Button from "sveltekit-ui/Button/index.svelte";
 
   let code;
   let isCodeStandardMet;
@@ -21,13 +23,7 @@
   <ErrorDiv />
   <div class="fillSpace" />
   <div class="section">
-    <Button 
-      mt="0"
-      mb="0"
-      py="0"
-      on:click={() => authPage.set("signin")}>
-      Back to sign in
-    </Button>
+    <Button mt="0" mb="0" py="0" on:click={() => authPage.set("signin")}>Back to sign in</Button>
   </div>
 </form>
 

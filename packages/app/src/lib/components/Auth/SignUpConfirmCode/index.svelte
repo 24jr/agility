@@ -7,7 +7,8 @@
     loadingAuthEvent,
   } from "$lib/components/Auth/store";
   import ErrorDiv from "../ErrorDiv/index.svelte";
-  import { CodeInput, Button } from "sveltekit-ui";
+  import CodeInput from "sveltekit-ui/Input/Code/index.svelte";
+  import Button from "sveltekit-ui/Button/index.svelte";
 
   let code;
   let isCodeStandardMet;
@@ -26,7 +27,7 @@
 
 <form class="form">
   <div class="section">
-    <p class="emailLabel">{$email}: code: {code}</p>
+    <p class="emailLabel">{$email}</p>
     <CodeInput bind:val={code} bind:isValid={isCodeStandardMet} />
   </div>
   <ErrorDiv />
@@ -39,13 +40,7 @@
       on:click={handleResendSignUpConfirmationCode}
       >{$loadingAuthEvent ? "Loading" : "Send Confirmation Code"}
     </Button>
-    <Button
-      mt="0"
-      mb="0"
-      py="0"
-      on:click={() => authPage.set("signin")}>
-      Sign In
-    </Button>
+    <Button mt="0" mb="0" py="0" on:click={() => authPage.set("signin")}>Sign In</Button>
   </div>
 </form>
 

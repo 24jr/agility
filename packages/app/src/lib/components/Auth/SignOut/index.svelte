@@ -5,7 +5,7 @@
     loadingAuthEvent,
   } from "$lib/components/Auth/store";
   import ErrorDiv from "../ErrorDiv/index.svelte";
-  import { Button } from "sveltekit-ui";
+  import Button from "sveltekit-ui/Button/index.svelte";
 </script>
 
 <div class="container">
@@ -19,27 +19,11 @@
       on:click={signOut}
       >{$loadingAuthEvent ? "Loading" : "Sign Out"}
     </Button>
-    <Button
-      mt="0"
-      mb="0"
-      py="0"
-      on:click={() => authPage.set("changepassword")}>
+    <Button mt="0" mb="0" py="0" on:click={() => authPage.set("changepassword")}>
       Change Password
     </Button>
-    <Button 
-      mt="0"
-      mb="0"
-      py="0"
-      on:click={() => authPage.set("changeemail")}>
-      Change Email
-    </Button>
-    <Button 
-      mt="0"
-      mb="0"
-      py="0"
-      on:click={() => authPage.set("mfatotp")}>
-      Manage MFA TOTP
-    </Button>
+    <Button mt="0" mb="0" py="0" on:click={() => authPage.set("changeemail")}>Change Email</Button>
+    <Button mt="0" mb="0" py="0" on:click={() => authPage.set("mfatotp")}>Manage MFA TOTP</Button>
   </div>
 </div>
 

@@ -13,7 +13,9 @@
 <script>
   import AuthModal from '$lib/components/Auth/AuthModal/index.svelte';
 	import Logo from '$lib/assets/static/Logo/index.svelte';
-	import { Layout, Button } from 'sveltekit-ui';  
+	// import { Layout, Button } from 'sveltekit-ui';  
+  import Layout from "sveltekit-ui/Layout/index.svelte"
+  import Button from "sveltekit-ui/Button/index.svelte"
   import { 
     isDarkTheme, 
     screenWidth, 
@@ -66,31 +68,31 @@
 
 </script>
 
-<Layout 
-  {fullNavLinks}
-  {appFullNavLinks}
-  {navBarLinks}
-  {appNavBarLinks} 
-  page={$page} 
-  {goto}
-  isShowHamburger={false}
-  bind:isDarkTheme={$isDarkTheme}
-  bind:screenWidth={$screenWidth} 
-  bind:screenHeight={$screenHeight}
-  bind:screenWidthThreshold={$screenWidthThreshold}
-  bind:isSmallScreen={$isSmallScreen}
-  bind:isAppScreen={$isAppScreen}
-  bind:isApp={$isApp}
-  bind:isAllNavBarHidden={$isAllNavBarHidden}
-  bind:isNavBarHidableFromScroll={$isNavBarHidableFromScroll}
-  bind:isNavBarHiddenFromScroll={$isNavBarHiddenFromScroll}
-  bind:isNavBarShown={$isNavBarShown}
-  bind:isFullNavPrevented={$isFullNavPrevented}
-  bind:isFullNavToggledOn={$isFullNavToggledOn}
-  bind:isFullNavShown={$isFullNavShown}
-  bind:navBarHeight={$navBarHeight}
-  bind:shownNavBarHeight={$shownNavBarHeight}
-  bind:availableContentHeight={$availableContentHeight}
+<Layout
+	{fullNavLinks}
+	{appFullNavLinks}
+	{navBarLinks}
+	{appNavBarLinks}
+	page={$page}
+	{goto}
+	isShowHamburger={false}
+	bind:isDarkTheme={$isDarkTheme}
+	bind:screenWidth={$screenWidth}
+	bind:screenHeight={$screenHeight}
+	bind:screenWidthThreshold={$screenWidthThreshold}
+	bind:isSmallScreen={$isSmallScreen}
+	bind:isAppScreen={$isAppScreen}
+	bind:isApp={$isApp}
+	bind:isAllNavBarHidden={$isAllNavBarHidden}
+	bind:isNavBarHidableFromScroll={$isNavBarHidableFromScroll}
+	bind:isNavBarHiddenFromScroll={$isNavBarHiddenFromScroll}
+	bind:isNavBarShown={$isNavBarShown}
+	bind:isFullNavPrevented={$isFullNavPrevented}
+	bind:isFullNavToggledOn={$isFullNavToggledOn}
+	bind:isFullNavShown={$isFullNavShown}
+	bind:navBarHeight={$navBarHeight}
+	bind:shownNavBarHeight={$shownNavBarHeight}
+	bind:availableContentHeight={$availableContentHeight}
 >
 	<div slot="navBarLogo">
 		<Logo />
@@ -100,17 +102,17 @@
 	</div>
 	<div slot="extraLinks">
 		<!-- <AuthTrigger /> -->
-    <Button type="primary" on:click={() => $openContactModalTrigger++}>
-      <h5 >Contact Us</h5>
-    </Button>
+		<Button type="primary" on:click={() => $openContactModalTrigger++}>
+			<h5>Contact Us</h5>
+		</Button>
 	</div>
 	<div slot="content">
-    <slot />
-    <Footer />
+		<slot />
+		<Footer />
 	</div>
 	<div slot="additional">
 		<AuthModal />
-    <ContactModal />
+		<ContactModal />
 	</div>
 </Layout>
 
@@ -120,6 +122,10 @@
 		--primary-dark: #108000;
 		--primary-light: #53b700;
 		--primary-transparent: #1977192a;
+
+		--bg-light: #ffffff;
+		--bg-med: #f4f4f4;
+		--gray-light: #dddddd;
 	}
 	:global(body.dark) {
 		--primary: #2ca01c;

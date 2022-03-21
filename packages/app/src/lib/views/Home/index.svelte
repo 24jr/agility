@@ -2,18 +2,30 @@
   import HeaderBox from "./HeaderBox/index.svelte"
   import Accolades from "./Accolades/index.svelte"
   import ContactForm from "$lib/components/ContactModal/ContactForm/index.svelte"
+  import InfoPart from "./InfoPart/index.svelte"
 
   function toggleModal(){}
 </script>
 
 <HeaderBox />
-<Accolades />
-<div class="card contactWrapper">
-  <ContactForm {toggleModal} />
+<div class="accoladesContainer">
+	<Accolades />
+</div>
+<InfoPart />
+<div class="form">
+	<ContactForm {toggleModal} />
 </div>
 
 <style>
-  .contactWrapper{
-    margin: 1rem;
-  }
+	.accoladesContainer {
+		margin: 1rem;
+	}
+	.form {
+		background: white;
+		border-radius: 4rem;
+		overflow: hidden;
+		margin: 2rem;
+		padding: 2rem;
+		border: 1px solid var(--gray-light);
+	}
 </style>

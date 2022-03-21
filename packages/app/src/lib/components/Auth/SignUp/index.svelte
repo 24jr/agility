@@ -7,8 +7,11 @@
     signUp,
     loadingAuthEvent,
   } from "$lib/components/Auth/store";
-  import { PasswordInput, EmailInput, Button } from "sveltekit-ui";
-  import ErrorDiv from "../ErrorDiv/index.svelte";
+  // import { PasswordInput, EmailInput, Button } from "sveltekit-ui";
+  import PasswordInput from "sveltekit-ui/Input/Password/index.svelte";
+  import EmailInput from "sveltekit-ui/Input/Email/index.svelte";
+  import Button from "sveltekit-ui/Button/index.svelte";
+	import ErrorDiv from '../ErrorDiv/index.svelte';
 
   let isValidEmail;
   let isPasswordStandardMet;
@@ -40,13 +43,7 @@
       on:click={handleSignUp}
       >{$loadingAuthEvent ? "Loading" : "Sign Up"}
     </Button>
-    <Button 
-      mt="0"
-      mb="0"
-      py="0"
-      on:click={() => authPage.set("signin")}>
-      Sign In
-    </Button>
+    <Button mt="0" mb="0" py="0" on:click={() => authPage.set("signin")}>Sign In</Button>
   </div>
 </form>
 

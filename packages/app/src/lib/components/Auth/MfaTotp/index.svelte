@@ -5,7 +5,11 @@
     loadingAuthEvent,
   } from "$lib/components/Auth/store";
   import ErrorDiv from "../ErrorDiv/index.svelte";
-  import { CodeInput, QRCode, CopyIcon, Button } from "sveltekit-ui";
+  // import { CodeInput, QRCode, CopyIcon, Button } from "sveltekit-ui";
+  import CodeInput from "sveltekit-ui/Input/Code/index.svelte";
+  import QRCode from "sveltekit-ui/QRCode/index.svelte";
+  import CopyIcon from "sveltekit-ui/assets/static/icons/Copy/index.svelte";
+  import Button from "sveltekit-ui/Button/index.svelte";
   import { onMount } from "svelte";
 
   onMount(() => {
@@ -48,8 +52,8 @@
     </div>
     <CodeInput bind:val={code} bind:isValid={isCodeStandardMet} />
   </div>
-<ErrorDiv />
-<div class="fillSpace" />
+  <ErrorDiv />
+  <div class="fillSpace" />
   <div class="section">
     <Button
       type="outlined"
@@ -79,7 +83,7 @@
   }
   .totpText {
     word-break: break-all;
-    margin: .5rem 0;
+    margin: 0.5rem 0;
   }
   .codeCopyWrap {
     display: flex;

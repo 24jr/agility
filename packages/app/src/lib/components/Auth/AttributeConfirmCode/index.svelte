@@ -7,7 +7,9 @@
     loadingAuthEvent,
   } from "$lib/components/Auth/store";
   import ErrorDiv from "../ErrorDiv/index.svelte";
-  import { CodeInput, Button } from "sveltekit-ui";
+  // import { CodeInput, Button } from "sveltekit-ui";
+	import CodeInput from 'sveltekit-ui/Input/Code/index.svelte';
+	import Button from 'sveltekit-ui/Button/index.svelte';
 
   let code;
   let isCodeStandardMet;

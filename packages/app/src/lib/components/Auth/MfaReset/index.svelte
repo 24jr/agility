@@ -4,7 +4,7 @@
     loadingAuthEvent,
   } from "$lib/components/Auth/store";
   import ErrorDiv from "../ErrorDiv/index.svelte";
-  import { Button } from "sveltekit-ui";
+  import Button from "sveltekit-ui/Button/index.svelte";
 </script>
 
 <form class="form">

@@ -6,7 +6,8 @@
     loadingAuthEvent,
   } from "$lib/components/Auth/store";
   import ErrorDiv from "../ErrorDiv/index.svelte";
-  import { EmailInput, Button } from "sveltekit-ui";
+  import EmailInput from "sveltekit-ui/Input/Email/index.svelte";
+  import Button from "sveltekit-ui/Button/index.svelte";
 
   const handleSendForgotPasswordReset = async () => {
     sendForgotPasswordReset($email);
@@ -29,13 +30,7 @@
       on:click={handleSendForgotPasswordReset}
       >{$loadingAuthEvent ? "Loading" : "Send Password Reset"}
     </Button>
-    <Button
-      mt="0"
-      mb="0"
-      py="0"
-      on:click={() => authPage.set("signin")}>
-      Sign In
-    </Button>
+    <Button mt="0" mb="0" py="0" on:click={() => authPage.set("signin")}>Sign In</Button>
   </div>
 </form>
 

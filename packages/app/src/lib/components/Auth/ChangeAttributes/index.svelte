@@ -6,7 +6,11 @@
     user,
   } from "$lib/components/Auth/store";
   import ErrorDiv from "../ErrorDiv/index.svelte";
-  import { TextInput, EmailInput, PhoneNumberInput, Button } from "sveltekit-ui";
+  // import { TextInput, EmailInput, PhoneNumberInput, Button } from "sveltekit-ui";
+  import TextInput from "sveltekit-ui/Input/Text/index.svelte"
+  import EmailInput from "sveltekit-ui/Input/Email/index.svelte"
+  import PhoneNumberInput from "sveltekit-ui/Input/PhoneNumber/index.svelte"
+  import Button from "sveltekit-ui/Button/index.svelte"
 
   const attributesCleanName = {
     email: "Email",
@@ -54,10 +58,7 @@
           bind:isValid={isValidPhoneNumber}
         />
       {:else if attribute === "email"}
-        <EmailInput
-          bind:val={attributesToChangeObj[attribute]}
-          bind:isValid={isValidEmail}
-        />
+        <EmailInput bind:val={attributesToChangeObj[attribute]} bind:isValid={isValidEmail} />
       {:else}
         <TextInput bind:val={attributesToChangeObj[attribute]} />
       {/if}

@@ -1,5 +1,11 @@
 <script>
-  import { Button, TextInput, EmailInput, PhoneNumberInput, TextAreaInput, LoadingSuccessDiv  } from "sveltekit-ui"
+  // import { Button, TextInput, EmailInput, PhoneNumberInput, TextAreaInput, LoadingSuccessDiv  } from "sveltekit-ui"
+  import Button from "sveltekit-ui/Button/index.svelte"
+  import TextInput from "sveltekit-ui/Input/Text/index.svelte"
+  import EmailInput from "sveltekit-ui/Input/Email/index.svelte"
+  import PhoneNumberInput from "sveltekit-ui/Input/PhoneNumber/index.svelte"
+  import TextAreaInput from "sveltekit-ui/Input/TextArea/index.svelte"
+  import LoadingSuccessDiv from "sveltekit-ui/LoadingSuccessDiv/index.svelte"
   import { queryItem, generateMutateParamsAndModel } from "$lib/funcs/gql"
 
   export let toggleModal
@@ -52,54 +58,54 @@
 </script>
 
 {#if show_screen === 'default'}
-  <h3>Say Hi! Let's get to know each other.</h3>
-  <h3 class="header">Message: *</h3>
-  <TextAreaInput bind:val={messageVal} placeholder="message" isAlwaysEditable="true" />
-  <h3 class="header">Name: *</h3>
-  <TextInput bind:val={nameVal} placeholder="name" isAlwaysEditable="true" />
-  <h3 class="header">Email: *</h3>
-  <EmailInput bind:val={emailVal} placeholder="email" bind:isValid={isValidEmail} />
-  <h3 class="header">Phone Number:</h3>
-  <PhoneNumberInput bind:val={phoneNumberVal} isValid={isPhoneNumberValid} placeholder="phone number" />
-  {#if error}
-    <div class="errorContainer">{error}</div>
-  {/if}
-  <Button
-    type="primary"
-    {isDisabled}
-    bind:isLoading
-    bind:successTrigger
-    bind:errorTrigger
-    on:click={handleSendMessage}
-  >
-    Send Message
-  </Button>
+	<h3>Say Hi! Let's get to know each other.</h3>
+	<h3 class="header">Message: *</h3>
+	<TextAreaInput bind:val={messageVal} placeholder="message" isAlwaysEditable={true} />
+	<h3 class="header">Name: *</h3>
+	<TextInput bind:val={nameVal} placeholder="name" isAlwaysEditable={true} />
+	<h3 class="header">Email: *</h3>
+	<EmailInput bind:val={emailVal} placeholder="email" bind:isValid={isValidEmail} />
+	<h3 class="header">Phone Number:</h3>
+	<PhoneNumberInput
+		bind:val={phoneNumberVal}
+		isValid={isPhoneNumberValid}
+		placeholder="phone number"
+	/>
+	{#if error}
+		<div class="errorContainer">{error}</div>
+	{/if}
+	<Button
+		type="primary"
+		mt={1}
+		{isDisabled}
+		bind:isLoading
+		bind:successTrigger
+		bind:errorTrigger
+		on:click={handleSendMessage}
+	>
+		Send Message
+	</Button>
 {:else}
-  <LoadingSuccessDiv showScreen="success" message="We'll reach out to you soon!" />
-  <div class="fillSpace" />
-  <Button
-    type="primary"
-    on:click={closeModal}
-  >
-    Close
-  </Button>
+	<LoadingSuccessDiv showScreen="success" message="We'll reach out to you soon!" />
+	<div class="fillSpace" />
+	<Button type="primary" on:click={closeModal}>Close</Button>
 {/if}
 
 <style>
-  .header{
-    margin-top: 1rem;
-    margin-left: .5rem;
-    text-align: left;
-    font-size: 1.2rem;
-    color: var(--contrast-medsoft)
-  }
-  .errorContainer {
-    background: var(--red-error);
-    color: var(--white-med);
-    border-radius: 0.5rem;
-    margin: 0.5rem;
-    padding: 0.5rem 0.9rem 0.5rem 0.7rem;
-    text-align: start;
-    position: relative;
-  }
+	.header {
+		margin-top: 1rem;
+		margin-left: 0.5rem;
+		text-align: left;
+		font-size: 1.2rem;
+		color: var(--contrast-medsoft);
+	}
+	.errorContainer {
+		background: var(--red-error);
+		color: var(--white-med);
+		border-radius: 0.5rem;
+		margin: 0.5rem;
+		padding: 0.5rem 0.9rem 0.5rem 0.7rem;
+		text-align: start;
+		position: relative;
+	}
 </style>

@@ -9,7 +9,11 @@
   } from "./gql";
   import { onMount } from "svelte"
   import { formatDate } from "sveltekit-ui/funcs/general"
-  import { Button, ToggleInput, TextAreaInput, addAlert } from "sveltekit-ui"
+  // import { Button, ToggleInput, TextAreaInput, addAlert } from "sveltekit-ui"
+  import Button from "sveltekit-ui/Button/index.svelte"
+  import ToggleInput from "sveltekit-ui/Input/Toggle/index.svelte"
+  import TextAreaInput from "sveltekit-ui/Input/TextArea/index.svelte"
+  import { addAlert } from "sveltekit-ui/Alert/store"
 
   $: if(!$isSignedIn){ $openModalTrigger = $openModalTrigger + 1 }
   $: if($isSignedIn){ getFormSubmissions() }
@@ -85,53 +89,65 @@
 
 </script>
 
-
 <div class="container">
-  <Button type="outlined" text="Sign Out" on:click={()=> $openModalTrigger++}/>
-<h2 on:click={getFormSubmissions}>Form Submissions</h2>
-{#if items}
-<table>
-  <tr>
-    <td>Date</td>
-    <td>Name</td>
-    <td>Email</td>
-    <td>Phone</td>
-    <td>Message</td>
-    <td>Contacted?</td>
-    <td>Interested?</td>
-    <td>Notes</td>
-  </tr>
-  {#each items as item}
-  <tr class="bodyRow">
-    <td>{formatDate(new Date(item.createdAt).getTime())}</td>
-    <td>{item.name}</td>
-    <td>{item.email}</td>
-    <td>{item.phone}</td>
-    <td>{item.message}</td>
-    <td>
-      <ToggleInput bind:val={item.has_contacted} isInstant={false} on:click={e => toggleHasContacted(item.id,item.has_contacted,e)} />
-    </td>
-    <td>
-      <ToggleInput bind:val={item.is_interested} isInstant={false} on:click={e => toggleIsInterested(item.id,item.is_interested,e)} />
-    </td>
-    <td>
-      <TextAreaInput bind:val={item.notes} />
-      <Button type="outlined" minHeight={0} text="Save Note" on:click={()=> saveNote(item.id,item.notes)}/>
-    </td>
-  </tr>
-{/each}
-</table>
-{/if}
+	<Button type="outlined" text="Sign Out" on:click={() => $openModalTrigger++} />
+	<h2 on:click={getFormSubmissions}>Form Submissions</h2>
+	{#if items}
+		<table>
+			<tr>
+				<td>Date</td>
+				<td>Name</td>
+				<td>Email</td>
+				<td>Phone</td>
+				<td>Message</td>
+				<td>Contacted?</td>
+				<td>Interested?</td>
+				<td>Notes</td>
+			</tr>
+			{#each items as item}
+				<tr class="bodyRow">
+					<td>{formatDate(new Date(item.createdAt).getTime())}</td>
+					<td>{item.name}</td>
+					<td>{item.email}</td>
+					<td>{item.phone}</td>
+					<td>{item.message}</td>
+					<td>
+						<ToggleInput
+							bind:val={item.has_contacted}
+							isInstant={false}
+							on:click={e => toggleHasContacted(item.id, item.has_contacted, e)}
+						/>
+					</td>
+					<td>
+						<ToggleInput
+							bind:val={item.is_interested}
+							isInstant={false}
+							on:click={e => toggleIsInterested(item.id, item.is_interested, e)}
+						/>
+					</td>
+					<td>
+						<TextAreaInput bind:val={item.notes} />
+						<Button
+							type="outlined"
+							minHeight={0}
+							text="Save Note"
+							on:click={() => saveNote(item.id, item.notes)}
+						/>
+					</td>
+				</tr>
+			{/each}
+		</table>
+	{/if}
 </div>
 
 <style>
-  .container{
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-    min-height: 80vh;
-  }
-  .bodyRow td{
-    text-align: left;
-  }
+	.container {
+		display: flex;
+		flex-direction: column;
+		flex: 1;
+		min-height: 80vh;
+	}
+	.bodyRow td {
+		text-align: left;
+	}
 </style>

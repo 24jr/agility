@@ -19,17 +19,17 @@ export const showSuccessMessage = writable(false)
 export const closeModalTrigger = writable(1)
 export const openModalTrigger = writable(1)
 
-export function openModal(){
+export function openModal() {
   console.log('open auth modal')
   openModalTrigger.update(n => n + 1)
 }
 
-export function closeModal(){
+export function closeModal() {
   console.log('closeModal')
   closeModalTrigger.update(n => n + 1)
 }
 
-export function resetMessages(){
+export function resetMessages() {
   console.log('resetMessages')
   errorMessage.set('')
   errorResolutuionMessage.set('')
@@ -39,10 +39,10 @@ export function resetMessages(){
   showSuccessMessage.set(false)
 }
 
-async function setSignInUser(){
-  try{
+async function setSignInUser() {
+  try {
     const userloc = await Auth.currentAuthenticatedUser()
-    console.log('signin',userloc)
+    console.log('signin', userloc)
     user.set(userloc)
     setTimeout(() => {
       closeModal()
@@ -50,12 +50,12 @@ async function setSignInUser(){
       authPage.set('signout')
       isSignedIn.set(true)
     }, 1400)
-  } catch(err){
+  } catch (err) {
     console.log('setsigninuser error', err)
   }
 }
 
-function setSignOutUser(){
+function setSignOutUser() {
   isSignedIn.set(false)
   user.set(null)
   email.set('')
@@ -64,11 +64,11 @@ function setSignOutUser(){
   authPage.set('signin')
 }
 
-export async function initAuth(){
-  try{
+export async function initAuth() {
+  try {
     loadingAuthEvent.set(true)
     setSignInUser()
-  } catch(error){
+  } catch (error) {
     console.log('erru7', error)
     setSignOutUser()
   } finally {
@@ -125,7 +125,7 @@ export async function signUp(email, password) {
     }, 4000)
   } catch (error) {
     console.log('signUpErr', error)
-    if(error.code === "UsernameExistsException"){
+    if (error.code === "UsernameExistsException") {
       errorResolutuionMessage.set('Sign in?')
       errorResolutuionScreen.set('signin')
     }
@@ -144,7 +144,7 @@ export async function signIn(email, password) {
     resetMessages()
     const res = await Auth.signIn(email, password);
     user.set(res)
-    if(res.challengeName === 'SMS_MFA' || res.challengeName === 'SOFTWARE_TOKEN_MFA') {
+    if (res.challengeName === 'SMS_MFA' || res.challengeName === 'SOFTWARE_TOKEN_MFA') {
       authPage.set('signinmfacode')
     } else if (res.challengeName === 'NEW_PASSWORD_REQUIRED') {
       // const {requiredAttributes} = user.challengeParam; // the array of required attributes, e.g ['email', 'phone_number']
@@ -186,7 +186,7 @@ export async function signIn(email, password) {
       errorResolutuionMessage.set('Sign up?')
       errorResolutuionScreen.set('signup')
     } else {
-        console.log(err);
+      console.log(err);
     }
     errorMessage.set(err.message)
     showErrorMessage.set(true)
@@ -272,8 +272,8 @@ export async function sendForgotPasswordReset(email) {
   }
 }
 
-export async function forgotPasswordReset(email,code,password) {
-  console.log('sennd password reset', email,code,password)
+export async function forgotPasswordReset(email, code, password) {
+  console.log('sennd password reset', email, code, password)
   try {
     loadingAuthEvent.set(true)
     resetMessages()
@@ -294,8 +294,8 @@ export async function forgotPasswordReset(email,code,password) {
   }
 }
 
-export async function changePassword(curPassword,newPassword) {
-  console.log('change password',curPassword,newPassword)
+export async function changePassword(curPassword, newPassword) {
+  console.log('change password', curPassword, newPassword)
   try {
     loadingAuthEvent.set(true)
     resetMessages()
@@ -319,8 +319,8 @@ export async function changePassword(curPassword,newPassword) {
   }
 }
 
-export async function signUpConfirmCode(email, code){
-  console.log('signupconfirmcode0',email, code);
+export async function signUpConfirmCode(email, code) {
+  console.log('signupconfirmcode0', email, code);
   try {
     loadingAuthEvent.set(true)
     resetMessages()
@@ -341,7 +341,7 @@ export async function signUpConfirmCode(email, code){
   }
 }
 
-export async function resendSignUpConfirmationCode(email){
+export async function resendSignUpConfirmationCode(email) {
   console.log('resendcode0');
   try {
     loadingAuthEvent.set(true)
@@ -366,14 +366,14 @@ export async function resendSignUpConfirmationCode(email){
 export const attributesToChange = writable([])
 export const attributeToConfirmType = writable(null)
 
-export function showChangeAttributesScreen(attributes){
+export function showChangeAttributesScreen(attributes) {
   attributesToChange.set(attributes)
   authPage.set('changeattributes')
   openModal()
   console.log('oppppppenmodal2')
 }
 
-export function showConfirmAttributesScreen(type){
+export function showConfirmAttributesScreen(type) {
   attributeToConfirmType.set(type)
   authPage.set('attributeconfirmcode')
   openModal()
@@ -381,21 +381,21 @@ export function showConfirmAttributesScreen(type){
   Auth.verifyCurrentUserAttribute(type)
 }
 
-export async function changeAttributes(attributesObj){
+export async function changeAttributes(attributesObj) {
   try {
-    console.log('attributesObj00',attributesObj);
+    console.log('attributesObj00', attributesObj);
     loadingAuthEvent.set(true)
     resetMessages()
     let res = await Auth.updateUserAttributes(get(user), attributesObj);
     user.set(await Auth.currentAuthenticatedUser())
-    console.log('resattr',res);
+    console.log('resattr', res);
     successMessage.set('Attributes updated')
     showSuccessMessage.set(true)
     setTimeout(async () => {
-      if(Object.keys(attributesObj).some(h => h === 'email')){
+      if (Object.keys(attributesObj).some(h => h === 'email')) {
         attributeToConfirmType.set('email')
         authPage.set('attributeconfirmcode')
-      } else if(Object.keys(attributesObj).some(h => h === 'phone_number')){
+      } else if (Object.keys(attributesObj).some(h => h === 'phone_number')) {
         await Auth.setPreferredMFA(get(user), 'NOMFA');
         user.set(await Auth.currentAuthenticatedUser())
         attributeToConfirmType.set('phone_number')
@@ -417,7 +417,7 @@ export async function changeAttributes(attributesObj){
   }
 }
 
-export async function resendAttributeVerificationCode(type){
+export async function resendAttributeVerificationCode(type) {
   try {
     loadingAuthEvent.set(true)
     resetMessages()
@@ -437,7 +437,7 @@ export async function resendAttributeVerificationCode(type){
   }
 }
 
-export async function attributeConfirmCode(type, code){
+export async function attributeConfirmCode(type, code) {
   try {
     loadingAuthEvent.set(true)
     resetMessages()
@@ -462,21 +462,21 @@ export async function attributeConfirmCode(type, code){
   }
 }
 
-export async function removeAttribute(type){
+export async function removeAttribute(type) {
   try {
     loadingAuthEvent.set(true)
     resetMessages()
-    if(type === 'phone_number' && get(user).preferredMFA === "SMS_MFA"){
+    if (type === 'phone_number' && get(user).preferredMFA === "SMS_MFA") {
       errorMessage.set('SMS Multi-Factor Auth must be removed in order to remove phone number')
       showErrorMessage.set(true)
       authPage.set('mfareset')
       openModal()
       console.log('oppppppenmodal4')
     } else {
-      let res = await Auth.deleteUserAttributes(get(user), [ type ]);
+      let res = await Auth.deleteUserAttributes(get(user), [type]);
       await Auth.updateUserAttributes(get(user));
       user.set(await Auth.currentAuthenticatedUser())
-      console.log('remove attr',res);
+      console.log('remove attr', res);
       successMessage.set('Attribute removed')
       showSuccessMessage.set(true)
       setTimeout(() => {
@@ -485,7 +485,7 @@ export async function removeAttribute(type){
         resetMessages()
       }, 1400)
     }
-    
+
   } catch (error) {
     console.log('err removing attr:', error)
     errorMessage.set(error.message)
@@ -496,24 +496,24 @@ export async function removeAttribute(type){
 }
 
 
-export async function setPreferredMFA(type){
+export async function setPreferredMFA(type) {
   try {
     loadingAuthEvent.set(true)
     resetMessages()
-    if(type === 'TOTP'){
+    if (type === 'TOTP') {
       authPage.set('mfatotp')
       openModal()
       console.log('oppppppenmodal5')
-    } else if(type === 'SMS'){
+    } else if (type === 'SMS') {
       const userAttr = get(user).attributes
-      if(!userAttr.phone_number){
+      if (!userAttr.phone_number) {
         attributesToChange.set(['phone_number'])
         authPage.set('changeattributes')
         errorMessage.set('Verified phone number required for SMS Multi-Factor Auth')
         showErrorMessage.set(true)
         openModal()
         console.log('oppppppenmodal')
-      } else if(!userAttr.phone_number_verified){
+      } else if (!userAttr.phone_number_verified) {
         attributeToConfirmType.set('phone_number')
         authPage.set('attributeconfirmcode')
         errorMessage.set('Verified phone number required for SMS Multi-Factor Auth')
@@ -525,14 +525,14 @@ export async function setPreferredMFA(type){
         await Auth.setPreferredMFA(get(user), type);
         user.set(await Auth.currentAuthenticatedUser())
       }
-    } else if(type === 'NOMFA'){
+    } else if (type === 'NOMFA') {
       await Auth.setPreferredMFA(get(user), type);
       user.set(await Auth.currentAuthenticatedUser())
       closeModal()
     }
   } catch (error) {
     console.log('setPreferredMFA err:', error)
-    if(error.code === "InvalidParameterException"){
+    if (error.code === "InvalidParameterException") {
       attributesToChange.set(['phone_number'])
       authPage.set('changeattributes')
       openModal()
@@ -545,25 +545,25 @@ export async function setPreferredMFA(type){
   }
 }
 
-export async function getMFAsetupCode(){
+export async function getMFAsetupCode() {
   const issuer = 'symptomtracker'
   let user = await Auth.currentAuthenticatedUser();
   let code = await Auth.setupTOTP(user)
   console.log('mfa code:', code)
-  const uri = "otpauth://totp/AWSCognito:"+ user.attributes.email + "?secret=" + code + "&issuer=" + issuer;
+  const uri = "otpauth://totp/AWSCognito:" + user.attributes.email + "?secret=" + code + "&issuer=" + issuer;
   return { code: code, uri: uri }
 }
 
-export async function mfaConfirmCode(code){
+export async function mfaConfirmCode(code) {
   try {
-    console.log('mfaConfirmCode0',code);
+    console.log('mfaConfirmCode0', code);
     loadingAuthEvent.set(true)
     resetMessages()
     // let user = await Auth.currentAuthenticatedUser();
     let res = await Auth.verifyTotpToken(get(user), code)
     await Auth.setPreferredMFA(get(user), 'TOTP');
     user.set(await Auth.currentAuthenticatedUser())
-    successMessage.set('MFA confirmed', res)
+    successMessage.set('MFA confirmed')
     showSuccessMessage.set(true)
     setTimeout(() => {
       closeModal()
