@@ -12,7 +12,7 @@
 			<br />
 			<li>Accounting software through quickbooks.</li>
 			<br />
-			<li>Located in Columbus, Ohio but remote friendly.</li>
+			<li>Located in Columbus, Ohio but remote-friendly.</li>
 		</ul>
 	</div>
 </div>

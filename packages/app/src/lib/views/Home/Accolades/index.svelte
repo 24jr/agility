@@ -6,7 +6,7 @@
   const items = [
     { icon: Cert, header: 'Credibile', subText: "Don't put your business at risk. Use a Quickbooks Certified ProAdvisor" },
     { icon: Experience, header: 'Experienced', subText: "Accounting is what we do and have been doing for 25+ years." },
-    { icon: Personable, header: 'Personable', subText: "Direct communication. No robots. No hoops to jump though." },
+    { icon: Personable, header: 'Personable', subText: "Direct communication. No robots. No hoops to jump through." },
   ]
 </script>
 
