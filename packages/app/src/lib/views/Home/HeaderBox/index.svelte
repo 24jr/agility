@@ -93,22 +93,22 @@ function activityTypewriter(){
 		box-shadow: 0 0 1rem #cccccc20;
 	}
 	.bgNature {
-		background: url('$lib/assets/static/photos/nature.jpg');
+		background: url('$lib/assets/static/photos/nature.webp');
 	}
 	.bgSkydiving {
-		background: url('$lib/assets/static/photos/skydiving.jpg');
+		background: url('$lib/assets/static/photos/skydiving.webp');
 	}
 	.bgGoals {
-		background: url('$lib/assets/static/photos/goals.jpg');
+		background: url('$lib/assets/static/photos/goals.webp');
 	}
 	.bgSkiing {
-		background: url('$lib/assets/static/photos/skiing.jpg');
+		background: url('$lib/assets/static/photos/skiing.webp');
 	}
 	.bgRelaxing {
-		background: url('$lib/assets/static/photos/relaxing.jpg');
+		background: url('$lib/assets/static/photos/relaxing.webp');
 	}
 	.bgSnorkling {
-		background: url('$lib/assets/static/photos/snorkling.jpg');
+		background: url('$lib/assets/static/photos/snorkling.webp');
 	}
 	.textContainer {
 		position: absolute;

@@ -1,5 +1,5 @@
 <script>
-  import ipad3d_src from '$lib/assets/static/photos/ipad3d.png'
+  import ipad3d_src from '$lib/assets/static/photos/ipad3d.webp'
 </script>
 
 <div class="container">

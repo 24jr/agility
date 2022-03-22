@@ -1,5 +1,5 @@
 <script>
-  import quickbooks_cert_src from '$lib/assets/static/photos/quickbooks_cert.png'
+  import quickbooks_cert_src from '$lib/assets/static/photos/quickbooks_cert.webp'
 </script>
 
 <div class="container">

@@ -1,5 +1,5 @@
 <script>
-  import video_meeting_src from '$lib/assets/static/photos/video_meeting.jpg'
+  import video_meeting_src from '$lib/assets/static/photos/video_meeting.webp'
 </script>
 
 <div class="container">
