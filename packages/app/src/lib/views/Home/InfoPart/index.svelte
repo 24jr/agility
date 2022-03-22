@@ -24,13 +24,13 @@
 		background-color: var(--primary);
 		margin: 1rem 2rem;
 		border-radius: 4rem;
+		padding: 2rem;
 		box-shadow: 0 0 1rem #cccccc20;
 	}
 	.textbox {
 		background: var(--primary-light);
 		display: flex;
 		padding: 2rem;
-		margin: 2rem;
 		border-radius: 2rem;
 	}
 	.myul {
@@ -45,9 +45,6 @@
 	}
 	.myul li {
 		font-weight: 400;
-	}
-	.icon {
-		margin: 2rem auto;
 	}
 	.imgsty {
 		object-fit: contain;
