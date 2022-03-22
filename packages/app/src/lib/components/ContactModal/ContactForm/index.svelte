@@ -75,16 +75,20 @@
 		<div class="errorContainer">{error}</div>
 	{/if}
 	<Button
-		type="primary"
 		mt={1}
+		pl={1}
+		pr={1}
+		mr={1}
+		minHeight={4}
+		type="primary"
 		{isDisabled}
-		isPill={true}
 		bind:isLoading
 		bind:successTrigger
 		bind:errorTrigger
 		on:click={handleSendMessage}
+		isPill={true}
 	>
-		Send Message
+		<h5>Send Message</h5>
 	</Button>
 {:else}
 	<LoadingSuccessDiv showScreen="success" message="We'll reach out to you soon!" />

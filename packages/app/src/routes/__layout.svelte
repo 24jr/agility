@@ -102,7 +102,14 @@
 	</div>
 	<div slot="extraLinks">
 		<!-- <AuthTrigger /> -->
-		<Button mr={1} type="primary" on:click={() => $openContactModalTrigger++}>
+		<Button
+			isPill={true}
+			pl={1}
+			pr={1}
+			mr={1}
+			type="primary"
+			on:click={() => $openContactModalTrigger++}
+		>
 			<h5>Contact Us</h5>
 		</Button>
 	</div>

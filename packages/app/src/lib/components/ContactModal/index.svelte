@@ -13,10 +13,10 @@
 	minWidth={280}
 	targetWidth={450}
 	minHeight={280}
-	targetHeight={515}
+	targetHeight={525}
 	px={1}
 	py={1}
-	type={'center'}
+	type={'full'}
 	closeModalWatch={$closeContactModalTrigger}
 	openModalWatch={$openContactModalTrigger}
 >
