@@ -58,14 +58,14 @@
 </script>
 
 {#if show_screen === 'default'}
-	<h3>Say Hi! Let's get to know each other.</h3>
-	<h3 class="header">Message: *</h3>
+	<h3>Say Hi! Let's see if you're a good fit.</h3>
+	<h3 class="label">Message: *</h3>
 	<TextAreaInput bind:val={messageVal} placeholder="message" isAlwaysEditable={true} />
-	<h3 class="header">Name: *</h3>
+	<h3 class="label">Name: *</h3>
 	<TextInput bind:val={nameVal} placeholder="name" isAlwaysEditable={true} />
-	<h3 class="header">Email: *</h3>
+	<h3 class="label">Email: *</h3>
 	<EmailInput bind:val={emailVal} placeholder="email" bind:isValid={isValidEmail} />
-	<h3 class="header">Phone Number:</h3>
+	<h3 class="label">Phone Number:</h3>
 	<PhoneNumberInput
 		bind:val={phoneNumberVal}
 		isValid={isPhoneNumberValid}
@@ -78,6 +78,7 @@
 		type="primary"
 		mt={1}
 		{isDisabled}
+		isPill={true}
 		bind:isLoading
 		bind:successTrigger
 		bind:errorTrigger
@@ -92,11 +93,11 @@
 {/if}
 
 <style>
-	.header {
+	.label {
 		margin-top: 1rem;
 		margin-left: 0.5rem;
 		text-align: left;
-		font-size: 1.2rem;
+		font-size: 1.6rem;
 		color: var(--contrast-medsoft);
 	}
 	.errorContainer {

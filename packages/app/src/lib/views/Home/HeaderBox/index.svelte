@@ -67,8 +67,8 @@ function activityTypewriter(){
 	{/each}
 	<div class="textContainer">
 		<div class="textInnerContainer">
-			<h3 class="contentText">We'll do the accounting</h3>
 			<h3 class="contentText">
+				We'll do the accounting<br />
 				You focus on <span class="activityText">{shownActivityName}</span>
 			</h3>
 		</div>
@@ -89,7 +89,7 @@ function activityTypewriter(){
 		right: 0;
 		background-size: cover !important;
 		border-radius: 4rem;
-		border: 1px solid var(--gray-light);
+		box-shadow: 0 0 1rem #cccccc20;
 	}
 	.bgNature {
 		background: url('$lib/assets/static/photos/nature.jpg');
@@ -130,6 +130,7 @@ function activityTypewriter(){
 	}
 	.contentText {
 		font-size: 4rem;
+		line-height: 6rem;
 		color: #ffffff;
 		max-width: 50rem;
 		margin: 2rem 0;

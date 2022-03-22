@@ -124,7 +124,9 @@
 		--primary-transparent: #1977192a;
 
 		--bg-light: #ffffff;
-		--bg-med: #f4f4f4;
+		/* --bg-med: #f4f4f4; */
+		--bg-med: #eef2f2;
+
 		--gray-light: #dddddd;
 	}
 	:global(body.dark) {
@@ -168,47 +170,47 @@
 	:global(body) {
 		background: var(--bg-med);
 		color: var(--contrast-med);
-		font-size: 14px;
-		font-size: 1.4rem;
-		margin: 0;
-	}
-	:global(h1) {
-		font-size: 20px;
-		font-size: 2rem;
-		margin: 0;
-	}
-	:global(h1) {
-		font-size: 20px;
-		font-size: 2rem;
-		margin: 0;
-	}
-	:global(h2) {
-		font-size: 18px;
-		font-size: 1.8rem;
-		margin: 0;
-	}
-	:global(h3) {
 		font-size: 16px;
 		font-size: 1.6rem;
 		margin: 0;
 	}
+	:global(h1) {
+		font-size: 30px;
+		font-size: 3rem;
+		font-weight: 700;
+		margin: 0;
+	}
+	:global(h2) {
+		font-size: 24px;
+		font-size: 2.4rem;
+		font-weight: 700;
+		margin: 0;
+	}
+	:global(h3) {
+		font-size: 20px;
+		font-size: 2rem;
+		font-weight: 700;
+		margin: 0;
+	}
 	:global(h4) {
-		font-size: 15px;
-		font-size: 1.5rem;
+		font-size: 18px;
+		font-size: 1.8rem;
+		font-weight: 700;
 		margin: 0;
 	}
 	:global(h5) {
-		font-size: 14px;
-		font-size: 1.4rem;
+		font-size: 16px;
+		font-size: 1.6rem;
+		font-weight: 700;
 		margin: 0;
 	}
 	:global(div) {
-		font-size: 14px;
-		font-size: 1.4rem;
+		font-size: 16px;
+		font-size: 1.6rem;
 	}
 	:global(p) {
-		font-size: 14px;
-		font-size: 1.4rem;
+		font-size: 16px;
+		font-size: 1.6rem;
 		margin: 0;
 	}
 	:global(::placeholder) {

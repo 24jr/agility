@@ -8,24 +8,19 @@
 </script>
 
 <HeaderBox />
-<div class="accoladesContainer">
-	<Accolades />
-</div>
+<Accolades />
 <InfoPart />
 <div class="form">
 	<ContactForm {toggleModal} />
 </div>
 
 <style>
-	.accoladesContainer {
-		margin: 1rem;
-	}
 	.form {
 		background: white;
 		border-radius: 4rem;
 		overflow: hidden;
 		margin: 2rem;
 		padding: 2rem;
-		border: 1px solid var(--gray-light);
+		box-shadow: 0 0 1rem #cccccc20;
 	}
 </style>
