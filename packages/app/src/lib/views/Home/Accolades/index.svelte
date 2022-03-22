@@ -1,40 +1,27 @@
 <script>
-  // import Cpa from "$lib/assets/static/random/Cpa/index.svelte"
-  import Cert from "$lib/views/Home/Accolades/displays/Cert/index.svelte"
-  import Experience from "$lib/views/Home/Accolades/displays/Experience/index.svelte"
-  import Personable from "$lib/views/Home/Accolades/displays/Personable/index.svelte"
+  import Cert from "./displays/Cert/index.svelte"
+  import Experience from "./displays/Experience/index.svelte"
+  import Personable from "./displays/Personable/index.svelte"
+
+  const items = [
+    { icon: Cert, header: 'Credibile', subText: "Don't put your business at risk. Use a Quickbooks Certified ProAdvisor" },
+    { icon: Experience, header: 'Experienced', subText: "Accounting is what we do and have been doing for 25+ years." },
+    { icon: Personable, header: 'Credibile', subText: "Direct communication. No robots. No hoops to jump though." },
+  ]
 </script>
 
 <div class="container">
-	<div class="accolade">
-		<div class="floatIcon">
-			<Cert />
+	{#each items as item (item.header)}
+		<div class="accolade">
+			<div>
+				<svelte:component this={item.icon} />
+			</div>
+			<div class="textContainer">
+				<h3 class="headerText">{item.header}</h3>
+				<p class="subText">{item.subText}</p>
+			</div>
 		</div>
-		<div class="textContainer">
-			<h3 class="headerText">Credibile</h3>
-			<p class="subText">Don't let a mistake put you your business at risk.</p>
-		</div>
-	</div>
-
-	<div class="accolade">
-		<div class="floatIcon">
-			<Experience />
-		</div>
-		<div class="textContainer">
-			<h3 class="headerText">Experienced</h3>
-			<p class="subText">This what we do and have been doing for 25+ years.</p>
-		</div>
-	</div>
-
-	<div class="accolade">
-		<div class="floatIcon">
-			<Personable />
-		</div>
-		<div class="textContainer">
-			<h3 class="headerText">Personable</h3>
-			<p class="subText">Direct communication. No robots. No hoops to jump though.</p>
-		</div>
-	</div>
+	{/each}
 </div>
 
 <style>
@@ -43,49 +30,36 @@
 		/* grid-template-columns: repeat(auto-fit, minmax(clamp(24rem, 30%, 100%), 1fr)); */
 		grid-template-columns: repeat(
 			auto-fit,
-			minmax(clamp(33.3333%, (80rem - 100%) * 999, 100%), 1fr)
+			minmax(clamp(33.3333%, (120rem - 100%) * 999, 100%), 1fr)
 		);
 		justify-content: space-around;
+		margin: 1rem;
 	}
 	.accolade {
-		position: relative;
-		height: 32rem;
-		width: 100%;
-	}
-	.floatIcon {
-		position: absolute;
-		top: 0;
-		left: 50%;
-		bottom: 30%;
-		transform: translateX(-50%);
-		z-index: 2;
-	}
-	.textContainer {
-		position: absolute;
-		top: 30%;
-		left: 0;
-		right: 0;
-		bottom: 0;
 		display: flex;
-		flex-direction: column;
 		margin: 1rem;
 		background: var(--white-light);
 		border-radius: 4rem;
 		padding: 2rem;
-		border: 1px solid var(--gray-light);
+		box-shadow: 0 0 1rem #cccccc20;
+	}
+	.textContainer {
+		display: flex;
+		flex-direction: column;
 		line-height: 2.8rem;
+		max-width: 26rem;
+		text-align: left;
+		margin: auto;
 	}
 	.headerText {
-		font-size: 4rem;
-		color: var(--primary-dark);
-		font-family: 'Lora';
+		font-size: 3.2rem;
+		color: var(--black-med);
 		font-weight: 600;
-		text-align: center;
-		margin: 2.4rem auto 1.4rem auto;
+		margin: 0 1.5rem 1rem 2rem;
 	}
 	.subText {
+		color: var(--gray-dark);
 		font-size: 2rem;
-		text-align: center;
-		margin: 0 0 1rem 1rem;
+		margin: 0 1.5rem 2rem 2rem;
 	}
 </style>

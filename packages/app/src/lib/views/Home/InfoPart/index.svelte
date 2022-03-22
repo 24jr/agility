@@ -8,9 +8,9 @@
 	</div>
 	<div class="textbox">
 		<ul class="myul">
-			<li>We work with small to medium size businesses</li>
-			<li>Accounting software through quickbooks</li>
-			<li>Located in Columbus, Ohio but remote friendly</li>
+			<li>We work with small to medium size businesses.</li>
+			<li>Accounting software through quickbooks.</li>
+			<li>Located in Columbus, Ohio but remote friendly.</li>
 		</ul>
 	</div>
 </div>
@@ -21,27 +21,33 @@
 		grid-template-columns: repeat(auto-fit, minmax(clamp(40rem, 50%, 100%), 1fr));
 		background-color: var(--primary);
 		margin: 2rem;
-		padding: 2rem 0;
 		border-radius: 4rem;
+		box-shadow: 0 0 1rem #cccccc20;
 	}
 	.textbox {
-		color: white;
-		text-align: left;
-		margin: auto;
-		max-width: 25rem;
+		background: var(--primary-light);
+		display: flex;
+		padding: 2rem;
+		margin: 2rem;
+		border-radius: 2rem;
 	}
 	.myul {
 		padding: 0;
 		margin: 0;
-		font-size: 2.2rem;
+		font-size: 2.4rem;
 		line-height: 3rem;
+		color: white;
+		text-align: left;
+		margin: auto;
+		max-width: 50rem;
+		list-style-type: none;
 	}
 	.myul li {
 		margin-bottom: 3rem;
-		font-weight: 600;
+		font-weight: 500;
 	}
 	.icon {
-		margin: auto;
+		margin: 2rem auto;
 	}
 	.imgsty {
 		object-fit: contain;

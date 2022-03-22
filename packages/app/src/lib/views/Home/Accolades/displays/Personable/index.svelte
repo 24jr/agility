@@ -3,35 +3,22 @@
 </script>
 
 <div class="container">
-	<div class="bg" />
-	<div class="icon">
+	<div class="frame">
 		<img src={video_meeting_src} alt="quickbooks_cert" height="60" width="auto" class="imgsty" />
 	</div>
 </div>
 
 <style>
 	.container {
-		position: relative;
 		display: flex;
 		width: 14rem;
-		height: 14rem;
-	}
-	.bg {
-		position: absolute;
-		z-index: 1;
-		left: 0;
-		right: 0;
-		top: 0;
-		bottom: 0;
+		height: 18rem;
 		background: var(--primary);
-		border-radius: 9rem;
+		border-radius: 2rem;
+		justify-content: center;
+		align-items: center;
 	}
-	.icon {
-		position: absolute;
-		top: 50%;
-		left: 50%;
-		transform: translate(-50%, -50%);
-		z-index: 2;
+	.frame {
 		height: 60px;
 		aspect-ratio: 1.7;
 		border-radius: 2rem;
