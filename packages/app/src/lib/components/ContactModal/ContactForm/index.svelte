@@ -58,7 +58,7 @@
 </script>
 
 {#if show_screen === 'default'}
-	<h3>Say Hi! Let's see if you're a good fit.</h3>
+	<h3 class="header">Say Hi! Let's see if you're a good fit.</h3>
 	<h3 class="label">Message: *</h3>
 	<TextAreaInput bind:val={messageVal} placeholder="message" isAlwaysEditable={true} />
 	<h3 class="label">Name: *</h3>
@@ -93,6 +93,11 @@
 {/if}
 
 <style>
+	.header {
+		font-weight: 400;
+		font-size: 1.8rem;
+		color: var(--black-med);
+	}
 	.label {
 		margin-top: 1rem;
 		margin-left: 0.5rem;

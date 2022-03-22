@@ -13,7 +13,7 @@
 	minWidth={280}
 	targetWidth={450}
 	minHeight={280}
-	targetHeight={485}
+	targetHeight={500}
 	px={1}
 	py={1}
 	type={'center'}
@@ -35,6 +35,7 @@
 		display: flex;
 		flex-direction: column;
 		flex: 1;
+		margin: 1rem;
 	}
 	#logoAndText {
 		display: flex;

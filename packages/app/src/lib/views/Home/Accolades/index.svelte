@@ -6,7 +6,7 @@
   const items = [
     { icon: Cert, header: 'Credibile', subText: "Don't put your business at risk. Use a Quickbooks Certified ProAdvisor" },
     { icon: Experience, header: 'Experienced', subText: "Accounting is what we do and have been doing for 25+ years." },
-    { icon: Personable, header: 'Credibile', subText: "Direct communication. No robots. No hoops to jump though." },
+    { icon: Personable, header: 'Personable', subText: "Direct communication. No robots. No hoops to jump though." },
   ]
 </script>
 
@@ -52,14 +52,14 @@
 		margin: auto;
 	}
 	.headerText {
-		font-size: 3.2rem;
+		font-size: 3rem;
 		color: var(--black-med);
 		font-weight: 600;
 		margin: 0 1.5rem 1rem 2rem;
 	}
 	.subText {
 		color: var(--gray-dark);
-		font-size: 2rem;
+		font-size: 1.8rem;
 		margin: 0 1.5rem 2rem 2rem;
 	}
 </style>
