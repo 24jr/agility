@@ -11,12 +11,17 @@
 	/>
 	<meta name="googlebot" content="all" />
 	<meta name="robots" content="index" />
-	<html lang="en" />
 	<meta name="twitter:card" content="summary_large_image" />
 	<meta name="twitter:title" content="Agility Accounting" />
-	<meta name="twitter:description" content="Accounting in Central Ohio" />
+	<meta
+		name="twitter:description"
+		content="Agility Accounting does accounting for small to medium size buisinesses through use of quickbooks. We are located in Columbus, Ohio but can opperae remotely as well."
+	/>
 	<meta property="og:title" content="Agility Accounting" />
-	<meta property="og:description" content="Accounting in Central Ohio" />
+	<meta
+		property="og:description"
+		content="Agility Accounting does accounting for small to medium size buisinesses through use of quickbooks. We are located in Columbus, Ohio but can opperae remotely as well."
+	/>
 	<meta property="og:image" content={agility_card_src} />
 </svelte:head>
 
