@@ -20,7 +20,7 @@
 		display: grid;
 		grid-template-columns: repeat(auto-fit, minmax(clamp(40rem, 50%, 100%), 1fr));
 		background-color: var(--primary);
-		margin: 2rem;
+		margin: 1rem 2rem;
 		border-radius: 4rem;
 		box-shadow: 0 0 1rem #cccccc20;
 	}

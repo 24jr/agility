@@ -33,7 +33,7 @@
 			minmax(clamp(33.3333%, (120rem - 100%) * 999, 100%), 1fr)
 		);
 		justify-content: space-around;
-		margin: 1rem;
+		margin: 0 1rem;
 	}
 	.accolade {
 		display: flex;
