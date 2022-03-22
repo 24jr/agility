@@ -67,10 +67,11 @@ function activityTypewriter(){
 	{/each}
 	<div class="textContainer">
 		<div class="textInnerContainer">
-			<h3 class="contentText">
-				We'll do the accounting<br />
-				You focus on <span class="activityText">{shownActivityName}</span>
-			</h3>
+			<h2 class="contentText">We'll do the accounting.</h2>
+			<h2 class="contentText2">
+				You focus on<br />
+				<span class="activityText">{shownActivityName}</span>
+			</h2>
 		</div>
 	</div>
 </div>
@@ -129,6 +130,12 @@ function activityTypewriter(){
 		align-self: center;
 	}
 	.contentText {
+		font-size: 3rem;
+		line-height: 4rem;
+		color: #ffffff;
+		max-width: 50rem;
+	}
+	.contentText2 {
 		font-size: 4rem;
 		line-height: 6rem;
 		color: #ffffff;
