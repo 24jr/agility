@@ -13,7 +13,7 @@
 	minWidth={280}
 	targetWidth={450}
 	minHeight={280}
-	targetHeight={500}
+	targetHeight={515}
 	px={1}
 	py={1}
 	type={'center'}

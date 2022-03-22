@@ -13,9 +13,7 @@
 <div class="container">
 	{#each items as item (item.header)}
 		<div class="accolade">
-			<div>
-				<svelte:component this={item.icon} />
-			</div>
+			<svelte:component this={item.icon} />
 			<div class="textContainer">
 				<h3 class="headerText">{item.header}</h3>
 				<p class="subText">{item.subText}</p>
