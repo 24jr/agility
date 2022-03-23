@@ -87,9 +87,10 @@
 		bind:errorTrigger
 		on:click={handleSendMessage}
 		isPill={true}
-	>
-		<h5>Send Message</h5>
-	</Button>
+		text="Send Message"
+		fontWeight={500}
+		fontSize={1.8}
+	/>
 {:else}
 	<LoadingSuccessDiv showScreen="success" message="We'll reach out to you soon!" />
 	<div class="fillSpace" />
