@@ -3,8 +3,8 @@
 </script>
 
 <div class="container">
-	<div class="icon">
-		<img src={ipad3d_src} alt="quickbooks_cert" height="250" width="auto" class="imgsty" />
+	<div class="imgbox">
+		<img src={ipad3d_src} alt="ipad3d_src" height="100%" width="100%" class="imgsty" />
 	</div>
 	<div class="textbox">
 		<ul class="myul">
@@ -27,6 +27,12 @@
 		padding: 2rem;
 		box-shadow: 0 0 1rem #cccccc20;
 	}
+	.imgbox {
+		max-height: 25rem;
+		height: clamp(10rem, 100%, 25rem);
+		/* width: clamp(10rem, 100%, 25rem); */
+		margin: 1rem;
+	}
 	.textbox {
 		background: var(--primary-light);
 		display: flex;
@@ -48,6 +54,5 @@
 	}
 	.imgsty {
 		object-fit: contain;
-		margin: 1rem;
 	}
 </style>
