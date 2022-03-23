@@ -46,13 +46,13 @@
     }
   }, false);
   function manageViewport() {
-    if (screen.width < 405) {
+    if (screen.width < 415) {
       var viewport = document.querySelector("meta[name=viewport]");
       viewport.parentNode.removeChild(viewport);
 
       var newViewport = document.createElement("meta");
       newViewport.setAttribute("name", "viewport");
-      newViewport.setAttribute("content", "width=405, user-scalable=no");
+      newViewport.setAttribute("content", "width=415, user-scalable=no");
       document.head.appendChild(newViewport);
     } else {
       var viewport = document.querySelector("meta[name=viewport]");

@@ -17,6 +17,7 @@
 		border-radius: 2rem;
 		justify-content: center;
 		align-items: center;
+		padding: 0 0.5rem;
 	}
 	.frame {
 		height: 60px;
