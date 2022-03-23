@@ -8,10 +8,8 @@
 	</div>
 	<div class="textbox">
 		<ul class="myul">
-			<li>We work with small to medium size businesses.</li>
-			<br />
-			<li>Accounting software through quickbooks.</li>
-			<br />
+			<li>We work with small to medium size businesses.<br /><br /></li>
+			<li>Accounting software through quickbooks.<br /><br /></li>
 			<li>Located in Columbus, Ohio but remote-friendly.</li>
 		</ul>
 	</div>
