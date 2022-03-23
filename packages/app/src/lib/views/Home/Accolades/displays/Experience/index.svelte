@@ -15,5 +15,6 @@
 		border-radius: 2rem;
 		justify-content: center;
 		align-items: center;
+		padding: 0 0.5rem;
 	}
 </style>
