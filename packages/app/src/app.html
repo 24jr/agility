@@ -34,8 +34,35 @@
 </head>
 </head>
 
-<body>
+<body onload="manageViewport()" onresize="manageViewport()" onchange="manageViewport()">
   <div id="svelte">%svelte.body%</div>
 </body>
+<script>
+  document.addEventListener('touchmove', function (event) {
+    event = event.originalEvent || event;
+    if (event.scale > 1) {
+      event.preventDefault();
+    }
+  }, false);
+  function manageViewport() {
+    if (screen.width < 405) {
+      var viewport = document.querySelector("meta[name=viewport]");
+      viewport.parentNode.removeChild(viewport);
+
+      var newViewport = document.createElement("meta");
+      newViewport.setAttribute("name", "viewport");
+      newViewport.setAttribute("content", "width=405, user-scalable=no");
+      document.head.appendChild(newViewport);
+    } else {
+      var viewport = document.querySelector("meta[name=viewport]");
+      viewport.parentNode.removeChild(viewport);
+
+      var newViewport = document.createElement("meta");
+      newViewport.setAttribute("name", "viewport");
+      newViewport.setAttribute("content", "width=device-width,initial-scale=1, user-scalable=no");
+      document.head.appendChild(newViewport);
+    }
+  }
+</script>
 
 </html>

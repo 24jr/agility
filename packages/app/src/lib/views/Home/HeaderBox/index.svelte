@@ -80,7 +80,7 @@ function activityTypewriter(){
 	.container {
 		height: 50vh;
 		position: relative;
-		margin: 1rem 2rem;
+		margin: 2rem 2rem 1rem 2rem;
 	}
 	.innerContainer {
 		position: absolute;
