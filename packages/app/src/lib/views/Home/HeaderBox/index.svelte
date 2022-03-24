@@ -147,6 +147,7 @@ function activityTypewriter(){
 		padding: 0 1rem 0.5rem 1rem;
 		border-radius: 1rem;
 		font-weight: 600;
+		font-size: 4rem;
 		min-width: 20rem;
 		max-width: 50rem;
 	}
