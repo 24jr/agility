@@ -94,7 +94,7 @@
 	bind:navBarHeight={$navBarHeight}
 	bind:shownNavBarHeight={$shownNavBarHeight}
 	bind:availableContentHeight={$availableContentHeight}
-	navMargin={2}
+	navMarginX={2}
 >
 	<div slot="navBarLogo">
 		<Logo />
