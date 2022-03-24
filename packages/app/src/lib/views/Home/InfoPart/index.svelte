@@ -40,7 +40,6 @@
 	.myul {
 		padding: 0;
 		margin: 0;
-		font-size: 2.2rem;
 		line-height: 3rem;
 		color: white;
 		text-align: left;
@@ -49,6 +48,7 @@
 	}
 	.myul li {
 		font-weight: 400;
+		font-size: 2.2rem;
 	}
 	.imgsty {
 		object-fit: contain;
