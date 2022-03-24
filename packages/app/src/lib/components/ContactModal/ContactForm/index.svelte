@@ -6,6 +6,7 @@
   import PhoneNumberInput from "sveltekit-ui/Input/PhoneNumber/index.svelte"
   import TextAreaInput from "sveltekit-ui/Input/TextArea/index.svelte"
   import LoadingSuccessDiv from "sveltekit-ui/LoadingSuccessDiv/index.svelte"
+  import { ArrowIcon } from "sveltekit-ui"
   import { queryItem, generateMutateParamsAndModel } from "$lib/funcs/gql"
 
   export let toggleModal
@@ -78,7 +79,6 @@
 		mt={1}
 		pl={1}
 		pr={1}
-		mr={1}
 		minHeight={4}
 		type="primary"
 		{isDisabled}
@@ -89,7 +89,7 @@
 		isPill={true}
 		text="Send Message"
 		fontWeight={500}
-		fontSize={1.8}
+		fontSize={1.6}
 	/>
 {:else}
 	<LoadingSuccessDiv showScreen="success" message="We'll reach out to you soon!" />
