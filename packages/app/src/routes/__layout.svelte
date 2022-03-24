@@ -40,6 +40,7 @@
     openContactModalTrigger
   } from "$lib/components/ContactModal/store";
   import Footer from "$lib/views/Footer/index.svelte"
+  import { navigating } from "$app/stores"
 
 	const fullNavLinks = [
 		// { name: 'Home', path: '/' },
@@ -169,6 +170,12 @@
 	:global(*) {
 		-webkit-tap-highlight-color: transparent;
 		/* color: var(--contrast-med); */
+		box-sizing: border-box;
+		font-family: 'Lato', 'Avenir Next', 'Helvetica', 'Hiragino Sans', 'Verdana', 'PT Sans',
+			'Helvetica Neue';
+		font-size: 16px;
+		font-size: 1.6rem;
+		margin: 0;
 	}
 	:global(html) {
 		text-align: center;
@@ -216,6 +223,16 @@
 		font-size: 1.6rem;
 	}
 	:global(p) {
+		font-size: 16px;
+		font-size: 1.6rem;
+		margin: 0;
+	}
+	:global(input) {
+		font-size: 16px;
+		font-size: 1.6rem;
+		margin: 0;
+	}
+	:global(textarea) {
 		font-size: 16px;
 		font-size: 1.6rem;
 		margin: 0;
