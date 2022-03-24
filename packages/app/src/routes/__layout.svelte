@@ -40,7 +40,7 @@
     openContactModalTrigger
   } from "$lib/components/ContactModal/store";
   import Footer from "$lib/views/Footer/index.svelte"
-  import { navigating } from "$app/stores"
+  // import { navigating } from "$app/stores"
 
 	const fullNavLinks = [
 		// { name: 'Home', path: '/' },
