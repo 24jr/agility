@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "serviceConfiguration": {
+    "apiName": "agility",
+    "serviceName": "AppSync",
+    "gqlSchemaPath": "/Users/jordanrose/Documents/projects/2022/agility-all/agility_backend/amplify/backend/api/agility/schema.graphql",
+    "defaultAuthType": {
+      "mode": "API_KEY",
+      "expirationTime": 365,
+      "apiKeyExpirationDate": "2023-01-05T23:02:20.414Z",
+      "keyDescription": ""
+    },
+    "additionalAuthTypes": [
+      {
+        "mode": "AMAZON_COGNITO_USER_POOLS",
+        "cognitoUserPoolId": "authagility"
+      },
+      {
+        "mode": "AWS_IAM"
+      }
+    ]
+  }
+}

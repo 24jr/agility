@@ -10,6 +10,12 @@
       "StackName": "amplify-agility-staging-185908",
       "StackId": "arn:aws:cloudformation:us-east-1:410957590075:stack/amplify-agility-staging-185908/3fb3bea0-5ea2-11ec-b673-0a45133a997f",
       "AmplifyAppId": "d3w4d4b9lejml1"
+    },
+    "categories": {
+      "auth": {
+        "agility": {},
+        "true": {}
+      }
     }
   }
 }
