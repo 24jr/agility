@@ -25,7 +25,7 @@
 
 <style>
 	.logolongBox {
-		background: white;
+		background: var(--bg-light);
 		border-radius: 4rem;
 		margin: 2rem;
 		padding: 2rem;
@@ -34,7 +34,7 @@
 		align-items: center;
 	}
 	.form {
-		background: white;
+		background: var(--bg-light);
 		border-radius: 4rem;
 		overflow: hidden;
 		margin: 2rem;
