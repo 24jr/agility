@@ -2,7 +2,7 @@
   import ipad3d_src from '$lib/assets/static/photos/ipad3d.webp'
 </script>
 
-<div class="container">
+<div class="container cardshadows">
 	<div class="imgbox">
 		<img src={ipad3d_src} alt="ipad3d_src" height="100%" width="100%" class="imgsty" />
 	</div>
@@ -23,7 +23,6 @@
 		margin: 1rem 2rem;
 		border-radius: 4rem;
 		padding: 2rem;
-		box-shadow: 0 0 1rem #cccccc20;
 	}
 	.imgbox {
 		max-height: 25rem;

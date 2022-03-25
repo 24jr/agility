@@ -2,7 +2,7 @@
   import quickbooks_cert_src from '$lib/assets/static/photos/quickbooks_cert.webp'
 </script>
 
-<div class="container">
+<div class="container cardshadows">
 	<img src={quickbooks_cert_src} alt="quickbooks_cert" height="90" width="auto" class="imgsty" />
 </div>
 

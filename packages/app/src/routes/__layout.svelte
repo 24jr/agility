@@ -1,5 +1,6 @@
 <script context="module">
 	import 'sveltekit-ui/style.css';
+	import '$lib/style.css';
 	import { goto } from '$app/navigation';
 	import { page } from '$app/stores';
 	// import AuthTrigger from '$lib/components/Auth/AuthTrigger/index.svelte';
@@ -95,21 +96,23 @@
 	bind:shownNavBarHeight={$shownNavBarHeight}
 	bind:availableContentHeight={$availableContentHeight}
 	navMarginX={2}
+	borderRadius={4}
 >
-	<div slot="navBarLogo">
+	<div slot="navBarLogo" class="logoContainer">
 		<Logo />
 	</div>
-	<div slot="appNavBarLogo">
+	<div slot="appNavBarLogo" class="logoContainer">
 		<Logo />
 	</div>
 	<div slot="extraLinks">
 		<!-- <AuthTrigger /> -->
 		<Button
 			isPill={true}
-			pl={1}
-			pr={1}
+			pl={2}
+			pr={2}
 			mr={0}
 			type="primary"
+			minHeight={5}
 			on:click={() => $openContactModalTrigger++}
 		>
 			<h5>Contact Us</h5>
@@ -126,6 +129,12 @@
 </Layout>
 
 <style>
+	.logoContainer {
+		min-height: 6rem;
+		min-width: 14rem;
+		display: flex;
+		align-items: center;
+	}
 	:root {
 		--primary: #2ca01c;
 		--primary-dark: #108000;
@@ -134,8 +143,7 @@
 
 		--bg-light: #ffffff;
 		/* --bg-med: #f4f4f4; */
-		--bg-med: #eef2f2;
-
+		--bg-med: #eef1fc;
 		--gray-light: #dddddd;
 	}
 	:global(body.dark) {

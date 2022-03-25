@@ -2,7 +2,7 @@
   import video_meeting_src from '$lib/assets/static/photos/video_meeting.webp'
 </script>
 
-<div class="container">
+<div class="container cardshadows">
 	<div class="frame">
 		<img src={video_meeting_src} alt="quickbooks_cert" height="60" width="auto" class="imgsty" />
 	</div>
