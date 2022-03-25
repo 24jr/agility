@@ -100,7 +100,7 @@
 <style>
 	.header {
 		font-weight: 400;
-		font-size: 1.8rem;
+		font-size: 2rem;
 		color: var(--black-med);
 	}
 	.label {
