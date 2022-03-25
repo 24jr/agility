@@ -143,7 +143,7 @@
 
 		--bg-light: #ffffff;
 		/* --bg-med: #f4f4f4; */
-		--bg-med: #eef1fc;
+		--bg-med: #eef1f8;
 		--gray-light: #dddddd;
 	}
 	:global(body.dark) {
