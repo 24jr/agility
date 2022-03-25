@@ -77,10 +77,10 @@
 		<div class="errorContainer">{error}</div>
 	{/if}
 	<Button
-		mt={1}
+		mt={1.5}
 		pl={1}
 		pr={1}
-		minHeight={4}
+		minHeight={5}
 		type="primary"
 		{isDisabled}
 		bind:isLoading
@@ -90,7 +90,7 @@
 		isPill={true}
 		text="Send Message"
 		fontWeight={500}
-		fontSize={1.6}
+		fontSize={2}
 	/>
 {:else}
 	<LoadingSuccessDiv showScreen="success" message="We'll reach out to you soon!" />
