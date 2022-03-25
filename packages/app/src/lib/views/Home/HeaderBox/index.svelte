@@ -55,7 +55,7 @@ function activityTypewriter(){
 		{#if activity.index === currentIndex}
 			<div
 				transition:fade={{ duration: 1500 }}
-				class="innerContainer"
+				class="innerContainer cardshadows"
 				class:bgNature={activity.imgfilename === 'nature'}
 				class:bgSkydiving={activity.imgfilename === 'skydiving'}
 				class:bgGoals={activity.imgfilename === 'goals'}
@@ -70,7 +70,7 @@ function activityTypewriter(){
 			<h2 class="contentText">We'll do the accounting.</h2>
 			<h2 class="contentText2">
 				You focus on<br />
-				<span class="activityText">{shownActivityName}</span>
+				<span class="activityText cardshadows">{shownActivityName}</span>
 			</h2>
 		</div>
 	</div>
@@ -90,7 +90,6 @@ function activityTypewriter(){
 		right: 0;
 		background-size: cover !important;
 		border-radius: 4rem;
-		box-shadow: 0 0 1rem #cccccc20;
 	}
 	.bgNature {
 		background: url('$lib/assets/static/photos/nature.webp');

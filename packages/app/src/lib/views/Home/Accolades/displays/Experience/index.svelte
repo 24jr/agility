@@ -2,7 +2,7 @@
   import ExpIcon from './ExpIcon/index.svelte'
 </script>
 
-<div class="container">
+<div class="container cardshadows">
 	<ExpIcon color="white" size={9} />
 </div>
 

@@ -12,7 +12,7 @@
 
 <div class="container">
 	{#each items as item (item.header)}
-		<div class="accolade">
+		<div class="accolade cardshadows">
 			<svelte:component this={item.icon} />
 			<div class="textContainer">
 				<h3 class="headerText">{item.header}</h3>
@@ -39,7 +39,6 @@
 		background: var(--white-light);
 		border-radius: 4rem;
 		padding: 2rem;
-		box-shadow: 0 0 1rem #cccccc20;
 	}
 	.textContainer {
 		display: flex;
