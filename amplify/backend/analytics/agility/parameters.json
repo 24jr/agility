@@ -1,0 +1,21 @@
+{
+    "appName": "agility",
+    "roleName": "pinpointLambdaRole73a9069f",
+    "cloudformationPolicyName": "cloudformationPolicy73a9069f",
+    "cloudWatchPolicyName": "cloudWatchPolicy73a9069f",
+    "pinpointPolicyName": "pinpointPolicy73a9069f",
+    "authPolicyName": "pinpoint_amplify_73a9069f",
+    "unauthPolicyName": "pinpoint_amplify_73a9069f",
+    "authRoleName": {
+        "Ref": "AuthRoleName"
+    },
+    "unauthRoleName": {
+        "Ref": "UnauthRoleName"
+    },
+    "authRoleArn": {
+        "Fn::GetAtt": [
+            "AuthRole",
+            "Arn"
+        ]
+    }
+}

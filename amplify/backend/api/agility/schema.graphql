@@ -1,0 +1,18 @@
+type FormSubmission
+  @model
+  @auth(
+    rules: [
+      { allow: public, operations: [create] }
+      { allow: private, operations: [create] }
+      { allow: groups, groups: ["admin"], operations: [read, create, update, delete] }
+    ]
+  ) {
+  id: ID!
+  name: String!
+  email: AWSEmail!
+  phone: AWSPhone
+  message: String!
+  has_contacted: Boolean
+  is_interested: Boolean
+  notes: String
+}

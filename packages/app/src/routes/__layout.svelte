@@ -4,7 +4,7 @@
 	import { goto } from '$app/navigation';
 	import { page } from '$app/stores';
 	// import AuthTrigger from '$lib/components/Auth/AuthTrigger/index.svelte';
-	import { Amplify } from 'aws-amplify';
+	import { Amplify, Analytics } from 'aws-amplify';
 	import awsExports from 'aws-exports';
 	Amplify.configure({ ...awsExports, ssr: true });
 	import { initAuth } from '$lib/components/Auth/store';
@@ -42,6 +42,23 @@
   } from "$lib/components/ContactModal/store";
   import Footer from "$lib/views/Footer/index.svelte"
   // import { navigating } from "$app/stores"
+  import { onMount } from "svelte"
+
+  onMount(() => {
+    Analytics.autoTrack('session', {
+      enable: true,
+      provider: 'AWSPinpoint'
+    });
+    Analytics.autoTrack('pageView', {
+      enable: true,
+      eventName: 'pageView',
+      type: 'SPA',
+      provider: 'AWSPinpoint',
+      getUrl: () => {
+        return window.location.origin + window.location.pathname;
+      }
+    });
+  })
 
 	const fullNavLinks = [
 		// { name: 'Home', path: '/' },

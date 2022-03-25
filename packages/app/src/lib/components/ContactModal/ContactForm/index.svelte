@@ -6,7 +6,7 @@
   import PhoneNumberInput from "sveltekit-ui/Input/PhoneNumber/index.svelte"
   import TextAreaInput from "sveltekit-ui/Input/TextArea/index.svelte"
   import LoadingSuccessDiv from "sveltekit-ui/LoadingSuccessDiv/index.svelte"
-  import { ArrowIcon } from "sveltekit-ui"
+	import { Analytics } from 'aws-amplify';
   import { queryItem, generateMutateParamsAndModel } from "$lib/funcs/gql"
 
   export let toggleModal
@@ -45,6 +45,7 @@
       setTimeout(() => {
         show_screen = 'success'
       }, 900);
+      Analytics.record({ name: 'formInquirySent' });
     } else {
       error = JSON.stringify(res.data);
       errorTrigger = errorTrigger + 1;
