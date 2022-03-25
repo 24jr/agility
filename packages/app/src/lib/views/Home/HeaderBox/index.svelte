@@ -1,6 +1,8 @@
 <script>
   import { onMount, onDestroy } from "svelte"
   import { fade } from "svelte/transition"
+  import LogoLong from "$lib/assets/static/LogoLong/index.svelte"
+  import { isApp } from "$lib/store"
 
 const activities = [
   { index: 0, name: 'nature', imgfilename: 'nature' },
@@ -66,6 +68,13 @@ function activityTypewriter(){
 		{/if}
 	{/each}
 	<div class="textContainer">
+		{#if $isApp}
+			<div class="logolongBox cardshadows">
+				<div style="width: 24rem;">
+					<LogoLong />
+				</div>
+			</div>
+		{/if}
 		<div class="textInnerContainer">
 			<h2 class="contentText">We'll do the accounting.</h2>
 			<h2 class="contentText2">
@@ -127,6 +136,10 @@ function activityTypewriter(){
 		max-width: 90%;
 		justify-self: center;
 		align-self: center;
+		display: flex;
+		flex-direction: column;
+		flex: 1;
+		justify-content: center;
 	}
 	.contentText {
 		font-size: 3rem;
@@ -149,5 +162,14 @@ function activityTypewriter(){
 		font-size: 4rem;
 		min-width: 20rem;
 		max-width: 50rem;
+	}
+	.logolongBox {
+		background: var(--bg-light);
+		border-radius: 4rem;
+		margin: 2rem;
+		padding: 2rem 1rem 1.5rem 1rem;
+		display: flex;
+		justify-content: center;
+		align-items: center;
 	}
 </style>
