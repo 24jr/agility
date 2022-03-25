@@ -28,7 +28,7 @@
 		background: var(--bg-light);
 		border-radius: 4rem;
 		margin: 2rem;
-		padding: 2rem;
+		padding: 2rem 1rem 1.5rem 1rem;
 		display: flex;
 		justify-content: center;
 		align-items: center;
