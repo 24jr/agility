@@ -10,7 +10,7 @@
   "dependencies": {
     "aws-amplify": "^4.3.16",
     "aws-exports": "*",
-    "sveltekit-ui": "^0.1.59"
+    "sveltekit-ui": "^0.1.61"
   },
   "devDependencies": {
     "@sveltejs/adapter-static": "1.0.0-next.24",
