@@ -34,7 +34,19 @@
     isFullNavShown,
     navBarHeight,
     shownNavBarHeight,
-    availableContentHeight
+    availableContentHeight,
+    language,
+    languages,
+    platform,
+    vendor,
+    deviceType,
+    browserName,
+    usedWidth,
+    usedHeight,
+    availWidth,
+    availHeight,
+    windowLeft,
+    windowTop
   } from "$lib/store"
   import ContactModal from "$lib/components/ContactModal/index.svelte"
   import {
@@ -112,6 +124,18 @@
 	bind:navBarHeight={$navBarHeight}
 	bind:shownNavBarHeight={$shownNavBarHeight}
 	bind:availableContentHeight={$availableContentHeight}
+	bind:language={$language}
+	bind:languages={$languages}
+	bind:platform={$platform}
+	bind:vendor={$vendor}
+	bind:deviceType={$deviceType}
+	bind:browserName={$browserName}
+	bind:usedWidth={$usedWidth}
+	bind:usedHeight={$usedHeight}
+	bind:availWidth={$availWidth}
+	bind:availHeight={$availHeight}
+	bind:windowLeft={$windowLeft}
+	bind:windowTop={$windowTop}
 	navMarginX={2}
 	borderRadius={4}
 >
@@ -136,6 +160,21 @@
 		</Button>
 	</div>
 	<div slot="content">
+		<p>
+			TEST:
+			{$language}
+			{$languages}
+			{$platform}
+			{$vendor}
+			{$deviceType}
+			{$browserName}
+			{$usedWidth}
+			{$usedHeight}
+			{$availWidth}
+			{$availHeight}
+			{$windowLeft}
+			{$windowTop}
+		</p>
 		<slot />
 		<Footer />
 	</div>

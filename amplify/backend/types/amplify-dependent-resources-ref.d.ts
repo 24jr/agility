@@ -24,5 +24,13 @@ export type AmplifyDependentResourcesAttributes = {
             "Id": "string",
             "appName": "string"
         }
+    },
+    "function": {
+        "FormSubmissionEmailAgility": {
+            "Name": "string",
+            "Arn": "string",
+            "Region": "string",
+            "LambdaExecutionRole": "string"
+        }
     }
 }

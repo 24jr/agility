@@ -1,0 +1,8 @@
+{
+  "Action": [
+    "ses:SendEmail",
+    "ses:SendRawEmail"
+  ],
+  "Effect": "Allow",
+  "Resource": "*"
+}

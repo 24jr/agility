@@ -34,8 +34,9 @@
       message: messageVal,
       name: nameVal,
       email: emailVal,
-      phone_number: isPhoneNumberValid ? phoneNumberVal : null
+      phone: isPhoneNumberValid ? phoneNumberVal : null
     }
+    console.log('field_vals',field_vals)
     const itemModelRes = `{ id }`
     const { params, model } = generateMutateParamsAndModel(field_vals,query_key,itemModelRes)
     isLoading = true;
@@ -59,6 +60,8 @@
   }
 </script>
 
+phoneNumberVal: {phoneNumberVal} <br />
+isPhoneNumberValid: {isPhoneNumberValid}
 {#if show_screen === 'default'}
 	<h3 class="header">Say Hi! Let's see if you're a good fit.</h3>
 	<h3 class="label">Message: *</h3>
@@ -70,7 +73,7 @@
 	<h3 class="label">Phone Number:</h3>
 	<PhoneNumberInput
 		bind:val={phoneNumberVal}
-		isValid={isPhoneNumberValid}
+		bind:isValid={isPhoneNumberValid}
 		placeholder="phone number"
 	/>
 	{#if error}

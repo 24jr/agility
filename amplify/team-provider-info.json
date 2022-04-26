@@ -15,6 +15,14 @@
       "auth": {
         "agility": {},
         "true": {}
+      },
+      "function": {
+        "FormSubmissionEmailAgility": {
+          "deploymentBucketName": "amplify-agility-staging-185908-deployment",
+          "s3Key": "amplify-builds/FormSubmissionEmailAgility-6a424c5634506250436c-build.zip",
+          "sesDestinationEmail": "trose@agility-accounting.com",
+          "sesFromEmail": "no-reply@agility-accounting.com"
+        }
       }
     }
   }
